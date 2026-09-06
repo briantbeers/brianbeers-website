@@ -4,7 +4,6 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Near-black ink (James Clear–style) — replaces navy chrome for type
         navy: {
           DEFAULT: '#171717',
           soft: '#404040',
@@ -14,8 +13,13 @@ export default {
           hover: '#FBBD23',
         },
         mint: '#D9FE89',
-        border: '#E8E8E8',
-        cream: '#FAFAF8',
+        border: '#E8E4DC',
+        // James Clear–style warmer creams
+        cream: {
+          DEFAULT: '#F3EFE6', // darker warm cream (hero top / page accents)
+          soft: '#FAF7F1',
+          deep: '#E8E0D2',
+        },
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
