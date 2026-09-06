@@ -22,7 +22,7 @@ const kindLabel: Record<string, string> = {
 };
 ---
 <BaseLayout title={`${article.data.title} — Brian Beers`} description={article.data.description}>
-  <article class="section max-w-3xl">
+  <article class="section">
     <a href="/articles" class="text-sm font-semibold text-navy/60 hover:text-accent">← All articles</a>
     <p class="mt-6 text-sm font-semibold uppercase tracking-wider text-accent">
       {kindLabel[article.data.kind] ?? article.data.kind}
