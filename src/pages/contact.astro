@@ -50,7 +50,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           name="interest"
           class="mt-1.5 w-full rounded-lg border border-border bg-cream px-3 py-2.5 text-navy focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30"
         >
-          <option value="guide">The free ownership guide</option>
+          <option value="guide">The Copy-Paste Millionaire free guide</option>
           <option value="buy" selected>Buying a business</option>
           <option value="grow">Growing my business</option>
           <option value="unsure">Not sure yet</option>
@@ -99,11 +99,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       if (heading) heading.textContent = 'Get the free guide';
       if (lead) {
         lead.textContent =
-          'Leave your details and we will treat this as your guide request. Delivery is not wired yet — this is the production shell form.';
+          'Leave your details for The Copy-Paste Millionaire free guide. Delivery is not wired yet — this is the production shell form.';
       }
       if (interest instanceof HTMLSelectElement) interest.value = 'guide';
       if (message instanceof HTMLTextAreaElement && !message.value) {
-        message.value = 'Please send the free guide when it is ready.';
+        message.value = 'Please send The Copy-Paste Millionaire free guide when it is ready.';
       }
       if (submit) submit.textContent = 'Request the guide';
       if (intentSlot) {
