@@ -1,0 +1,41 @@
+---
+const pathname = Astro.url.pathname;
+const links = [
+  { href: '/buy', label: 'Buy' },
+  { href: '/grow', label: 'Grow' },
+  { href: '/about', label: 'About' },
+  { href: '/contact', label: 'Contact' },
+];
+---
+<header class="border-b border-border/80 bg-cream/95 backdrop-blur supports-[backdrop-filter]:bg-cream/80">
+  <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
+    <a href="/" class="text-base font-bold tracking-tight text-navy hover:text-navy/70">
+      BRIAN BEERS
+    </a>
+    <nav class="hidden items-center gap-8 md:flex" aria-label="Primary">
+      {links.map((link) => (
+        <a
+          href={link.href}
+          class:list={[
+            'text-sm font-medium hover:text-navy',
+            pathname === link.href || pathname.startsWith(link.href + '/') ? 'text-navy' : 'text-navy/55',
+          ]}
+        >
+          {link.label}
+        </a>
+      ))}
+    </nav>
+    <details class="relative md:hidden">
+      <summary class="cursor-pointer list-none rounded-md border border-border bg-white px-3 py-1.5 text-sm font-medium text-navy">
+        Menu
+      </summary>
+      <div class="absolute right-0 z-50 mt-2 w-48 rounded-xl border border-border bg-white p-2 shadow-lg">
+        {links.map((link) => (
+          <a href={link.href} class="block rounded-lg px-3 py-2 text-sm font-medium text-navy hover:bg-slate-50">
+            {link.label}
+          </a>
+        ))}
+      </div>
+    </details>
+  </div>
+</header>

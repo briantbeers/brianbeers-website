@@ -1,0 +1,134 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import fs from 'node:fs';
+import path from 'node:path';
+
+const photoPath = path.join(process.cwd(), 'public', 'brian-photo-ref.jpg');
+const hasPhoto = fs.existsSync(photoPath);
+---
+<BaseLayout
+  title="Brian Beers — Own the outcome. Find the right vehicle."
+  description="Clear guidance for buying or growing a business — soft ownership path, no hype."
+>
+  <!-- James Clear–style hero: one promise + lead magnet -->
+  <section class="section !py-16 sm:!py-24">
+    <div class="mx-auto max-w-3xl text-center">
+      <h1 class="text-4xl font-bold tracking-tight text-navy sm:text-5xl sm:leading-[1.15]">
+        Own the outcome.<br class="hidden sm:block" /> Find the right vehicle.
+      </h1>
+      <p class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-navy/70">
+        Calm, practical guidance for people who want to buy a business — or grow the one they already own —
+        without the noise or hard sell.
+      </p>
+
+      <div class="mx-auto mt-10 max-w-xl rounded-2xl border border-border bg-white p-6 text-left shadow-sm sm:p-8">
+        <p class="text-base font-semibold text-navy sm:text-lg">
+          Get my guide to build an 8-figure business &amp; life
+        </p>
+        <p class="mt-2 text-sm leading-relaxed text-navy/60">
+          Free education guide — frameworks and questions, not earnings promises.
+        </p>
+        <form action="/contact" method="get" class="mt-5 flex flex-col gap-3 sm:flex-row sm:items-stretch">
+          <label class="sr-only" for="hero-email">Email</label>
+          <input
+            id="hero-email"
+            type="email"
+            name="email"
+            required
+            autocomplete="email"
+            placeholder="Email address"
+            class="w-full flex-1 rounded-lg border border-border bg-cream px-4 py-2.5 text-sm text-navy placeholder:text-navy/40 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/40"
+          />
+          <input type="hidden" name="intent" value="guide" />
+          <button type="submit" class="btn-primary whitespace-nowrap sm:px-6">
+            Get the free guide
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hi I'm Brian + photo -->
+  <section class="border-y border-border bg-slate-50/50">
+    <div class="section !py-16 sm:!py-20">
+      <div class="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
+        <div class="order-2 lg:order-1">
+          <p class="text-sm font-semibold uppercase tracking-wider text-navy/45">About</p>
+          <h2 class="mt-2 text-3xl font-bold tracking-tight text-navy sm:text-4xl">Hi, I’m Brian</h2>
+          <p class="mt-5 text-lg leading-relaxed text-navy/75">
+            I help people cut through the noise around ownership — so you can choose a business path that fits
+            your life, capital, and operating style.
+          </p>
+          <p class="mt-4 leading-relaxed text-navy/70">
+            No highlight-reel hype. Just clearer framing for buying, franchising, or growing what you already run.
+          </p>
+          <a href="/about" class="btn-secondary mt-7">More about Brian</a>
+        </div>
+        <div class="order-1 flex justify-center lg:order-2 lg:justify-end">
+          {hasPhoto ? (
+            <img
+              src="/brian-photo-ref.jpg"
+              alt="Brian Beers"
+              class="h-72 w-72 rounded-3xl object-cover shadow-lg ring-1 ring-border sm:h-80 sm:w-80"
+              width="320"
+              height="320"
+            />
+          ) : (
+            <div class="flex h-72 w-72 items-center justify-center rounded-3xl bg-navy/5 text-navy/40 ring-1 ring-border sm:h-80 sm:w-80">
+              Photo placeholder
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Buy / Grow side by side -->
+  <section class="section !py-16 sm:!py-20">
+    <div class="mx-auto max-w-2xl text-center">
+      <h2 class="text-3xl font-bold tracking-tight text-navy">Where do you want to go?</h2>
+      <p class="mt-3 leading-relaxed text-navy/70">Two doors. Same library of models and ideas — different starting point.</p>
+    </div>
+
+    <div class="mt-12 grid gap-6 md:grid-cols-2">
+      <a href="/buy" class="group overflow-hidden rounded-2xl border border-border bg-white shadow-sm transition hover:border-accent/50 hover:shadow-md">
+        <div class="relative flex h-44 items-end bg-[#F3F1EC] p-6 sm:h-52">
+          <div class="absolute inset-0 opacity-40" style="background-image: radial-gradient(circle at 18% 30%, #FBA91A55 0%, transparent 42%), radial-gradient(circle at 85% 75%, #00000008 0%, transparent 40%);"></div>
+          <p class="relative text-xs font-semibold uppercase tracking-wider text-navy/50">Door 1</p>
+        </div>
+        <div class="p-6 sm:p-7">
+          <h3 class="text-2xl font-bold text-navy group-hover:text-navy-soft">Buy a business</h3>
+          <p class="mt-3 leading-relaxed text-navy/70">
+            Explore models and franchises with a practical path to choosing a vehicle that matches your life —
+            not someone else’s highlight reel.
+          </p>
+          <span class="mt-5 inline-block text-sm font-semibold text-navy group-hover:text-accent">Explore Buy →</span>
+        </div>
+      </a>
+
+      <a href="/grow" class="group overflow-hidden rounded-2xl border border-border bg-white shadow-sm transition hover:border-accent/50 hover:shadow-md">
+        <div class="relative flex h-44 items-end bg-[#EEECE6] p-6 sm:h-52">
+          <div class="absolute inset-0 opacity-40" style="background-image: radial-gradient(circle at 80% 25%, #FBA91A55 0%, transparent 40%), radial-gradient(circle at 20% 80%, #00000008 0%, transparent 45%);"></div>
+          <p class="relative text-xs font-semibold uppercase tracking-wider text-navy/50">Door 2</p>
+        </div>
+        <div class="p-6 sm:p-7">
+          <h3 class="text-2xl font-bold text-navy group-hover:text-navy-soft">Grow your business</h3>
+          <p class="mt-3 leading-relaxed text-navy/70">
+            Owner vs operator tradeoffs, freedom design, and the systems that help you scale without losing the plot.
+          </p>
+          <span class="mt-5 inline-block text-sm font-semibold text-navy group-hover:text-accent">Explore Grow →</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section class="border-t border-border bg-white">
+    <div class="section !py-14 text-center sm:!py-16">
+      <h2 class="text-2xl font-bold tracking-tight text-navy sm:text-3xl">Prefer to talk it through?</h2>
+      <p class="mx-auto mt-3 max-w-xl leading-relaxed text-navy/60">
+        Soft CTA only — share where you are and we’ll go from there. No pitch deck dump.
+      </p>
+      <a href="/contact" class="btn-primary mt-8">Contact Brian</a>
+    </div>
+  </section>
+</BaseLayout>

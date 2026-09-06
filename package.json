@@ -1,0 +1,29 @@
+{
+  "name": "bb-website",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev --host 0.0.0.0 --port 4321",
+    "start": "astro dev --host 0.0.0.0 --port 4321",
+    "build": "astro build",
+    "preview": "astro preview --host 0.0.0.0 --port 4321",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/markdoc": "^0.15.11",
+    "@astrojs/mdx": "^4.3.0",
+    "@astrojs/react": "^4.4.0",
+    "@astrojs/tailwind": "^6.0.2",
+    "@keystatic/astro": "^5.2.0",
+    "@keystatic/core": "^0.6.9",
+    "astro": "^5.13.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "tailwindcss": "^3.4.17"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.7",
+    "typescript": "^5.9.2"
+  }
+}

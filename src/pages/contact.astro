@@ -1,0 +1,119 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="Contact — Brian Beers"
+  description="Reach out to Brian Beers — soft CTA, educational conversation only."
+>
+  <section class="section max-w-2xl">
+    <p class="text-sm font-semibold uppercase tracking-wider text-accent">Contact</p>
+    <h1 id="contact-heading" class="mt-2 text-4xl font-bold tracking-tight text-navy">
+      Let’s talk
+    </h1>
+    <p id="contact-lead" class="mt-4 text-lg leading-relaxed text-navy/75">
+      Share where you are and what you’re figuring out. Soft CTA only — no pitch dump, no earnings promises.
+    </p>
+
+    <form
+      class="card mt-10 space-y-5"
+      method="get"
+      action="/contact"
+      id="contact-form"
+    >
+      <div>
+        <label for="name" class="block text-sm font-medium text-navy">Name</label>
+        <input
+          id="name"
+          name="name"
+          type="text"
+          autocomplete="name"
+          class="mt-1.5 w-full rounded-lg border border-border bg-cream px-3 py-2.5 text-navy placeholder:text-navy/35 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30"
+          placeholder="Your name"
+        />
+      </div>
+      <div>
+        <label for="email" class="block text-sm font-medium text-navy">Email</label>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          autocomplete="email"
+          required
+          class="mt-1.5 w-full rounded-lg border border-border bg-cream px-3 py-2.5 text-navy placeholder:text-navy/35 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30"
+          placeholder="you@example.com"
+        />
+      </div>
+      <div>
+        <label for="interest" class="block text-sm font-medium text-navy">I’m interested in</label>
+        <select
+          id="interest"
+          name="interest"
+          class="mt-1.5 w-full rounded-lg border border-border bg-cream px-3 py-2.5 text-navy focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30"
+        >
+          <option value="guide">The free ownership guide</option>
+          <option value="buy" selected>Buying a business</option>
+          <option value="grow">Growing my business</option>
+          <option value="unsure">Not sure yet</option>
+        </select>
+      </div>
+      <div>
+        <label for="message" class="block text-sm font-medium text-navy">Message</label>
+        <textarea
+          id="message"
+          name="message"
+          rows="5"
+          class="mt-1.5 w-full rounded-lg border border-border bg-cream px-3 py-2.5 text-navy placeholder:text-navy/35 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30"
+          placeholder="A bit about where you are and what you’re figuring out…"
+        ></textarea>
+      </div>
+      <div id="intent-slot"></div>
+      <button id="contact-submit" type="submit" class="btn-primary w-full sm:w-auto">
+        Send message
+      </button>
+      <p class="text-xs leading-relaxed text-navy/50">
+        No spam. Educational conversation only — not financial advice or earnings claims. Form UI is live;
+        backend wiring comes later.
+      </p>
+    </form>
+  </section>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const email = params.get('email') || '';
+    const isGuide = params.get('intent') === 'guide';
+
+    const emailInput = document.getElementById('email');
+    const interest = document.getElementById('interest');
+    const message = document.getElementById('message');
+    const heading = document.getElementById('contact-heading');
+    const lead = document.getElementById('contact-lead');
+    const submit = document.getElementById('contact-submit');
+    const intentSlot = document.getElementById('intent-slot');
+    const form = document.getElementById('contact-form');
+
+    if (email && emailInput instanceof HTMLInputElement) {
+      emailInput.value = email;
+    }
+
+    if (isGuide) {
+      if (heading) heading.textContent = 'Get the free guide';
+      if (lead) {
+        lead.textContent =
+          'Leave your details and we will treat this as your guide request. Delivery is not wired yet — this is the production shell form.';
+      }
+      if (interest instanceof HTMLSelectElement) interest.value = 'guide';
+      if (message instanceof HTMLTextAreaElement && !message.value) {
+        message.value = 'Please send the free guide when it is ready.';
+      }
+      if (submit) submit.textContent = 'Request the guide';
+      if (intentSlot) {
+        intentSlot.innerHTML = '<input type="hidden" name="intent" value="guide" />';
+      }
+    }
+
+    form?.addEventListener('submit', (event) => {
+      event.preventDefault();
+      alert('Preview only — form is not connected yet. Thanks for checking the shell.');
+    });
+  </script>
+</BaseLayout>

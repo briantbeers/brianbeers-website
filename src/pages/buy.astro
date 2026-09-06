@@ -1,0 +1,86 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const models = (await getCollection('models'))
+  .filter((m) => m.data.publish && (m.data.status === 'ready' || m.data.status === 'published'))
+  .sort((a, b) => a.data.title.localeCompare(b.data.title));
+
+function modelPath(model: (typeof models)[number]) {
+  return model.data.slug ?? model.id.replace(/\.(md|mdx|mdoc)$/, '');
+}
+
+const categoryLabel: Record<string, string> = {
+  'home-services': 'Home services',
+  'senior-care': 'Senior care',
+  'retail-resale': 'Retail / resale',
+  auto: 'Auto',
+  'food-hospitality': 'Food / hospitality',
+  'business-services': 'Business services',
+  'health-wellness': 'Health / wellness',
+  'real-estate-ops': 'Real estate ops',
+  education: 'Education',
+  other: 'Other',
+};
+---
+<BaseLayout
+  title="Buy a business — Brian Beers"
+  description="Explore business models and franchises with calm, practical guidance — soft ownership path, no hype."
+>
+  <section class="section !pb-8">
+    <p class="text-sm font-semibold uppercase tracking-wider text-accent">Buy</p>
+    <h1 class="mt-2 text-4xl font-bold tracking-tight text-navy sm:text-5xl">Buy a business</h1>
+    <p class="mt-5 max-w-2xl text-lg leading-relaxed text-navy/75">
+      Choosing a vehicle is less about hype and more about fit: capital, lifestyle, skills, and the kind of
+      work you want to own. Browse sample models below, or explore franchises as another path under this journey.
+    </p>
+    <div class="mt-8 flex flex-wrap gap-3">
+      <a href="/models" class="btn-primary">Browse models</a>
+      <a href="/franchises" class="btn-secondary">Franchise hub</a>
+      <a href="/contact" class="btn-secondary">Ask a question</a>
+    </div>
+  </section>
+
+  <section class="section !pt-4 !pb-8">
+    <div class="mb-6 flex items-end justify-between gap-4">
+      <div>
+        <h2 class="text-2xl font-bold text-navy">Featured models</h2>
+        <p class="mt-1 text-sm text-navy/60">Sample educational guides — structure and tone, not offers.</p>
+      </div>
+      <a href="/models" class="hidden text-sm font-semibold text-navy hover:text-accent sm:inline">View all →</a>
+    </div>
+    <div class="grid gap-6 sm:grid-cols-2">
+      {models.map((model) => (
+        <a href={`/models/${modelPath(model)}`} class="card group block transition hover:border-accent/40 hover:shadow-md">
+          <p class="text-xs font-semibold uppercase tracking-wider text-navy/50">
+            {categoryLabel[model.data.category] ?? model.data.category}
+          </p>
+          <h3 class="mt-2 text-xl font-bold text-navy group-hover:text-navy-soft">{model.data.title}</h3>
+          <p class="mt-2 text-sm leading-relaxed text-navy/70">{model.data.description}</p>
+          <p class="mt-4 text-xs text-navy/55">{model.data.readMinutes} min read</p>
+          <span class="mt-4 inline-block text-sm font-semibold text-accent">Read guide →</span>
+        </a>
+      ))}
+    </div>
+    <a href="/models" class="mt-6 inline-block text-sm font-semibold text-navy hover:text-accent sm:hidden">View all models →</a>
+  </section>
+
+  <section class="border-y border-border bg-slate-50/50">
+    <div class="section max-w-3xl">
+      <h2 class="text-2xl font-bold text-navy">Also under Buy: franchises</h2>
+      <p class="mt-3 leading-relaxed text-navy/70">
+        Franchising is one vehicle among many — useful when brand systems, training, and territory rules
+        match your goals. Compare it against independent models before you commit.
+      </p>
+      <a href="/franchises" class="btn-secondary mt-6">Explore the franchise hub</a>
+    </div>
+  </section>
+
+  <section class="section text-center">
+    <h2 class="text-2xl font-bold text-navy">Not sure where to start?</h2>
+    <p class="mx-auto mt-3 max-w-xl text-navy/65">
+      A short conversation can help you narrow options without a hard pitch.
+    </p>
+    <a href="/contact" class="btn-primary mt-6">Ask a question</a>
+  </section>
+</BaseLayout>

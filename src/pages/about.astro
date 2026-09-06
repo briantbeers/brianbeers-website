@@ -1,0 +1,81 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import fs from 'node:fs';
+import path from 'node:path';
+
+const photoPath = path.join(process.cwd(), 'public', 'brian-photo-ref.jpg');
+const hasPhoto = fs.existsSync(photoPath);
+---
+<BaseLayout
+  title="About — Brian Beers"
+  description="Hi, I'm Brian — calm guidance for buying or growing a business that fits your life."
+>
+  <section class="section">
+    <div class="grid items-start gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-14">
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-wider text-accent">About</p>
+        <h1 class="mt-2 text-4xl font-bold tracking-tight text-navy sm:text-5xl">Hi, I’m Brian</h1>
+        <p class="mt-6 text-lg leading-relaxed text-navy/75">
+          I help people cut through the noise around ownership — so you can choose a business path that
+          fits your life, capital, and operating style.
+        </p>
+        <p class="mt-4 leading-relaxed text-navy/70">
+          Most advice online is either a highlight reel or a hard sell. My approach is quieter: clarify the
+          outcome you want, then match it to a vehicle — buy, franchise, or grow what you already run —
+          without earnings promises or funnel pressure.
+        </p>
+        <p class="mt-4 leading-relaxed text-navy/70">
+          If you’re weighing owner vs operator tradeoffs, comparing models, or just trying to name what
+          “freedom” means for you, this site is meant to be a calm place to start.
+        </p>
+      </div>
+      <div class="flex justify-center lg:justify-end">
+        {hasPhoto ? (
+          <img
+            src="/brian-photo-ref.jpg"
+            alt="Brian Beers"
+            class="h-72 w-72 rounded-3xl object-cover shadow-lg ring-1 ring-border sm:h-80 sm:w-80"
+            width="320"
+            height="320"
+          />
+        ) : (
+          <div class="flex h-72 w-72 items-center justify-center rounded-3xl bg-navy/5 text-navy/40 ring-1 ring-border sm:h-80 sm:w-80">
+            Photo coming soon
+          </div>
+        )}
+      </div>
+    </div>
+
+    <div class="mt-14 grid gap-6 md:grid-cols-3">
+      <div class="card">
+        <h2 class="text-lg font-bold text-navy">Outcome first</h2>
+        <p class="mt-2 text-sm leading-relaxed text-navy/70">
+          Start with the life and role you want — then pick the vehicle. Not the other way around.
+        </p>
+      </div>
+      <div class="card">
+        <h2 class="text-lg font-bold text-navy">Honest tradeoffs</h2>
+        <p class="mt-2 text-sm leading-relaxed text-navy/70">
+          Owner vs operator, capital intensity, lifestyle fit — named clearly so you can decide.
+        </p>
+      </div>
+      <div class="card">
+        <h2 class="text-lg font-bold text-navy">Soft next steps</h2>
+        <p class="mt-2 text-sm leading-relaxed text-navy/70">
+          Guides and conversation when you’re ready. No pitch-deck dump, no FTC-style earnings claims.
+        </p>
+      </div>
+    </div>
+
+    <div class="mt-14 rounded-2xl border border-border bg-white p-8 text-center shadow-sm sm:p-10">
+      <h2 class="text-2xl font-bold text-navy">Want to talk it through?</h2>
+      <p class="mx-auto mt-3 max-w-xl text-navy/65">
+        Share where you are — buying, growing, or still figuring out the door — and we’ll go from there.
+      </p>
+      <div class="mt-6 flex flex-wrap justify-center gap-3">
+        <a href="/contact" class="btn-primary">Get in touch</a>
+        <a href="/contact?intent=guide" class="btn-secondary">Get the free guide</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

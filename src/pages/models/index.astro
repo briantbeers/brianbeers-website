@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const models = (await getCollection('models'))
+  .filter((m) => m.data.publish && (m.data.status === 'ready' || m.data.status === 'published'))
+  .sort((a, b) => a.data.title.localeCompare(b.data.title));
+
+function modelPath(model: (typeof models)[number]) {
+  return model.data.slug ?? model.id.replace(/\.(md|mdx|mdoc)$/, '');
+}
+
+const categoryLabel: Record<string, string> = {
+  'home-services': 'Home services',
+  'senior-care': 'Senior care',
+  'retail-resale': 'Retail / resale',
+  auto: 'Auto',
+  'food-hospitality': 'Food / hospitality',
+  'business-services': 'Business services',
+  'health-wellness': 'Health / wellness',
+  'real-estate-ops': 'Real estate ops',
+  education: 'Education',
+  other: 'Other',
+};
+---
+<BaseLayout
+  title="Business models — Brian Beers"
+  description="Sample business model guides for educational browsing — fit, capital notes, and practical questions."
+>
+  <section class="section">
+    <p class="text-sm font-semibold uppercase tracking-wider text-accent">Models</p>
+    <h1 class="mt-2 text-4xl font-bold tracking-tight text-navy sm:text-5xl">Business models</h1>
+    <p class="mt-5 max-w-2xl text-lg leading-relaxed text-navy/75">
+      Educational sample guides for browsing. Not offers, not earnings claims — clear structure so you can
+      compare fit and how the work actually flows.
+    </p>
+
+    <div class="mt-10 grid gap-6 sm:grid-cols-2">
+      {models.map((model) => (
+        <a href={`/models/${modelPath(model)}`} class="card group block transition hover:border-accent/40 hover:shadow-md">
+          <p class="text-xs font-semibold uppercase tracking-wider text-navy/50">
+            {categoryLabel[model.data.category] ?? model.data.category}
+          </p>
+          <h2 class="mt-2 text-xl font-bold text-navy group-hover:text-navy-soft">{model.data.title}</h2>
+          <p class="mt-2 text-sm leading-relaxed text-navy/70">{model.data.description}</p>
+          <p class="mt-3 text-xs text-navy/55">{model.data.readMinutes} min read</p>
+          <span class="mt-4 inline-block text-sm font-semibold text-accent">Open guide →</span>
+        </a>
+      ))}
+    </div>
+
+    <div class="mt-12 rounded-2xl border border-border bg-slate-50/60 p-6 sm:p-8">
+      <p class="text-sm font-semibold text-navy">Part of the Buy journey</p>
+      <p class="mt-2 text-sm leading-relaxed text-navy/65">
+        These samples live under Buy. Exploring franchises too?
+        <a href="/franchises" class="font-semibold text-navy hover:text-accent">Visit the franchise hub</a>
+        or
+        <a href="/buy" class="font-semibold text-navy hover:text-accent">return to Buy</a>.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
