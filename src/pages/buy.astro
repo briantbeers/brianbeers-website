@@ -2,13 +2,29 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 
-const models = (await getCollection('models'))
-  .filter((m) => m.data.publish && (m.data.status === 'ready' || m.data.status === 'published'))
-  .sort((a, b) => a.data.title.localeCompare(b.data.title));
+function isLive(data: { publish: boolean; status: string }) {
+  return data.publish && (data.status === 'ready' || data.status === 'published');
+}
 
-function modelPath(model: (typeof models)[number]) {
+function modelPath(model: { data: { slug?: string }; id: string }) {
   return model.data.slug ?? model.id.replace(/\.(md|mdx|mdoc)$/, '');
 }
+
+function articlePath(article: { data: { slug?: string }; id: string }) {
+  return article.data.slug ?? article.id.replace(/\.(md|mdx|mdoc)$/, '');
+}
+
+const models = (await getCollection('models')).filter((entry) => isLive(entry.data));
+const articles = (await getCollection('articles')).filter((entry) => isLive(entry.data));
+
+type FeatureCard = {
+  href: string;
+  eyebrow: string;
+  title: string;
+  description: string;
+  readMinutes: number;
+  cta: string;
+};
 
 const categoryLabel: Record<string, string> = {
   'home-services': 'Home services',
@@ -22,6 +38,57 @@ const categoryLabel: Record<string, string> = {
   education: 'Education',
   other: 'Other',
 };
+
+const kindLabel: Record<string, string> = {
+  article: 'Article',
+  guide: 'Guide',
+};
+
+const featuredModels = models
+  .filter((m) => m.data.doors?.includes('buy'))
+  .map(
+    (m): FeatureCard => ({
+      href: `/models/${modelPath(m)}`,
+      eyebrow: categoryLabel[m.data.category] ?? m.data.category,
+      title: m.data.title,
+      description: m.data.description,
+      readMinutes: m.data.readMinutes,
+      cta: 'Read guide →',
+    })
+  );
+
+const featuredArticles = articles
+  .filter((a) => a.data.doors?.includes('buy'))
+  .map(
+    (a): FeatureCard => ({
+      href: `/articles/${articlePath(a)}`,
+      eyebrow: kindLabel[a.data.kind] ?? a.data.kind,
+      title: a.data.title,
+      description: a.data.description,
+      readMinutes: a.data.readMinutes,
+      cta: 'Read →',
+    })
+  );
+
+const featured = [...featuredArticles, ...featuredModels]
+  .sort((a, b) => a.title.localeCompare(b.title))
+  .slice(0, 3);
+
+// Fallback: if no doors set yet, show up to 3 published models
+const cards: FeatureCard[] =
+  featured.length > 0
+    ? featured
+    : models
+        .sort((a, b) => a.data.title.localeCompare(b.data.title))
+        .slice(0, 3)
+        .map((m) => ({
+          href: `/models/${modelPath(m)}`,
+          eyebrow: categoryLabel[m.data.category] ?? m.data.category,
+          title: m.data.title,
+          description: m.data.description,
+          readMinutes: m.data.readMinutes,
+          cta: 'Read guide →',
+        }));
 ---
 <BaseLayout
   title="Buy a business — Brian Beers"
@@ -36,6 +103,7 @@ const categoryLabel: Record<string, string> = {
     </p>
     <div class="mt-8 flex flex-wrap gap-3">
       <a href="/models" class="btn-primary">Browse models</a>
+      <a href="/articles" class="btn-secondary">Articles & guides</a>
       <a href="/franchises" class="btn-secondary">Franchise hub</a>
       <a href="/contact" class="btn-secondary">Ask a question</a>
     </div>
@@ -44,25 +112,26 @@ const categoryLabel: Record<string, string> = {
   <section class="section !pt-4 !pb-8">
     <div class="mb-6 flex items-end justify-between gap-4">
       <div>
-        <h2 class="text-2xl font-bold text-navy">Featured models</h2>
-        <p class="mt-1 text-sm text-navy/60">Sample educational guides — structure and tone, not offers.</p>
+        <h2 class="text-2xl font-bold text-navy">Featured for Buy</h2>
+        <p class="mt-1 text-sm text-navy/60">Models and guides tagged for this path — educational only.</p>
       </div>
-      <a href="/models" class="hidden text-sm font-semibold text-navy hover:text-accent sm:inline">View all →</a>
+      <a href="/models" class="hidden text-sm font-semibold text-navy hover:text-accent sm:inline">View models →</a>
     </div>
-    <div class="grid gap-6 sm:grid-cols-2">
-      {models.map((model) => (
-        <a href={`/models/${modelPath(model)}`} class="card group block transition hover:border-accent/40 hover:shadow-md">
-          <p class="text-xs font-semibold uppercase tracking-wider text-navy/50">
-            {categoryLabel[model.data.category] ?? model.data.category}
-          </p>
-          <h3 class="mt-2 text-xl font-bold text-navy group-hover:text-navy-soft">{model.data.title}</h3>
-          <p class="mt-2 text-sm leading-relaxed text-navy/70">{model.data.description}</p>
-          <p class="mt-4 text-xs text-navy/55">{model.data.readMinutes} min read</p>
-          <span class="mt-4 inline-block text-sm font-semibold text-accent">Read guide →</span>
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {cards.map((card) => (
+        <a href={card.href} class="card group block transition hover:border-accent/40 hover:shadow-md">
+          <p class="text-xs font-semibold uppercase tracking-wider text-navy/50">{card.eyebrow}</p>
+          <h3 class="mt-2 text-xl font-bold text-navy group-hover:text-navy-soft">{card.title}</h3>
+          <p class="mt-2 text-sm leading-relaxed text-navy/70">{card.description}</p>
+          <p class="mt-4 text-xs text-navy/55">{card.readMinutes} min read</p>
+          <span class="mt-4 inline-block text-sm font-semibold text-accent">{card.cta}</span>
         </a>
       ))}
     </div>
-    <a href="/models" class="mt-6 inline-block text-sm font-semibold text-navy hover:text-accent sm:hidden">View all models →</a>
+    <div class="mt-6 flex flex-wrap gap-4 text-sm font-semibold">
+      <a href="/models" class="text-navy hover:text-accent sm:hidden">View all models →</a>
+      <a href="/articles" class="text-navy hover:text-accent">More articles →</a>
+    </div>
   </section>
 
   <section class="border-y border-border bg-slate-50/50">

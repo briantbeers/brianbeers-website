@@ -7,6 +7,7 @@ status: ready
 publish: true
 readMinutes: 8
 tags: [plumbing, home-services, skilled-trade]
+doors: [buy, grow]
 buyerTypes: [deal-searcher, existing-owner-scale]
 cta: "soft-ownership-path"
 updated: "2026-09-05"

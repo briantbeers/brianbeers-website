@@ -7,6 +7,7 @@ status: ready
 publish: true
 readMinutes: 8
 tags: [roofing, home-services, storm]
+doors: [buy]
 buyerTypes: [operator-without-idea, deal-searcher]
 cta: "soft-ownership-path"
 updated: "2026-09-05"

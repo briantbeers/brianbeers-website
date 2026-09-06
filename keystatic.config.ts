@@ -35,6 +35,19 @@ const sourceTypeOptions = [
   { label: 'Other', value: 'other' },
 ] as const;
 
+const doorOptions = [
+  { label: 'Buy', value: 'buy' },
+  { label: 'Grow', value: 'grow' },
+] as const;
+
+const kindOptions = [
+  { label: 'Article', value: 'article' },
+  { label: 'Guide', value: 'guide' },
+] as const;
+
+const sharedTagHint =
+  'Shared vocabulary across models + articles. Examples: buy, grow, ownership, franchise, systems, capital, operator';
+
 export default config({
   storage: {
     kind: 'local',
@@ -81,7 +94,14 @@ export default config({
         }),
         tags: fields.array(fields.text({ label: 'Tag' }), {
           label: 'Tags',
+          description: sharedTagHint,
           itemLabel: (props) => props.value || 'Tag',
+        }),
+        doors: fields.multiselect({
+          label: 'Feature on path pages',
+          description: 'Optional — show this model on /buy and/or /grow featured cards',
+          options: [...doorOptions],
+          defaultValue: [],
         }),
         buyerTypes: fields.array(
           fields.select({
@@ -117,6 +137,63 @@ export default config({
           label: 'CTA',
           description: 'Default soft-ownership-path — never earnings CTAs',
           defaultValue: 'soft-ownership-path',
+        }),
+        updated: fields.date({ label: 'Updated' }),
+        content: fields.markdoc({
+          label: 'Content',
+          extension: 'md',
+        }),
+      },
+    }),
+    articles: collection({
+      label: 'Articles & guides',
+      slugField: 'title',
+      path: 'src/content/articles/*',
+      format: { contentField: 'content' },
+      entryLayout: 'content',
+      schema: {
+        title: fields.slug({ name: { label: 'Title' } }),
+        slug: fields.text({
+          label: 'URL slug',
+          description: 'kebab-case; must match the filename',
+          validation: { isRequired: true },
+        }),
+        description: fields.text({
+          label: 'Description',
+          description: 'SEO / card blurb (~120–160 chars), education tone',
+          multiline: true,
+          validation: { isRequired: true, length: { max: 220 } },
+        }),
+        kind: fields.select({
+          label: 'Kind',
+          options: [...kindOptions],
+          defaultValue: 'article',
+        }),
+        status: fields.select({
+          label: 'Status',
+          options: [...statusOptions],
+          defaultValue: 'draft',
+        }),
+        publish: fields.checkbox({
+          label: 'Publish',
+          description: 'Site ships only publish: true with status ready|published',
+          defaultValue: false,
+        }),
+        readMinutes: fields.integer({
+          label: 'Read minutes',
+          defaultValue: 8,
+          validation: { isRequired: true, min: 1, max: 60 },
+        }),
+        tags: fields.array(fields.text({ label: 'Tag' }), {
+          label: 'Tags',
+          description: sharedTagHint,
+          itemLabel: (props) => props.value || 'Tag',
+        }),
+        doors: fields.multiselect({
+          label: 'Feature on path pages',
+          description: 'Optional — show this piece on /buy and/or /grow featured cards',
+          options: [...doorOptions],
+          defaultValue: [],
         }),
         updated: fields.date({ label: 'Updated' }),
         content: fields.markdoc({

@@ -7,6 +7,7 @@ status: ready
 publish: true
 readMinutes: 7
 tags: [handyman, home-services, residential]
+doors: [buy]
 buyerTypes: [operator-without-idea, family-flexibility-buyer]
 cta: "soft-ownership-path"
 updated: "2026-09-05"
