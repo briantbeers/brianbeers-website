@@ -1,40 +1,60 @@
 ---
 const pathname = Astro.url.pathname;
-const links = [
-  { href: '/buy', label: 'Buy' },
-  { href: '/grow', label: 'Grow' },
+const centerLinks = [
+  { href: '/buy', label: 'Buy a Business' },
+  { href: '/grow', label: 'Grow Your Business' },
+  { href: '/speaking', label: 'Speaking' },
   { href: '/about', label: 'About' },
-  { href: '/contact', label: 'Contact' },
 ];
+function active(href: string) {
+  return pathname === href || pathname.startsWith(href + '/');
+}
 ---
-<header class="border-b border-border/80 bg-cream/95 backdrop-blur supports-[backdrop-filter]:bg-cream/80">
-  <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
-    <a href="/" class="text-base font-bold tracking-tight text-navy hover:text-navy/70">
+<header class="relative z-20 border-b border-border/60 bg-cream-soft/90 backdrop-blur supports-[backdrop-filter]:bg-cream-soft/75">
+  <div class="site-width grid grid-cols-[1fr_auto] items-center gap-4 py-6 md:grid-cols-[1fr_auto_1fr]">
+    <a href="/" class="justify-self-start text-sm font-bold tracking-[0.08em] text-navy hover:text-navy/70 sm:text-base">
       BRIAN BEERS
     </a>
-    <nav class="hidden items-center gap-8 md:flex" aria-label="Primary">
-      {links.map((link) => (
+
+    <nav class="hidden items-center justify-center gap-8 md:flex lg:gap-10" aria-label="Primary">
+      {centerLinks.map((link) => (
         <a
           href={link.href}
           class:list={[
-            'text-sm font-medium hover:text-navy',
-            pathname === link.href || pathname.startsWith(link.href + '/') ? 'text-navy' : 'text-navy/55',
+            'whitespace-nowrap text-sm font-medium hover:text-navy',
+            active(link.href) ? 'text-navy' : 'text-navy/55',
           ]}
         >
           {link.label}
         </a>
       ))}
     </nav>
-    <details class="relative md:hidden">
+
+    <div class="hidden justify-self-end md:block">
+      <a
+        href="/contact"
+        class:list={[
+          'text-sm font-medium hover:text-navy',
+          active('/contact') ? 'text-navy' : 'text-navy/55',
+        ]}
+      >
+        Contact
+      </a>
+    </div>
+
+    <details class="relative justify-self-end md:hidden">
       <summary class="cursor-pointer list-none rounded-md border border-border bg-white px-3 py-1.5 text-sm font-medium text-navy">
         Menu
       </summary>
-      <div class="absolute right-0 z-50 mt-2 w-48 rounded-xl border border-border bg-white p-2 shadow-lg">
-        {links.map((link) => (
-          <a href={link.href} class="block rounded-lg px-3 py-2 text-sm font-medium text-navy hover:bg-slate-50">
+      <div class="absolute right-0 z-50 mt-2 w-56 rounded-xl border border-border bg-white p-2 shadow-lg">
+        {centerLinks.map((link) => (
+          <a href={link.href} class="block rounded-lg px-3 py-2 text-sm font-medium text-navy hover:bg-cream-soft">
             {link.label}
           </a>
         ))}
+        <a href="/contact" class="block rounded-lg px-3 py-2 text-sm font-medium text-navy hover:bg-cream-soft">
+          Contact
+        </a>
       </div>
     </details>
   </div>

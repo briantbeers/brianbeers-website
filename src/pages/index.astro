@@ -14,9 +14,12 @@ const hasBook = fs.existsSync(bookPath);
 >
   <!-- James Clear–style hero: cream top / white bottom, book straddles the split -->
   <section class="relative overflow-hidden">
-    <!-- Cream top half -->
-    <div class="bg-cream pt-14 pb-28 sm:pt-16 sm:pb-36">
-      <div class="mx-auto max-w-3xl px-4 text-center sm:px-6">
+    <!-- Cream top half: lighter near nav → darker toward center/book -->
+    <div
+      class="pt-14 pb-28 sm:pt-16 sm:pb-36"
+      style="background: linear-gradient(180deg, #FAF7F1 0%, #F3EFE6 42%, #E8E0D2 100%);"
+    >
+      <div class="mx-auto max-w-2xl px-4 text-center sm:px-6">
         <h1 class="text-4xl font-bold tracking-tight text-navy sm:text-5xl sm:leading-[1.12]">
           Own the outcome.<br class="hidden sm:block" /> Find the right vehicle.
         </h1>
