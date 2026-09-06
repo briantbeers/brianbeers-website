@@ -16,8 +16,8 @@ export default {
         border: '#E8E4DC',
         // James Clear–style warmer creams
         cream: {
-          DEFAULT: '#F3EFE6', // darker warm cream (hero top / page accents)
-          soft: '#FAF7F1',
+          DEFAULT: '#f9f8f4', // hero / nav cream
+          soft: '#f9f8f4',
           deep: '#E8E0D2',
         },
       },
