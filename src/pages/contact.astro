@@ -1,9 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
+const envEndpoint = import.meta.env.PUBLIC_CONTACT_ENDPOINT;
 const contactEndpoint =
-  import.meta.env.PUBLIC_CONTACT_ENDPOINT ||
-  'https://formsubmit.co/ajax/support@beerspodcast.com';
+  envEndpoint || 'https://formsubmit.co/support@beerspodcast.com';
 ---
 <BaseLayout
   title="Contact — Brian Beers"
@@ -30,15 +30,11 @@ const contactEndpoint =
       id="contact-form"
       novalidate
     >
-      <div
-        id="contact-error"
-        class="hidden rounded-lg border border-red-300 bg-red-50 px-3 py-2.5 text-sm text-red-800"
-        role="alert"
-        aria-live="assertive"
-      >
-        Something went wrong sending your message. Please try again in a moment, or email
-        support@beerspodcast.com.
-      </div>
+      {/* Formsubmit controls — values set in JS before native submit */}
+      <input type="hidden" name="_next" id="_next" value="" />
+      <input type="hidden" name="_cc" id="_cc" value="brian@beerspodcast.com" />
+      <input type="hidden" name="_subject" id="_subject" value="" />
+      <input type="hidden" name="_template" value="table" />
 
       {/* Honeypot — leave empty; bots that fill it are ignored by Formsubmit / Apps Script */}
       <div class="absolute -left-[9999px] h-0 w-0 overflow-hidden opacity-0" aria-hidden="true">
@@ -102,7 +98,7 @@ const contactEndpoint =
     </form>
   </section>
 
-  <script define:vars={{ contactEndpoint }}>
+  <script>
     const INTEREST_LABELS = {
       guide: 'The Copy-Paste Millionaire free guide',
       buy: 'Buying a business',
@@ -113,6 +109,7 @@ const contactEndpoint =
     const params = new URLSearchParams(window.location.search);
     const email = params.get('email') || '';
     const isGuide = params.get('intent') === 'guide';
+    const sent = params.get('sent') === '1';
 
     const emailInput = document.getElementById('email');
     const interest = document.getElementById('interest');
@@ -123,7 +120,8 @@ const contactEndpoint =
     const form = document.getElementById('contact-form');
     const successEl = document.getElementById('contact-success');
     const successTitle = document.getElementById('contact-success-title');
-    const errorEl = document.getElementById('contact-error');
+    const nextInput = document.getElementById('_next');
+    const subjectInput = document.getElementById('_subject');
 
     const defaultSubmitLabel = submit?.textContent || 'Send message';
 
@@ -146,55 +144,17 @@ const contactEndpoint =
       }
     }
 
-    function setLoading(loading) {
-      if (!(submit instanceof HTMLButtonElement)) return;
-      submit.disabled = loading;
-      submit.classList.toggle('opacity-70', loading);
-      submit.classList.toggle('cursor-wait', loading);
-      if (loading) {
-        submit.textContent = 'Sending…';
-      } else {
-        submit.textContent = isGuide ? 'Request the guide' : defaultSubmitLabel;
-      }
+    // After Formsubmit captcha + redirect back via _next
+    if (sent) {
+      form?.classList.add('hidden');
+      successEl?.classList.remove('hidden');
     }
 
-    const GENERIC_ERROR =
-      'Something went wrong sending your message. Please try again in a moment, or email support@beerspodcast.com.';
-
-    const ACTIVATION_ERROR =
-      'Thanks for reaching out — your message was received, but our team still needs to confirm this contact form once. We\'ve been emailed at support@beerspodcast.com with an Activate Form link; after that click, please try again. This is on us, not you.';
-
-    function showError(message) {
-      if (!errorEl) return;
-      if (message) {
-        errorEl.textContent = message;
-        errorEl.classList.remove('hidden');
-      } else {
-        errorEl.textContent = GENERIC_ERROR;
-        errorEl.classList.add('hidden');
-      }
-    }
-
-    function messageLooksLikeActivation(msg) {
-      const lower = String(msg || '').toLowerCase();
-      return lower.includes('activation') || lower.includes('activate form');
-    }
-
-    function friendlyServerMessage(msg) {
-      const raw = String(msg || '').trim();
-      if (!raw) return GENERIC_ERROR;
-      if (messageLooksLikeActivation(raw)) return ACTIVATION_ERROR;
-      // Keep short, plain server text; otherwise fall back
-      if (raw.length <= 160 && !/[<>{}]/.test(raw)) return raw;
-      return GENERIC_ERROR;
-    }
-
-    form?.addEventListener('submit', async (event) => {
-      event.preventDefault();
-      showError(false);
-
+    form?.addEventListener('submit', (event) => {
       if (!(form instanceof HTMLFormElement)) return;
+
       if (!form.checkValidity()) {
+        event.preventDefault();
         form.reportValidity();
         return;
       }
@@ -209,71 +169,19 @@ const contactEndpoint =
         subject = `[brianbeers.com] Free guide request — ${interestLabel}`;
       }
 
-      const payload = {
-        name: String(fd.get('name') || '').trim(),
-        email: String(fd.get('email') || '').trim(),
-        interest: interestValue,
-        interest_label: interestLabel,
-        message: String(fd.get('message') || '').trim(),
-        page: window.location.href,
-        _cc: 'brian@beerspodcast.com',
-        _subject: subject,
-        _template: 'table',
-        _captcha: 'false',
-        _honey: String(fd.get('_honey') || ''),
-      };
-
-      if (intentValue) {
-        payload.intent = intentValue;
+      let next = `${window.location.origin}/contact?sent=1`;
+      if (intentValue === 'guide' || isGuide) {
+        next += '&intent=guide';
       }
 
-      setLoading(true);
-      try {
-        const res = await fetch(contactEndpoint, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            Accept: 'application/json',
-          },
-          body: JSON.stringify(payload),
-        });
+      if (nextInput instanceof HTMLInputElement) nextInput.value = next;
+      if (subjectInput instanceof HTMLInputElement) subjectInput.value = subject;
 
-        let data = null;
-        try {
-          data = await res.json();
-        } catch {
-          data = null;
-        }
-
-        const successFlag = data == null ? undefined : data.success;
-        const successIsFalse = successFlag === false || successFlag === 'false';
-        const serverMsg = data && (data.message || data.error);
-        const ok =
-          res.ok &&
-          !successIsFalse &&
-          (data == null ||
-            (successFlag !== false &&
-              successFlag !== 'false' &&
-              !String(data.message || '').toLowerCase().includes('error')));
-
-        if (!ok) {
-          const detail = serverMsg || `HTTP ${res.status}`;
-          console.warn('[contact form] submission failed:', detail, data);
-          throw new Error(String(detail));
-        }
-
-        form.classList.add('hidden');
-        successEl?.classList.remove('hidden');
-        form.reset();
-        if (isGuide && intentSlot) {
-          intentSlot.innerHTML = '<input type="hidden" name="intent" value="guide" />';
-        }
-      } catch (err) {
-        const detail = err && err.message ? err.message : '';
-        console.warn('[contact form] error:', detail || err);
-        showError(friendlyServerMessage(detail));
-      } finally {
-        setLoading(false);
+      // Native POST to Formsubmit (captcha page, then redirect to _next)
+      if (submit instanceof HTMLButtonElement) {
+        submit.disabled = true;
+        submit.classList.add('opacity-70', 'cursor-wait');
+        submit.textContent = 'Sending…';
       }
     });
   </script>

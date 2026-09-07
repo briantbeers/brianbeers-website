@@ -2,24 +2,25 @@
 
 ## Current: email via Formsubmit (live)
 
-`/contact` posts via AJAX to:
+`/contact` uses a **normal form POST** (not AJAX) to:
 
-`https://formsubmit.co/ajax/support@beerspodcast.com`
+`https://formsubmit.co/support@beerspodcast.com`
 
-Fields sent: `name`, `email`, `interest`, `interest_label`, `message`, optional `intent`, `page`, plus Formsubmit controls `_cc`, `_subject`, `_template`, `_captcha`, `_honey`.
+Formsubmit’s built-in captcha is enabled (we do **not** send `_captcha: false`). After the visitor completes the captcha on Formsubmit’s intermediate page, Formsubmit redirects back to `_next` (`/contact?sent=1`, and `&intent=guide` when applicable). The contact page then hides the form and shows **Message received.** (or the guide thanks variant).
+
+Fields posted: `name`, `email`, `interest`, `message`, optional `intent`, plus Formsubmit controls `_next`, `_cc`, `_subject`, `_template`, `_honey`.
 
 - **TO:** `support@beerspodcast.com`
 - **CC:** `brian@beerspodcast.com` (`_cc`)
 - Honeypot: empty `_honey` field (spam submissions are ignored)
-- Soft success/error UI on the page (no `alert()`)
+- Success UI: driven by `?sent=1` after Formsubmit redirect (no on-page AJAX)
+- Activation / captcha / delivery errors surface on Formsubmit’s own pages
 
 ### First-submission activation
 
-Formsubmit requires a one-time confirmation: the **first** real submission to a new recipient triggers an activation email to `support@beerspodcast.com`. Check that inbox (and spam) for the **Activate Form** link and click it before further messages are delivered.
+Formsubmit requires a one-time confirmation: the **first** real submission to a new recipient triggers an activation email to `support@beerspodcast.com`. Check that inbox (and spam) for the **Activate Form** link and click it before further messages are delivered. Until then, Formsubmit shows its activation messaging on its own pages.
 
-Until activation is confirmed, Formsubmit often returns HTTP 200 with `{ success: "false", message: "…needs Activation…" }`. The contact page surfaces that as a clear form error (not a success state) telling visitors the team must confirm once via email, then retry. After the Activate link is clicked, submissions deliver normally.
-
-Optional override: set `PUBLIC_CONTACT_ENDPOINT` (Astro / Vercel env) to any POST URL. When unset, the site defaults to the Formsubmit AJAX endpoint above. Use this later for the Apps Script `/exec` URL.
+Optional override: set `PUBLIC_CONTACT_ENDPOINT` (Astro / Vercel env) to any POST URL. When unset, the site defaults to the Formsubmit URL above (non-AJAX, without `/ajax/`). Use this later for the Apps Script `/exec` URL — captcha rules differ for that backend.
 
 ## Sheet (already exists)
 
