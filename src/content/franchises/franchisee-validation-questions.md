@@ -60,9 +60,3 @@ Then feed themes back into [Discovery Day](/franchises/franchise-discovery-day) 
 Related: [Due diligence](/franchises/franchise-due-diligence) · [Hub](/franchises) · [Buy](/buy) · [Contact](/contact)
 
 ---
-
-## Disclaimer
-
-Educational only — **not** financial, legal, or tax advice. Franchise outcomes vary widely by brand, market, operator skill, and capital. Do not rely on any earnings story or average as a promise of your results. Before you decide: read the current Franchise Disclosure Document (FDD), talk with **franchise counsel**, and review numbers with your **CPA**.
-
-Brian Beers is a multi-unit franchisee / operator and may act as an independent franchise consultant. He may be compensated by franchisors if introductions convert. That does not change your duty to run your own diligence.

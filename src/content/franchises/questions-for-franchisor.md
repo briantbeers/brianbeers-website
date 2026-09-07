@@ -46,10 +46,3 @@ Other themes in the full list include: contract term and renewals, training and 
 **Next step:** If you want a calm second set of eyes on fit, capital range, or process, [reach out](/contact) (TODO: wire lead form / download later). Or email via the contact page stub for now.
 
 Related: [Validation](/franchises/franchisee-validation-questions) · [Red flags](/franchises/franchise-red-flags-risks) · [Hub](/franchises) · [Buy](/buy)
-
-
-## Disclaimer
-
-Educational only — **not** financial, legal, or tax advice. Franchise outcomes vary widely by brand, market, operator skill, and capital. Do not rely on any earnings story or average as a promise of your results. Before you decide: read the current Franchise Disclosure Document (FDD), talk with **franchise counsel**, and review numbers with your **CPA**.
-
-Brian Beers is a multi-unit franchisee / operator and may act as an independent franchise consultant. He may be compensated by franchisors if introductions convert. That does not change your duty to run your own diligence.
