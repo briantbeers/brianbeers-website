@@ -12,9 +12,7 @@ tags:
 - sugaring
 - membership
 - esthetician
-- retail-attach
 - burn-liability
-- rent
 - laser-competition
 - health-wellness
 - beauty

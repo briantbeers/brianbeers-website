@@ -14,7 +14,6 @@ tags:
 - landfill
 - tip-fees
 - easy-entry
-- labor
 doors:
 - buy
 buyerTypes:

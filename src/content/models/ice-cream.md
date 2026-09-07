@@ -14,11 +14,8 @@ tags:
 - treats
 - seasonality
 - nostalgia-marketing
-- labor
 - waste
-- rent
 - food-hospitality
-- franchise-fees
 - scoop-shop
 doors:
 - buy

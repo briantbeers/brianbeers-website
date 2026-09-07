@@ -12,7 +12,6 @@ tags:
 - food-trailer
 - events
 - permits
-- weather
 - commissary
 - generator
 - capex

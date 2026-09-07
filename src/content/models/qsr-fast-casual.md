@@ -14,7 +14,6 @@ tags:
 - labor-cost
 - site-selection
 - manager-dependency
-- franchise-fees
 - delivery-platforms
 - strip-center
 - food-hospitality

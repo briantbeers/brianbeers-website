@@ -10,7 +10,6 @@ tags:
 - residential-moving
 - moving-storage
 - trucks
-- labor
 - seasonality
 - damage-claims
 - estimates

@@ -15,10 +15,8 @@ tags:
 - daypart
 - blender
 - food-hospitality
-- franchise-fees
 - delivery-platforms
 - fitness-adjacency
-- labor
 doors:
 - buy
 buyerTypes:

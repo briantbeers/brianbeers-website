@@ -13,9 +13,7 @@ tags:
 - fill-cycle
 - technician-skill
 - rebook
-- retail-attach
 - no-shows
-- rent
 - trend-risk
 - health-wellness
 - beauty

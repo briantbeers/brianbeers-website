@@ -18,9 +18,6 @@ tags:
 - delivery-platforms
 - seasonality
 - copycats
-- labor
-- rent
-- franchise-fees
 doors:
 - buy
 buyerTypes:

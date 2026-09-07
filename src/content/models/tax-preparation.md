@@ -10,7 +10,6 @@ tags:
 - tax-preparation
 - bookkeeping
 - seasonal
-- compliance
 - PTIN
 - refund-products
 - DIY-software

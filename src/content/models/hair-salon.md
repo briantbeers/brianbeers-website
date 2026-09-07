@@ -13,7 +13,6 @@ tags:
 - stylist-retention
 - booth-rental
 - commission-salon
-- retail-attach
 - no-shows
 - health-wellness
 - quick-cut

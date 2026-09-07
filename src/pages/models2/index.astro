@@ -58,7 +58,7 @@ const TAG_NOISE = new Set([
   'retail',
   'buy',
   'franchise',
-  // junk / low-signal chips
+  // junk / low-signal chips (exact kebab + common label variants)
   'inventory-turns',
   'inventory turns',
   'franchise-fees',
@@ -75,6 +75,48 @@ const TAG_NOISE = new Set([
   'rent',
 ]);
 
+const categoryIntros: Record<string, string> = {
+  'home-services':
+    'Home services sit close to essential demand — roofs leak, systems fail, yards grow. Many models mix recurring maintenance with emergency calls, and density in a local market often matters more than flashy branding. The interesting ownership question is how much stays owner-operator versus how much can be leveraged with crews, dispatch, and process.',
+  'retail-resale':
+    'Retail and resale businesses live on inventory turns, assortment, and foot traffic (or a strong buy-sell engine). The work is merchandising, sourcing, and knowing what moves in your market — not abstract growth theory. Soft ownership here usually means learning the buy curve and the floor before scaling square footage.',
+  auto:
+    'Cars break. That simple fact keeps automotive work on the essential-spend list. Bay utilization, technician capacity, and parts flow usually matter more than “people need cars.” Educational browsing here is about how the shop day actually runs — not promises about outcomes.',
+  'business-services':
+    'B2B services often sell in daylight hours to accounts that renew or expand when trust is earned. Contracts, recurring relationships, and clear delivery scopes tend to define the model. The ownership lens is usually process and people — how work is sold, staffed, and delivered consistently.',
+  'real-estate-ops':
+    'Real estate ops models often revolve around doors under management, transitions, and adjacent services as demographics shift. The interesting part is operational rhythm: turnovers, vendors, communication, and trust with owners or residents — not speculation about property values.',
+  education:
+    'Education businesses lean on enrollment, tuition cadence, and the labor of teachers or coaches who carry the reputation. Local trust and outcomes for families usually matter more than ads. Soft ownership questions include capacity, staffing depth, and how the program holds quality as it grows.',
+  'senior-care':
+    'Senior care sits next to long demographic trends and deep trust requirements. Many models are built around recurring care hours, family communication, and compliance with how care is delivered. Educational framing here is about the work and the relationships — never earnings claims.',
+  'food-hospitality':
+    'Food and hospitality businesses run on dayparts, labor, and site selection. The floor tells the truth faster than a spreadsheet: rush periods, waste, and guest experience. Ownership education usually starts with how the day actually flows before anyone talks about expansion.',
+  'health-wellness':
+    'Health and wellness models often mix memberships, retention, and — where clinical — regulated nuance. Recurring visits and trusted practitioners tend to matter more than one-time transactions. Browse for fit: how clients return, how staff is scheduled, and what the experience must protect.',
+  other:
+    'This catch-all covers models that do not sit cleanly in one industry bucket. Treat it as a browsing lane for adjacent or hybrid ideas — still educational structure only, with the same soft ownership tone and no earnings promises.',
+};
+
+const categoryCover: Record<string, string> = {
+  'home-services': '/models/covers/home-services.jpg',
+  'retail-resale': '/models/covers/retail-resale.jpg',
+  auto: '/models/covers/auto.jpg',
+  'business-services': '/models/covers/business-services.jpg',
+  'real-estate-ops': '/models/covers/real-estate-ops.jpg',
+  education: '/models/covers/education.jpg',
+  'senior-care': '/models/covers/senior-care.jpg',
+  'food-hospitality': '/models/covers/food-hospitality.jpg',
+  'health-wellness': '/models/covers/health-wellness.jpg',
+  other: '/models/covers/other.jpg',
+};
+
+/** Optional slug-specific cover overrides for layout testing. */
+const slugCoverOverrides: Record<string, string> = {
+  'used-clothing-resale': '/models/used-clothing/racks-1.jpg',
+  'kids-clothing-resale': '/models/used-clothing/racks-2.jpg',
+};
+
 function modelPath(model: { data: { slug?: string }; id: string }) {
   return model.data.slug ?? model.id.replace(/\.(md|mdx|mdoc)$/, '');
 }
@@ -82,6 +124,10 @@ function modelPath(model: { data: { slug?: string }; id: string }) {
 function priorityIndex(slug: string) {
   const i = homeServicesPriority.indexOf(slug);
   return i === -1 ? homeServicesPriority.length : i;
+}
+
+function coverFor(slug: string, category: string) {
+  return slugCoverOverrides[slug] ?? categoryCover[category] ?? categoryCover.other;
 }
 
 const allPublished = (await getCollection('models')).filter(
@@ -142,17 +188,20 @@ function formatTag(tag: string) {
 }
 ---
 <BaseLayout
-  title="Business models — Brian Beers"
-  description="Sample business model guides for educational browsing — fit, capital notes, and practical questions."
+  title="Business models (layout test) — Brian Beers"
+  description="Layout test for model cards with covers and category intros — educational browsing only."
 >
   <section class="section !pt-12 !pb-16">
-    <p class="text-sm font-semibold uppercase tracking-wider text-accent">Models</p>
+    <p class="text-sm font-semibold uppercase tracking-wider text-accent">Models2 · Layout test</p>
     <h1 class="mt-2 text-4xl font-bold tracking-tight text-navy sm:text-5xl">Business models</h1>
     <p class="mt-4 max-w-2xl text-base leading-relaxed text-navy/75 sm:text-lg">
       Educational sample guides for browsing. Not offers, not earnings claims — clear structure so you can
       compare fit and how the work actually flows.
     </p>
-    <p class="mt-2 text-xs text-navy/40">Layout test — denser grid + filters</p>
+    <p class="mt-2 text-xs text-navy/40">
+      Parallel layout test (covers + category intros). Production list remains at
+      <a href="/models" class="underline hover:text-navy">/models</a>.
+    </p>
 
     <div
       id="models-filters"
@@ -208,27 +257,49 @@ function formatTag(tag: string) {
       </p>
     </div>
 
-    <div id="models-grid" class="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+    <div
+      id="category-intro"
+      class="mt-5 hidden rounded-2xl border border-border bg-white/80 px-5 py-4 shadow-sm"
+      aria-live="polite"
+    >
+      <p id="category-intro-label" class="text-[11px] font-semibold uppercase tracking-wider text-accent"></p>
+      <p id="category-intro-body" class="mt-1.5 text-sm leading-relaxed text-navy/70"></p>
+    </div>
+
+    <div id="models-grid" class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {models.map((model) => {
         const slug = modelPath(model);
         const tags = (model.data.tags ?? []).map((t) => t.trim().toLowerCase()).filter(Boolean);
         const desc = model.data.description.replace(/\s+/g, ' ').trim();
         const shortDesc = desc.length > 90 ? desc.slice(0, 87).replace(/\s+\S*$/, '') + '…' : desc;
+        const cover = coverFor(slug, model.data.category);
         return (
           <a
             href={`/models/${slug}`}
-            class="model-card group block rounded-xl border border-border bg-white px-4 py-3.5 shadow-sm transition hover:border-accent/40 hover:shadow-md"
+            class="model-card group flex flex-col overflow-hidden rounded-xl border border-border bg-white shadow-sm transition hover:border-accent/40 hover:shadow-md"
             data-category={model.data.category}
             data-tags={tags.join(' ')}
             data-slug={slug}
           >
-            <p class="text-[10px] font-semibold uppercase tracking-wider text-navy/45">
-              {categoryLabel[model.data.category] ?? model.data.category}
-            </p>
-            <h2 class="mt-1 text-[15px] font-bold leading-snug text-navy group-hover:text-navy-soft">
-              {model.data.title}
-            </h2>
-            <p class="mt-1 line-clamp-1 text-xs leading-relaxed text-navy/55">{shortDesc}</p>
+            <div class="aspect-[16/10] overflow-hidden bg-cream-deep/40">
+              <img
+                src={cover}
+                alt=""
+                class="h-full w-full object-cover transition duration-300 group-hover:scale-[1.03]"
+                loading="lazy"
+                width="640"
+                height="400"
+              />
+            </div>
+            <div class="flex flex-1 flex-col px-4 py-3.5">
+              <p class="text-[10px] font-semibold uppercase tracking-wider text-navy/45">
+                {categoryLabel[model.data.category] ?? model.data.category}
+              </p>
+              <h2 class="mt-1 text-[15px] font-bold leading-snug text-navy group-hover:text-navy-soft">
+                {model.data.title}
+              </h2>
+              <p class="mt-1 line-clamp-1 text-xs leading-relaxed text-navy/55">{shortDesc}</p>
+            </div>
           </a>
         );
       })}
@@ -274,7 +345,7 @@ function formatTag(tag: string) {
   }
 </style>
 
-<script>
+<script define:vars={{ categoryIntros, categoryLabel }}>
   const filterBar = document.getElementById('models-filters');
   const showingEl = document.getElementById('showing-count');
   const hintEl = document.getElementById('filter-hint');
@@ -282,6 +353,9 @@ function formatTag(tag: string) {
   const clearBtn = document.getElementById('clear-filters');
   const categoryChips = document.querySelectorAll('.filter-chip');
   const tagChips = document.querySelectorAll('.tag-chip');
+  const introEl = document.getElementById('category-intro');
+  const introLabel = document.getElementById('category-intro-label');
+  const introBody = document.getElementById('category-intro-body');
 
   const knownCategories = (filterBar?.dataset.knownCategories || '').split(',').filter(Boolean);
   const knownTags = (filterBar?.dataset.knownTags || '').split(',').filter(Boolean);
@@ -310,6 +384,19 @@ function formatTag(tag: string) {
     });
   }
 
+  function syncIntro() {
+    if (!introEl || !introLabel || !introBody) return;
+    if (activeCategory && categoryIntros[activeCategory]) {
+      introLabel.textContent = categoryLabel[activeCategory] ?? activeCategory;
+      introBody.textContent = categoryIntros[activeCategory];
+      introEl.classList.remove('hidden');
+    } else {
+      introEl.classList.add('hidden');
+      introLabel.textContent = '';
+      introBody.textContent = '';
+    }
+  }
+
   function updateUrl() {
     const params = new URLSearchParams();
     if (activeCategory) params.set('category', activeCategory);
@@ -335,6 +422,7 @@ function formatTag(tag: string) {
     hintEl?.classList.toggle('hidden', !filtered);
     emptyEl?.classList.toggle('hidden', visible > 0);
     syncChipUI();
+    syncIntro();
     updateUrl();
   }
 
@@ -375,5 +463,8 @@ function formatTag(tag: string) {
   if (qTag && knownTags.includes(qTag)) activeTag = qTag;
 
   if (activeCategory || activeTag) applyFilters();
-  else syncChipUI();
+  else {
+    syncChipUI();
+    syncIntro();
+  }
 </script>

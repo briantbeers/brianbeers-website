@@ -16,7 +16,6 @@ tags:
 - delivery-labor
 - damage-liability
 - seasonality
-- weather
 doors:
 - buy
 buyerTypes:

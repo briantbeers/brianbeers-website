@@ -17,7 +17,6 @@ tags:
 - churn
 - sales-pipeline
 - certification-theater
-- b2b-sales
 - business-services
 doors:
 - buy

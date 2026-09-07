@@ -16,7 +16,6 @@ tags:
 - vendor-stack
 - churn
 - cybersecurity
-- b2b-sales
 - business-services
 doors:
 - buy

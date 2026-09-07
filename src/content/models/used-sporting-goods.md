@@ -11,7 +11,6 @@ tags:
 - buy-sell-trade
 - resale
 - retail
-- inventory-turns
 - seasonal-skus
 - ticket-mix
 - sports-equipment

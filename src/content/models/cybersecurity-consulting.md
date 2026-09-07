@@ -10,13 +10,11 @@ tags:
 - cybersecurity-consulting
 - vciso
 - mssp
-- compliance
 - assessments
 - penetration-testing
 - talent-war
 - liability
 - tool-stack
-- b2b-sales
 - recurring-vs-project
 - business-services
 doors:

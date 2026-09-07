@@ -15,7 +15,6 @@ tags:
 - transitions
 - downsizing
 - listing
-- compliance
 - real-estate-ops
 doors:
 - buy

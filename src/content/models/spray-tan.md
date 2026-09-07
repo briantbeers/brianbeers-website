@@ -15,7 +15,6 @@ tags:
 - retail-hours
 - tech-labor
 - seasonality
-- rent
 - health-wellness
 - beauty
 doors:

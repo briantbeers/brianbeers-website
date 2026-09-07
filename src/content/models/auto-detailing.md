@@ -19,7 +19,6 @@ tags:
 - easy-entry
 - chemicals
 - bay-utilization
-- weather
 - auto
 doors:
 - buy

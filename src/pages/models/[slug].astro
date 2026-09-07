@@ -45,6 +45,21 @@ function youtubeIdFromUrl(url?: string): string | null {
   return null;
 }
 
+const JUNK_TAGS = new Set([
+  'inventory-turns',
+  'franchise-fees',
+  'labor',
+  'compliance',
+  'b2b-sales',
+  'B2B-sales',
+  'retail-attach',
+  'retail-attached',
+  'weather',
+  'rent',
+]);
+
+const displayTags = (model.data.tags ?? []).filter((tag) => !JUNK_TAGS.has(tag));
+
 const youtubeSources = (model.data.sources ?? []).filter((s) => s.type === 'youtube' && s.url);
 const primaryYoutube = youtubeSources[0];
 const youtubeId = youtubeIdFromUrl(primaryYoutube?.url);
@@ -61,7 +76,7 @@ const youtubeId = youtubeIdFromUrl(primaryYoutube?.url);
       <span class="rounded-full border border-border bg-white px-3 py-1 shadow-sm">
         {model.data.readMinutes} min read
       </span>
-      {model.data.tags?.map((tag) => (
+      {displayTags.map((tag) => (
         <span class="rounded-full border border-border bg-white px-3 py-1 shadow-sm">{tag}</span>
       ))}
     </div>

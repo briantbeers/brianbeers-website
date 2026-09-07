@@ -15,7 +15,6 @@ tags:
 - instructor-dependency
 - enrichment
 - seasonality
-- rent
 - parent-churn
 - education
 doors:

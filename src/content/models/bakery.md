@@ -19,7 +19,6 @@ tags:
 - early-labor
 - oven-capex
 - food-hospitality
-- franchise-fees
 doors:
 - buy
 buyerTypes:

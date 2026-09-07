@@ -12,7 +12,6 @@ tags:
 - resale
 - thrift
 - retail
-- inventory-turns
 - buy-sell
 - consignment-contrast
 - gear

@@ -14,7 +14,6 @@ tags:
 - routes
 - density
 - trust
-- weather
 - van-capex
 - booking-churn
 - insurance

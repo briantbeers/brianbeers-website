@@ -14,7 +14,6 @@ tags:
 - station-utilization
 - hygiene
 - ventilation
-- retail-attach
 - no-shows
 - health-wellness
 - beauty

@@ -15,7 +15,6 @@ tags:
 - PT-recruiting
 - PTA
 - CapEx
-- compliance
 - Medicare
 - commercial-payer
 - health-wellness

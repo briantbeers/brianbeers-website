@@ -12,7 +12,6 @@ tags:
 - boutique-studio
 - membership
 - churn
-- rent
 - trainers
 - CapEx
 - CAC

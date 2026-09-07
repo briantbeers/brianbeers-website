@@ -14,7 +14,6 @@ tags:
 - wage-markup
 - payroll-float
 - workers-comp
-- B2B-sales
 - cyclical
 - light-industrial
 - business-services

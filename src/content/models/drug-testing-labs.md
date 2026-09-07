@@ -12,10 +12,8 @@ tags:
 - DOT
 - CLIA
 - employer-accounts
-- B2B-sales
 - background-screening
 - occupational-health
-- compliance
 - collections
 - business-services
 doors:

@@ -17,7 +17,6 @@ tags:
 - pastry-waste
 - food-hospitality
 - espresso
-- franchise-fees
 doors:
 - buy
 buyerTypes:

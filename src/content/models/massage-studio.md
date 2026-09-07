@@ -12,9 +12,7 @@ tags:
 - membership
 - therapist-labor
 - utilization
-- retail-attach
 - no-shows
-- rent
 - insurance
 - LMT
 - health-wellness

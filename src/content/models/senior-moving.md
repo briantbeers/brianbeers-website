@@ -10,7 +10,6 @@ tags:
 - senior-moving
 - residential-moving
 - trucks
-- labor
 - damage-claims
 - referrals
 - seasonality
