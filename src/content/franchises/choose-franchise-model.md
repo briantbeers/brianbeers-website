@@ -2,17 +2,13 @@
 title: How to Choose a Franchise Model That Fits You
 description: Build a requirements vs nice-to-haves vs deal-killers checklist — goals, capital, industry, cash flow, scale, and franchisor fit.
 slug: choose-franchise-model
-publish: false
-status: draft
-kind: guide
+publish: true
+status: ready
 tags: [franchise, buying]
 doors: [buy]
 readMinutes: 11
 updated: 2026-09-07
 ---
-
-# How to Choose a Franchise Model That Fits You
-
 Almost no brand will check every box. The job is to find one that checks **enough** of *your* boxes — and to know which misses are deal killers.
 
 Use three columns on a single page: **Requirements**, **Nice-to-haves**, **Deal killers**. Update it as you learn. Then compare brands against the sheet, not against each other’s sales decks.

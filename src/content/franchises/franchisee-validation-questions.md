@@ -2,17 +2,13 @@
 title: "Franchisee Validation Questions: How to Run the Calls"
 description: How to validate a franchise with current and former owners — process tips plus a few sample questions. Full list available on request.
 slug: franchisee-validation-questions
-publish: false
-status: draft
-kind: guide
+publish: true
+status: ready
 tags: [franchise, buying]
 doors: [buy]
 readMinutes: 9
 updated: 2026-09-07
 ---
-
-# Franchisee Validation Questions: How to Run the Calls
-
 Validation is where brochure claims meet Tuesday afternoon reality. Talk to owners who run the business the way **you** plan to — same owner-operator vs GM model, similar market type, similar growth ambition.
 
 This page teaches *how* to validate and shares a **short sample** of questions. The complete list stays gated. See also [due diligence](/franchises/franchise-due-diligence) and [franchisor questions](/franchises/questions-for-franchisor).

@@ -2,17 +2,13 @@
 title: Questions to Ask a Franchisor (Before You Fall in Love)
 description: How to interview franchisors with evidence-based questions — sample prompts in-page; full list of 25 available on request.
 slug: questions-for-franchisor
-publish: false
-status: draft
-kind: guide
+publish: true
+status: ready
 tags: [franchise, buying]
 doors: [buy]
 readMinutes: 8
 updated: 2026-09-07
 ---
-
-# Questions to Ask a Franchisor (Before You Fall in Love)
-
 Franchisor calls are easy to turn into sales theater. Your job is to collect **evidence**, names, and promised follow-ups — then verify with the FDD and owners.
 
 Use this with your [model checklist](/franchises/choose-franchise-model) and [due diligence](/franchises/franchise-due-diligence) plan. Full list of 25 stays gated.

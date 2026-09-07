@@ -2,17 +2,13 @@
 title: "Franchise Pro Forma: Break-Even and Working Capital"
 description: How to build a calm franchise pro forma — sales cases, margins, fees, break-even, and a 10–20% working-capital cushion. No earnings promises.
 slug: franchise-pro-forma
-publish: false
-status: draft
-kind: guide
+publish: true
+status: ready
 tags: [franchise, buying]
 doors: [buy]
 readMinutes: 11
 updated: 2026-09-07
 ---
-
-# Franchise Pro Forma: Break-Even and Working Capital
-
 A pro forma is not a prediction of what *you* will make. It is a decision tool: under boring assumptions, when does cash stop bleeding, and how much runway do you need before then?
 
 Watch: [How to Build A Franchise Financial Model](https://www.youtube.com/watch?v=-YjB0SEILwk) · [When will my franchise start making money?](https://www.youtube.com/watch?v=NkLZnLJ3-oU)

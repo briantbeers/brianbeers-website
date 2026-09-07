@@ -73,4 +73,20 @@ const articles = defineCollection({
   }),
 });
 
-export const collections = { models, articles };
+
+const franchises = defineCollection({
+  loader: glob({ pattern: '**/*.{md,mdx,mdoc}', base: './src/content/franchises' }),
+  schema: z.object({
+    title: z.string(),
+    slug: z.string().optional(),
+    description: z.string(),
+    publish: z.boolean(),
+    status: statusEnum,
+    readMinutes: z.number().int().positive(),
+    tags: z.array(z.string()).optional(),
+    doors: z.array(doorEnum).optional(),
+    updated: z.coerce.date().optional(),
+  }),
+});
+
+export const collections = { models, articles, franchises };

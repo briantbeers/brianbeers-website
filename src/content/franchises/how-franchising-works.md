@@ -2,17 +2,13 @@
 title: "How Franchising Works: Fees, Territory, and the Agreement"
 description: Plain-English overview of what a franchise is — franchise fees, royalties, territory, and agreement basics — before you diligence a brand.
 slug: how-franchising-works
-publish: false
-status: draft
-kind: guide
+publish: true
+status: ready
 tags: [franchise, buying]
 doors: [buy]
 readMinutes: 9
 updated: 2026-09-07
 ---
-
-# How Franchising Works: Fees, Territory, and the Agreement
-
 A franchise is a licensed way to operate someone else’s brand and system. You pay for the right to use the brand, follow the playbook, and receive defined support. In return, you accept rules — on products, marketing, territory, and how (and when) you can sell or leave.
 
 This page is orientation only. For tradeoffs versus building or buying independent, see [Is buying a franchise worth it?](/franchises/is-buying-a-franchise-worth-it). For the full process map, return to the [complete guide](/franchises).

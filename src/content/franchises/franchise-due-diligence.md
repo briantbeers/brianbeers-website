@@ -2,17 +2,13 @@
 title: "Franchise Due Diligence: Leadership, FDD, Ops, and Growth"
 description: A practical diligence plan — start with leadership, then FDD Items 1, 3, 5–8, 12, 15, 17, 19, 20, plus ops and growth frames. Sample questions only.
 slug: franchise-due-diligence
-publish: false
-status: draft
-kind: guide
+publish: true
+status: ready
 tags: [franchise, buying]
 doors: [buy]
 readMinutes: 14
 updated: 2026-09-07
 ---
-
-# Franchise Due Diligence: Leadership, FDD, Ops, and Growth
-
 Due diligence is how you replace marketing with evidence. The best model on paper fails without strong leadership and support. Use this as a reading and questioning plan — then deepen with [validation](/franchises/franchisee-validation-questions) and [franchisor interviews](/franchises/questions-for-franchisor).
 
 Back to the [complete guide](/franchises).

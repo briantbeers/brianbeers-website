@@ -1,0 +1,130 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const all = (await getCollection('franchises')).filter(
+  (p) => p.data.publish && (p.data.status === 'ready' || p.data.status === 'published')
+);
+
+const order = [
+  'how-franchising-works',
+  'is-buying-a-franchise-worth-it',
+  'choose-franchise-model',
+  'franchise-due-diligence',
+  'franchisee-validation-questions',
+  'questions-for-franchisor',
+  'franchise-funding',
+  'franchise-pro-forma',
+  'franchise-discovery-day',
+  'franchise-red-flags-risks',
+  'franchise-attorney-decision',
+];
+
+function slugOf(p: (typeof all)[number]) {
+  return p.data.slug ?? p.id.replace(/\.(md|mdx|mdoc)$/, '');
+}
+
+const bySlug = new Map(all.map((p) => [slugOf(p), p]));
+const steps = order
+  .map((s, i) => {
+    const p = bySlug.get(s);
+    return p
+      ? { n: i + 1, slug: s, title: p.data.title, description: p.data.description }
+      : null;
+  })
+  .filter(Boolean) as { n: number; slug: string; title: string; description: string }[];
+---
+<BaseLayout
+  title="How to Buy a Franchise: The Complete Guide — Brian Beers"
+  description="A calm, practical franchise buying process — from how franchising works to diligence, funding, Discovery Day, and go/no-go."
+>
+  <section class="section !pb-8">
+    <nav class="text-sm text-navy/50" aria-label="Breadcrumb">
+      <a href="/buy" class="font-medium hover:text-accent">Buy</a>
+      <span class="mx-2">/</span>
+      <span class="text-navy/70">Franchises</span>
+    </nav>
+    <p class="mt-6 text-sm font-semibold uppercase tracking-wider text-accent">Buy · Franchises</p>
+    <h1 class="mt-2 text-4xl font-bold tracking-tight text-navy sm:text-5xl">
+      How to Buy a Franchise: The Complete Guide
+    </h1>
+    <p class="mt-5 text-lg leading-relaxed text-navy/75 max-w-3xl">
+      Buying a franchise is one way to own a business without inventing the playbook from scratch. It is still a real
+      business — with capital risk, people problems, and a long agreement. This hub walks the buying process so you can
+      decide whether franchising fits, then diligence it carefully.
+    </p>
+    <p class="mt-4 text-sm leading-relaxed text-navy/60 max-w-3xl">
+      Guidance here is shaped by years as a multi-unit franchisee / operator and by helping buyers compare vehicles. It is
+      <strong class="font-semibold text-navy/70">education</strong>, not a pitch for any brand. Still comparing doors?
+      Start at <a href="/buy" class="font-semibold text-accent hover:text-accent-hover">Buy</a> and browse
+      <a href="/models" class="font-semibold text-accent hover:text-accent-hover">business models</a> alongside this hub.
+    </p>
+    <p class="mt-6 text-sm text-navy/70">
+      Watch:
+      <a class="font-semibold text-accent hover:text-accent-hover" href="https://www.youtube.com/watch?v=wAwo3a7dJsI" target="_blank" rel="noopener">Step-by-step buy guide</a>
+      ·
+      <a class="font-semibold text-accent hover:text-accent-hover" href="https://www.youtube.com/watch?v=ZT95xzXi3Vg" target="_blank" rel="noopener">Is buying a franchise worth it?</a>
+      ·
+      <a class="font-semibold text-accent hover:text-accent-hover" href="https://www.youtube.com/watch?v=SWd_f_kwQeU" target="_blank" rel="noopener">How to buy a franchise</a>
+      ·
+      <a class="font-semibold text-accent hover:text-accent-hover" href="https://www.youtube.com/watch?v=1TYwzZ8QhHs" target="_blank" rel="noopener">Beginner process</a>
+    </p>
+  </section>
+
+  <section class="section !pt-0">
+    <h2 class="text-2xl font-bold text-navy">The buying process at a glance</h2>
+    <p class="mt-3 text-navy/70 max-w-3xl">
+      Orient → define your box → talk to brands → read the FDD → validate with owners → model the money → line up capital →
+      Discovery Day → attorney → build. You will loop — that is normal.
+    </p>
+    <ol class="mt-8 grid gap-4">
+      {steps.map((s) => (
+        <li class="rounded-xl border border-border bg-white p-5 shadow-sm">
+          <div class="flex flex-wrap items-baseline gap-3">
+            <span class="text-sm font-semibold uppercase tracking-wider text-accent">Step {s.n}</span>
+            <a href={`/franchises/${s.slug}`} class="text-lg font-bold text-navy hover:text-accent">
+              {s.title}
+            </a>
+          </div>
+          <p class="mt-2 text-sm leading-relaxed text-navy/65">{s.description}</p>
+          <a href={`/franchises/${s.slug}`} class="mt-3 inline-block text-sm font-semibold text-accent hover:text-accent-hover">
+            Read guide →
+          </a>
+        </li>
+      ))}
+    </ol>
+
+    <div class="mt-12 grid gap-4 sm:grid-cols-2">
+      <div class="rounded-xl border border-border bg-white p-5 shadow-sm">
+        <h3 class="font-semibold text-navy">What “good” looks like before you sign</h3>
+        <ul class="mt-3 list-disc space-y-2 pl-5 text-sm text-navy/70">
+          <li>Model matches capital, skills, lifestyle, and scale goals</li>
+          <li>Leadership invests in support at least as fast as they sell units</li>
+          <li>FDD you understand with counsel — not one you skimmed</li>
+          <li>Validation from owners who run it the way you plan to</li>
+          <li>Pro forma with boring assumptions and spare working capital</li>
+          <li>A written go/no-go list you are willing to walk from</li>
+        </ul>
+      </div>
+      <div class="rounded-xl border border-border bg-white p-5 shadow-sm">
+        <h3 class="font-semibold text-navy">Lead magnets (soft)</h3>
+        <p class="mt-3 text-sm leading-relaxed text-navy/70">
+          Sample diligence and validation questions live on the guides. Want the complete question packs?
+          <a href="/contact" class="font-semibold text-accent hover:text-accent-hover">Contact</a> and ask — we’ll keep the full lists off the public pages on purpose.
+        </p>
+        <div class="mt-5 flex flex-wrap gap-3">
+          <a href="/contact" class="btn-primary">Contact</a>
+          <a href="/models" class="btn-secondary">Compare models</a>
+          <a href="/buy" class="btn-secondary">Back to Buy</a>
+        </div>
+      </div>
+    </div>
+
+    <p class="mt-10 text-xs leading-relaxed text-navy/50 max-w-3xl">
+      Educational only — not financial, legal, or tax advice. Franchise outcomes vary. Before you decide: read the current
+      FDD, talk with franchise counsel, and review numbers with your CPA. Brian Beers is a multi-unit franchisee / operator
+      and may act as an independent franchise consultant; he may be compensated by franchisors if introductions convert.
+      That does not change your duty to run your own diligence. Not an offer to sell a franchise and not earnings claims.
+    </p>
+  </section>
+</BaseLayout>

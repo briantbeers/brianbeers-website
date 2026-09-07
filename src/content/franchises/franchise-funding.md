@@ -2,17 +2,13 @@
 title: "Franchise Funding Options: Building a Capital Stack"
 description: Educational overview of franchise capital sources — cash, HELOC, stock loans, 401k rollover caveats, SBA, equipment, friends and family — with calm pros and cons.
 slug: franchise-funding
-publish: false
-status: draft
-kind: guide
+publish: true
+status: ready
 tags: [franchise, buying]
 doors: [buy]
 readMinutes: 12
 updated: 2026-09-07
 ---
-
-# Franchise Funding Options: Building a Capital Stack
-
 Most buyers blend sources. The goal is a stack that covers startup **and** runway — then add roughly **10–20%** working-capital cushion on top of what you think you need ([pro forma](/franchises/franchise-pro-forma)).
 
 This is education, not a loan offer or vendor endorsement. Talk to your CPA, lender, and counsel before you move money. Hub: [complete guide](/franchises).

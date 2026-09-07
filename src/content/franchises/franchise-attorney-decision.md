@@ -2,17 +2,13 @@
 title: Franchise Attorney Review and Go/No-Go Decision
 description: When to hire franchise counsel, what to review, entity/structure notes, and a calm go/no-go framework before you sign.
 slug: franchise-attorney-decision
-publish: false
-status: draft
-kind: guide
+publish: true
+status: ready
 tags: [franchise, buying]
 doors: [buy]
 readMinutes: 9
 updated: 2026-09-07
 ---
-
-# Franchise Attorney Review and Go/No-Go Decision
-
 If diligence still looks solid after owners, numbers, and Discovery Day, pay for franchise-specific counsel before you sign. A general business lawyer who rarely touches FDDs is not the same tool.
 
 This is process education — **not** legal advice. Hub: [complete guide](/franchises).

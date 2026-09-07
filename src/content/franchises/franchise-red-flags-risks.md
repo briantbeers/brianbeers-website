@@ -2,17 +2,13 @@
 title: Franchise Red Flags and Risks Buyers Miss
 description: "Calm risk filter: litigation patterns, growth vs support mismatch, Item 19 misuse, NDAs for former franchisees, and other walk-away signals."
 slug: franchise-red-flags-risks
-publish: false
-status: draft
-kind: guide
+publish: true
+status: ready
 tags: [franchise, buying]
 doors: [buy]
 readMinutes: 10
 updated: 2026-09-07
 ---
-
-# Franchise Red Flags and Risks Buyers Miss
-
 Red flags are not automatic “never buy” stamps. They are signals to slow down, dig deeper, or walk. Pair this filter with [due diligence](/franchises/franchise-due-diligence) and your [Discovery Day debrief](/franchises/franchise-discovery-day).
 
 Watch: [4 Biggest Mistakes Franchisees Make](https://www.youtube.com/watch?v=_3Z1gUwhLBE) · [The Biggest SCAM in Franchising](https://www.youtube.com/watch?v=JXC1fHqmO5g)

@@ -2,17 +2,13 @@
 title: Is Buying a Franchise Worth It?
 description: "Honest tradeoffs: franchise vs independent start vs SMB acquisition — what you gain, what you give up, and the main risks."
 slug: is-buying-a-franchise-worth-it
-publish: false
-status: draft
-kind: guide
+publish: true
+status: ready
 tags: [franchise, buying]
 doors: [buy]
 readMinutes: 10
 updated: 2026-09-07
 ---
-
-# Is Buying a Franchise Worth It?
-
 “Worth it” is personal. A franchise can be a strong vehicle when you want a tested playbook, brand recognition, and a peer network — and you are willing to pay fees and follow rules. It can be a poor fit when you need full creative control, hate royalties, or are chasing a passive fantasy.
 
 This page compares doors. It does not crown a winner. For foundations, see [how franchising works](/franchises/how-franchising-works). For the process, use the [complete guide](/franchises).

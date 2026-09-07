@@ -2,17 +2,13 @@
 title: "Franchise Discovery Day: What to Look For (and How to Debrief)"
 description: A practical Discovery Day framework — people, proof vs promises, ops, marketing, numbers vs FDD, territory, support, red flags, and go/no-go.
 slug: franchise-discovery-day
-publish: false
-status: draft
-kind: guide
+publish: true
+status: ready
 tags: [franchise, buying]
 doors: [buy]
 readMinutes: 12
 updated: 2026-09-07
 ---
-
-# Franchise Discovery Day: What to Look For (and How to Debrief)
-
 Discovery Day is not a vacation with a logo. Go in with a checklist; leave with **proof**, not vibes. Debrief the same day — while details are fresh — using the sections below.
 
 Prerequisites: [due diligence](/franchises/franchise-due-diligence), [validation](/franchises/franchisee-validation-questions), and a draft [pro forma](/franchises/franchise-pro-forma). Hub: [complete guide](/franchises).
