@@ -7,16 +7,12 @@ const contactEndpoint =
 ---
 <BaseLayout
   title="Contact — Brian Beers"
-  description="Reach out to Brian Beers — soft CTA, educational conversation only."
+  description="Contact Brian Beers."
 >
   <section class="section max-w-2xl">
-    <p class="text-sm font-semibold uppercase tracking-wider text-accent">Contact</p>
-    <h1 id="contact-heading" class="mt-2 text-4xl font-bold tracking-tight text-navy">
-      Let’s talk
+    <h1 id="contact-heading" class="text-4xl font-bold tracking-tight text-navy">
+      Contact me
     </h1>
-    <p id="contact-lead" class="mt-4 text-lg leading-relaxed text-navy/75">
-      Share where you are and what you’re figuring out. Soft CTA only — no pitch dump, no earnings promises.
-    </p>
 
     <div
       id="contact-success"
@@ -24,10 +20,7 @@ const contactEndpoint =
       role="status"
       aria-live="polite"
     >
-      <p class="text-lg font-semibold text-navy">Thanks — message sent.</p>
-      <p id="contact-success-detail" class="mt-2 text-navy/75">
-        We’ll get back to you soon. Educational conversation only — not financial advice.
-      </p>
+      <p id="contact-success-title" class="text-lg font-semibold text-navy">Message received.</p>
     </div>
 
     <form
@@ -105,10 +98,7 @@ const contactEndpoint =
       <button id="contact-submit" type="submit" class="btn-primary w-full sm:w-auto">
         Send message
       </button>
-      <p class="text-xs leading-relaxed text-navy/50">
-        No spam. Messages go to the team at Beers Podcast — educational conversation only, not
-        financial advice or earnings claims.
-      </p>
+      <p class="text-xs leading-relaxed text-navy/50">No spam.</p>
     </form>
   </section>
 
@@ -128,12 +118,11 @@ const contactEndpoint =
     const interest = document.getElementById('interest');
     const message = document.getElementById('message');
     const heading = document.getElementById('contact-heading');
-    const lead = document.getElementById('contact-lead');
     const submit = document.getElementById('contact-submit');
     const intentSlot = document.getElementById('intent-slot');
     const form = document.getElementById('contact-form');
     const successEl = document.getElementById('contact-success');
-    const successDetail = document.getElementById('contact-success-detail');
+    const successTitle = document.getElementById('contact-success-title');
     const errorEl = document.getElementById('contact-error');
 
     const defaultSubmitLabel = submit?.textContent || 'Send message';
@@ -144,10 +133,6 @@ const contactEndpoint =
 
     if (isGuide) {
       if (heading) heading.textContent = 'Get the free guide';
-      if (lead) {
-        lead.textContent =
-          'Leave your details for The Copy-Paste Millionaire free guide. We’ll follow up with delivery details.';
-      }
       if (interest instanceof HTMLSelectElement) interest.value = 'guide';
       if (message instanceof HTMLTextAreaElement && !message.value) {
         message.value = 'Please send The Copy-Paste Millionaire free guide when it is ready.';
@@ -156,9 +141,8 @@ const contactEndpoint =
       if (intentSlot) {
         intentSlot.innerHTML = '<input type="hidden" name="intent" value="guide" />';
       }
-      if (successDetail) {
-        successDetail.textContent =
-          'Thanks for requesting the free guide. We’ll follow up with delivery details soon.';
+      if (successTitle) {
+        successTitle.textContent = 'Thanks — we’ll send the guide soon.';
       }
     }
 
