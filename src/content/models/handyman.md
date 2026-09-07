@@ -1,7 +1,7 @@
 ---
-title: Handyman / Odd Jobs
+title: Handyman
 slug: handyman
-description: "How handyman and odd-jobs service companies work — tickets, dispatch density, truck revenue bands, and upsell into projects — education only."
+description: "How handyman service companies work — tickets, dispatch density, truck revenue bands, and upsell into projects — education only."
 category: home-services
 status: ready
 publish: true
