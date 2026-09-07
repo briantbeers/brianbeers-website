@@ -7,16 +7,7 @@ status: ready
 publish: true
 readMinutes: 14
 tags:
-- kids-fitness
-- play-gym
-- childrens-fitness
-- class-packs
-- birthday-parties
-- instructor-dependency
-- enrichment
-- seasonality
-- parent-churn
-- education
+- seasonal
 doors:
 - buy
 buyerTypes:

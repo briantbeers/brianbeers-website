@@ -6,17 +6,7 @@ category: food-hospitality
 status: ready
 publish: true
 readMinutes: 14
-tags:
-- smoothie
-- juice-bar
-- produce-cost
-- waste
-- throughput
-- daypart
-- blender
-- food-hospitality
-- delivery-platforms
-- fitness-adjacency
+tags: []
 doors:
 - buy
 buyerTypes:

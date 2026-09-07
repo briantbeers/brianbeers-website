@@ -6,19 +6,7 @@ category: other
 status: ready
 publish: true
 readMinutes: 14
-tags:
-- wine-paint
-- paint-and-sip
-- experience-studio
-- private-parties
-- instructor-quality
-- retail-wine
-- weekday-softness
-- alcohol-licensing
-- materials-cogs
-- event-booking
-- corporate-team-building
-- experiential
+tags: []
 doors:
 - buy
 buyerTypes:

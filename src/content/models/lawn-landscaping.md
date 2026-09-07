@@ -7,14 +7,10 @@ status: ready
 publish: true
 readMinutes: 12
 tags:
-- lawn-care
-- landscaping
-- recurring-routes
-- project-install
-- home-services
-- crew-management
-- seasonality
-- maintenance
+- recurring-revenue
+- seasonal
+- project-based
+- route-based
 doors:
 - buy
 buyerTypes:

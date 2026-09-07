@@ -7,16 +7,7 @@ status: ready
 publish: true
 readMinutes: 14
 tags:
-- tax-preparation
-- bookkeeping
 - seasonal
-- PTIN
-- refund-products
-- DIY-software
-- strip-center
-- CPA
-- business-services
-- preparer-recruiting
 doors:
 - buy
 buyerTypes:

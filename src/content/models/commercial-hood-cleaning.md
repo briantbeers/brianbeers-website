@@ -7,19 +7,9 @@ status: ready
 publish: true
 readMinutes: 13
 tags:
-- commercial-hood-cleaning
-- kitchen-exhaust
-- nfpa-96
-- fire-code
-- recurring-contracts
-- night-work
-- b2b-contracts
-- restaurant-services
-- grease-cleaning
-- height-chemical
-- insurance-heavy
-- contract-sales
-- concentration-risk
+- recurring-revenue
+- insurance-driven
+- b2b
 doors:
 - buy
 buyerTypes:

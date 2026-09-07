@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
+import fs from 'node:fs';
+import path from 'node:path';
 
 const categoryLabel: Record<string, string> = {
   'home-services': 'Home Services',
@@ -44,36 +46,32 @@ const homeServicesPriority = [
   'auto-repair',
 ];
 
-const TAG_NOISE = new Set([
-  'home-services',
-  'retail-resale',
-  'auto',
-  'business-services',
-  'real-estate-ops',
-  'education',
-  'senior-care',
-  'food-hospitality',
-  'health-wellness',
-  'other',
-  'retail',
-  'buy',
-  'franchise',
-  // junk / low-signal chips (exact kebab + common label variants)
-  'inventory-turns',
-  'inventory turns',
-  'franchise-fees',
-  'franchise fees',
-  'labor',
-  'compliance',
-  'b2b-sales',
-  'b2b sales',
-  'retail-attach',
-  'retail attach',
-  'retail-attached',
-  'retail attached',
-  'weather',
-  'rent',
+/** Business-type tags only (defense in depth). */
+const ALLOWED_TAGS = new Set([
+  "recurring-revenue",
+  "easy-entry",
+  "seasonal",
+  "high-ticket",
+  "project-based",
+  "route-based",
+  "insurance-driven",
+  "emergency",
+  "membership",
+  "b2b",
 ]);
+
+const TAG_LABELS: Record<string, string> = {
+  "recurring-revenue": "Recurring Revenue",
+  "easy-entry": "Easy Entry",
+  seasonal: "Seasonal",
+  "high-ticket": "High Ticket",
+  "project-based": "Project Based",
+  "route-based": "Route Based",
+  "insurance-driven": "Insurance Driven",
+  emergency: "Emergency",
+  membership: "Membership",
+  b2b: "B2B",
+};
 
 const categoryIntros: Record<string, string> = {
   'home-services':
@@ -126,8 +124,21 @@ function priorityIndex(slug: string) {
   return i === -1 ? homeServicesPriority.length : i;
 }
 
+/** Build-time inventory of per-slug covers (public/ is not Vite-importable). */
+const categoryCoverSlugs = new Set(Object.keys(categoryCover));
+const coversDir = path.join(process.cwd(), 'public/models/covers');
+const slugCoverSet = new Set(
+  (fs.existsSync(coversDir) ? fs.readdirSync(coversDir) : [])
+    .filter((f) => /\.jpe?g$/i.test(f))
+    .map((f) => f.replace(/\.jpe?g$/i, ''))
+    .filter((s) => s && !categoryCoverSlugs.has(s))
+);
+
 function coverFor(slug: string, category: string) {
-  return slugCoverOverrides[slug] ?? categoryCover[category] ?? categoryCover.other;
+  // Keep used-clothing rack overrides when those files are configured.
+  if (slugCoverOverrides[slug]) return slugCoverOverrides[slug];
+  if (slugCoverSet.has(slug)) return `/models/covers/${slug}.jpg`;
+  return categoryCover[category] ?? categoryCover.other;
 }
 
 const allPublished = (await getCollection('models')).filter(
@@ -165,14 +176,13 @@ const tagFreq = new Map<string, number>();
 for (const m of allPublished) {
   for (const t of m.data.tags ?? []) {
     const key = t.trim().toLowerCase();
-    if (!key || TAG_NOISE.has(key)) continue;
+    if (!key || !ALLOWED_TAGS.has(key)) continue;
     tagFreq.set(key, (tagFreq.get(key) ?? 0) + 1);
   }
 }
 
 const popularTags = [...tagFreq.entries()]
   .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
-  .slice(0, 16)
   .map(([tag, count]) => ({ tag, count }));
 
 const total = models.length;
@@ -180,11 +190,14 @@ const knownCategoryValues = categoriesByCount.map(([cat]) => cat);
 const knownTagValues = popularTags.map((t) => t.tag);
 
 function formatTag(tag: string) {
-  return tag
-    .split(/[-_/]/)
-    .filter(Boolean)
-    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
-    .join(' ');
+  return (
+    TAG_LABELS[tag] ??
+    tag
+      .split(/[-_/]/)
+      .filter(Boolean)
+      .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+      .join(' ')
+  );
 }
 ---
 <BaseLayout
@@ -269,7 +282,9 @@ function formatTag(tag: string) {
     <div id="models-grid" class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {models.map((model) => {
         const slug = modelPath(model);
-        const tags = (model.data.tags ?? []).map((t) => t.trim().toLowerCase()).filter(Boolean);
+        const tags = (model.data.tags ?? [])
+          .map((t) => t.trim().toLowerCase())
+          .filter((t) => t && ALLOWED_TAGS.has(t));
         const desc = model.data.description.replace(/\s+/g, ' ').trim();
         const shortDesc = desc.length > 90 ? desc.slice(0, 87).replace(/\s+\S*$/, '') + '…' : desc;
         const cover = coverFor(slug, model.data.category);

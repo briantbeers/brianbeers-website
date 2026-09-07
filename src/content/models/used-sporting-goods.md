@@ -7,14 +7,7 @@ status: ready
 publish: true
 readMinutes: 12
 tags:
-- used-sporting-goods
-- buy-sell-trade
-- resale
-- retail
-- seasonal-skus
-- ticket-mix
-- sports-equipment
-- fitness-gear
+- seasonal
 doors:
 - buy
 buyerTypes:

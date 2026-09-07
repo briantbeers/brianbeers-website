@@ -7,16 +7,8 @@ status: ready
 publish: true
 readMinutes: 12
 tags:
-- flooring-install
-- flooring
-- home-services
 - high-ticket
-- project-sales
-- materials
-- manufacturer-programs
-- showroom
-- mobile
-- crew-utilization
+- project-based
 doors:
 - buy
 buyerTypes:

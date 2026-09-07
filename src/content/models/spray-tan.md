@@ -7,16 +7,8 @@ status: ready
 publish: true
 readMinutes: 14
 tags:
-- spray-tan
-- beauty-express
-- sunless-tan
+- seasonal
 - membership
-- throughput
-- retail-hours
-- tech-labor
-- seasonality
-- health-wellness
-- beauty
 doors:
 - buy
 buyerTypes:

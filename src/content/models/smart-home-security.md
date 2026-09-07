@@ -7,18 +7,7 @@ status: ready
 publish: true
 readMinutes: 13
 tags:
-- smart-home
-- home-security
-- alarm
-- cameras
-- monitoring
-- residuals
-- rmr
-- lead-gen
-- install-labor
-- home-automation
-- low-voltage
-- home-services
+- recurring-revenue
 doors:
 - buy
 buyerTypes:

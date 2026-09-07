@@ -6,14 +6,7 @@ category: home-services
 status: ready
 publish: true
 readMinutes: 11
-tags:
-- drain-cleaning
-- sewer
-- jetter
-- camera-inspection
-- home-services
-- plumber-referrals
-- commercial-maintenance
+tags: []
 doors:
 - buy
 buyerTypes:

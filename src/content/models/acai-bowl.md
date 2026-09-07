@@ -7,17 +7,7 @@ status: ready
 publish: true
 readMinutes: 14
 tags:
-- acai
-- bowl-concepts
-- ingredient-cost
-- speed-of-service
-- trendy-cac
-- toppings
-- pulp
-- food-hospitality
-- delivery-platforms
-- seasonality
-- copycats
+- seasonal
 doors:
 - buy
 buyerTypes:

@@ -6,17 +6,7 @@ category: health-wellness
 status: ready
 publish: true
 readMinutes: 14
-tags:
-- nail-salon
-- manicure
-- pedicure
-- nail-tech
-- station-utilization
-- hygiene
-- ventilation
-- no-shows
-- health-wellness
-- beauty
+tags: []
 doors:
 - buy
 buyerTypes:

@@ -6,18 +6,7 @@ category: retail-resale
 status: ready
 publish: true
 readMinutes: 12
-tags:
-- electronics-buy-sell
-- used-electronics
-- device-buyback
-- phones
-- buy-sell-trade
-- resale
-- retail
-- price-volatility
-- testing
-- fraud
-- warranty
+tags: []
 doors:
 - buy
 buyerTypes:

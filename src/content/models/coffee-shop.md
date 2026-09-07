@@ -6,17 +6,7 @@ category: food-hospitality
 status: ready
 publish: true
 readMinutes: 14
-tags:
-- coffee
-- snack-shop
-- daypart
-- barista-labor
-- drive-thru
-- site-selection
-- throughput
-- pastry-waste
-- food-hospitality
-- espresso
+tags: []
 doors:
 - buy
 buyerTypes:

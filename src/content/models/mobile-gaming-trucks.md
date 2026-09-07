@@ -7,18 +7,8 @@ status: ready
 publish: true
 readMinutes: 14
 tags:
-- mobile-gaming-trucks
-- game-truck
-- video-game-party
-- events
-- vehicle-capex
-- seasonal-calendar
-- generator
-- booking-pipeline
-- tech-refresh
-- insurance
-- weekend-concentration
-- deposits
+- seasonal
+- insurance-driven
 doors:
 - buy
 buyerTypes:

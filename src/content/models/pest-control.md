@@ -7,13 +7,8 @@ status: ready
 publish: true
 readMinutes: 12
 tags:
-- pest-control
-- recurring-routes
-- home-services
-- chemical-regulatory
-- retention
-- high-ltv
-- mosquito-adjacency
+- recurring-revenue
+- route-based
 doors:
 - buy
 buyerTypes:

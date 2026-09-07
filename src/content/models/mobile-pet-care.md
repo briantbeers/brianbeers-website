@@ -7,19 +7,8 @@ status: ready
 publish: true
 readMinutes: 14
 tags:
-- mobile-pet-care
-- mobile-grooming
-- dog-walking
-- pet-sitting
-- routes
-- density
-- trust
-- van-capex
-- booking-churn
-- insurance
-- bailee
-- key-person
-- health-wellness
+- route-based
+- insurance-driven
 doors:
 - buy
 buyerTypes:

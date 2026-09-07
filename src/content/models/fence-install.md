@@ -7,14 +7,8 @@ status: ready
 publish: true
 readMinutes: 11
 tags:
-- fence-install
-- fencing
-- home-services
 - high-ticket
-- project-sales
-- materials
-- crew-utilization
-- hoa
+- project-based
 doors:
 - buy
 buyerTypes:

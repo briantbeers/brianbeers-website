@@ -7,14 +7,8 @@ status: ready
 publish: true
 readMinutes: 11
 tags:
-- commercial-painting
-- painting
-- business-services
+- project-based
 - b2b
-- project-sales
-- facility-maintenance
-- bid-cycles
-- light-commercial
 doors:
 - buy
 buyerTypes:

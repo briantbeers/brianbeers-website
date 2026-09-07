@@ -6,15 +6,7 @@ category: retail-resale
 status: ready
 publish: true
 readMinutes: 11
-tags:
-- kids-clothing
-- childrens-resale
-- resale
-- thrift
-- retail
-- buy-sell
-- consignment-contrast
-- gear
+tags: []
 doors:
 - buy
 buyerTypes:

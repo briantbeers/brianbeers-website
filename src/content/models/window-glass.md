@@ -7,19 +7,8 @@ status: ready
 publish: true
 readMinutes: 14
 tags:
-- window-glass
-- architectural-glass
-- screens
-- igu-replacement
-- storefront
-- shower-doors
-- mirrors
-- insurance-claims
-- truck-inventory
-- route-density
-- small-crews
-- home-services
-- glazing
+- route-based
+- insurance-driven
 doors:
 - buy
 buyerTypes:

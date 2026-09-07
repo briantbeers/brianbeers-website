@@ -7,15 +7,7 @@ status: ready
 publish: true
 readMinutes: 13
 tags:
-- party-rentals
-- bounce-house
-- inflatables
-- event-rentals
-- asset-utilization
-- weekend-concentration
-- delivery-labor
-- damage-liability
-- seasonality
+- seasonal
 doors:
 - buy
 buyerTypes:

@@ -7,15 +7,7 @@ status: ready
 publish: true
 readMinutes: 12
 tags:
-- clothing-bins
-- textile-collection
-- wholesale-by-pound
-- route-business
-- asset-based
-- logistics
-- schools
-- placement
-- commodity-pricing
+- route-based
 doors:
 - buy
 buyerTypes:

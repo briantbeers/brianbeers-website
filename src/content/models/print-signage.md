@@ -7,18 +7,8 @@ status: ready
 publish: true
 readMinutes: 14
 tags:
-- print-signage
-- signage
-- wide-format
-- vehicle-wraps
-- b2b-accounts
-- equipment-capex
-- project-mix
-- visual-communications
-- skilled-operators
-- inventory
-- online-print-competition
-- business-services
+- project-based
+- b2b
 doors:
 - buy
 buyerTypes:

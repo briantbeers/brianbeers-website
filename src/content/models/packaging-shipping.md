@@ -7,18 +7,7 @@ status: ready
 publish: true
 readMinutes: 14
 tags:
-- packaging-shipping
-- shipping-retail
-- mailbox-rental
-- ups-fedex-contracts
-- foot-traffic
-- retail-hours
-- prepaid-labels
-- amazon-returns
-- print-attach
-- strip-center
-- business-services
-- seasonal-spikes
+- seasonal
 doors:
 - buy
 buyerTypes:

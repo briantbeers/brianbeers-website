@@ -7,20 +7,7 @@ status: ready
 publish: true
 readMinutes: 13
 tags:
-- transmission
-- specialty-repair
-- rebuild
-- remanufactured
-- tech-scarcity
-- bay-time
-- warranty
 - high-ticket
-- sparse-demand
-- aamco-adjacency
-- cottman
-- indie-rebuild
-- auto
-- diagnostics
 doors:
 - buy
 buyerTypes:

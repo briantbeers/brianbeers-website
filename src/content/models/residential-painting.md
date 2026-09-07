@@ -7,14 +7,8 @@ status: ready
 publish: true
 readMinutes: 12
 tags:
-- residential-painting
-- painting
-- interior-painting
-- exterior-painting
-- home-services
 - high-ticket
-- project-sales
-- crew-utilization
+- project-based
 doors:
 - buy
 buyerTypes:

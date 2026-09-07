@@ -6,18 +6,7 @@ category: retail-resale
 status: ready
 publish: true
 readMinutes: 14
-tags:
-- furniture-rto
-- rental-to-own
-- lease-to-own
-- furniture-retail
-- credit-risk
-- collections
-- charge-offs
-- inventory-capex
-- apr-optics
-- regulation
-- retail
+tags: []
 doors:
 - buy
 buyerTypes:

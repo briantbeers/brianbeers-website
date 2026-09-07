@@ -6,20 +6,7 @@ category: food-hospitality
 status: ready
 publish: true
 readMinutes: 15
-tags:
-- ghost-kitchen
-- delivery-only
-- virtual-brands
-- cloud-kitchen
-- platform-fees
-- rent-arbitrage
-- multi-brand
-- delivery-ratings
-- packaging
-- food-hospitality
-- marketplace
-- brand-confusion
-- thin-unit-econ
+tags: []
 doors:
 - buy
 buyerTypes:

@@ -7,16 +7,7 @@ status: ready
 publish: true
 readMinutes: 14
 tags:
-- it-msp
-- managed-services
-- mrr
 - recurring-revenue
-- tech-labor
-- ticket-load
-- vendor-stack
-- churn
-- cybersecurity
-- business-services
 doors:
 - buy
 buyerTypes:

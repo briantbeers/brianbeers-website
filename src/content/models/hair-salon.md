@@ -6,16 +6,7 @@ category: health-wellness
 status: ready
 publish: true
 readMinutes: 14
-tags:
-- hair-salon
-- barbershop
-- chair-utilization
-- stylist-retention
-- booth-rental
-- commission-salon
-- no-shows
-- health-wellness
-- quick-cut
+tags: []
 doors:
 - buy
 buyerTypes:

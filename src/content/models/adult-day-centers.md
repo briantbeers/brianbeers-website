@@ -6,17 +6,7 @@ category: senior-care
 status: ready
 publish: true
 readMinutes: 12
-tags:
-- adult-day
-- adult-day-health
-- ADS
-- ADHC
-- respite
-- occupancy
-- Medicaid
-- VA
-- senior-care
-- facility
+tags: []
 doors:
 - buy
 buyerTypes:

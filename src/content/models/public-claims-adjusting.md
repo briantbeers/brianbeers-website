@@ -7,19 +7,8 @@ status: ready
 publish: true
 readMinutes: 14
 tags:
-- public-claims-adjusting
-- public-adjuster
-- insurance-dispute
-- contingency-fee
-- storm-cycle
-- state-licensing
-- carrier-friction
-- marketing-compliance
-- working-capital
-- expertise-brand
-- xactimate
-- napia
-- business-services
+- seasonal
+- insurance-driven
 doors:
 - buy
 buyerTypes:

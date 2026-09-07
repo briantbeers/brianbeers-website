@@ -7,17 +7,7 @@ status: ready
 publish: true
 readMinutes: 15
 tags:
-- business-coaching
-- fractional-growth
-- packages
-- retainers
-- group-coaching
-- delivery-leverage
-- reputation
-- churn
-- sales-pipeline
-- certification-theater
-- business-services
+- recurring-revenue
 doors:
 - buy
 buyerTypes:

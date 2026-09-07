@@ -7,16 +7,7 @@ status: ready
 publish: true
 readMinutes: 12
 tags:
-- carpet-cleaning
-- truck-mount
-- portable
-- upholstery
-- tile-grout
-- home-services
-- marketing-heavy
-- equipment
-- one-time-vs-recurring
-- floor-care
+- recurring-revenue
 doors:
 - buy
 buyerTypes:

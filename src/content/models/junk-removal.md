@@ -7,12 +7,6 @@ status: ready
 publish: true
 readMinutes: 11
 tags:
-- junk-removal
-- hauling
-- home-services
-- truck-density
-- landfill
-- tip-fees
 - easy-entry
 doors:
 - buy

@@ -7,12 +7,7 @@ status: ready
 publish: true
 readMinutes: 11
 tags:
-- hvac
-- home-services
-- service-dispatch
-- seasonality
-- technician-scarcity
-- equipment-financing
+- seasonal
 doors:
 - buy
 buyerTypes:

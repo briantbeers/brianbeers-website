@@ -7,20 +7,7 @@ status: ready
 publish: true
 readMinutes: 14
 tags:
-- real-estate-investment
-- buy-hold
-- acquisition-reno-exit
-- capital-intensive
-- market-cycle
-- contractors
-- carrying-costs
-- interest-rates
-- liquidity
-- concentration
-- real-estate-ops
-- project-management
-- turns
-- not-passive
+- project-based
 doors:
 - buy
 buyerTypes:

@@ -6,17 +6,7 @@ category: real-estate-ops
 status: ready
 publish: true
 readMinutes: 13
-tags:
-- home-inspection
-- real-estate-ops
-- agent-referrals
-- transaction-tied
-- e-and-o
-- specialty-add-ons
-- multi-inspector
-- ashi
-- radon
-- sewer-scope
+tags: []
 doors:
 - buy
 buyerTypes:

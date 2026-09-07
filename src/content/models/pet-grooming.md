@@ -6,18 +6,7 @@ category: health-wellness
 status: ready
 publish: true
 readMinutes: 13
-tags:
-- pet-grooming
-- dog-grooming
-- pet-daycare
-- boarding
-- salon
-- mobile-grooming
-- groomer-labor
-- facility
-- liability
-- health-wellness
-- rebooking
+tags: []
 doors:
 - buy
 buyerTypes:

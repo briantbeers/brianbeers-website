@@ -7,16 +7,7 @@ status: ready
 publish: true
 readMinutes: 14
 tags:
-- hardware-home-retail
-- hardware-store
-- home-retail
-- big-box-competition
-- shrink
-- staffing
-- member-co-op
-- ace-class
-- local-retail
-- working-capital
+- membership
 doors:
 - buy
 buyerTypes:

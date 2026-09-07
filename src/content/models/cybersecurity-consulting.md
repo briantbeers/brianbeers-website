@@ -7,16 +7,7 @@ status: ready
 publish: true
 readMinutes: 15
 tags:
-- cybersecurity-consulting
-- vciso
-- mssp
-- assessments
-- penetration-testing
-- talent-war
-- liability
-- tool-stack
-- recurring-vs-project
-- business-services
+- recurring-revenue
 doors:
 - buy
 buyerTypes:

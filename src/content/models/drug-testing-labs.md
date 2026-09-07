@@ -6,16 +6,7 @@ category: business-services
 status: ready
 publish: true
 readMinutes: 14
-tags:
-- drug-testing
-- screening-labs
-- DOT
-- CLIA
-- employer-accounts
-- background-screening
-- occupational-health
-- collections
-- business-services
+tags: []
 doors:
 - buy
 buyerTypes:

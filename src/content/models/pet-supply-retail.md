@@ -6,19 +6,7 @@ category: retail-resale
 status: ready
 publish: true
 readMinutes: 14
-tags:
-- pet-supply-retail
-- pet-store
-- pet-retail
-- foot-traffic
-- repeat-purchase
-- grooming-attach
-- shrink
-- staffing
-- working-capital
-- big-box-competition
-- ecommerce
-- local-retail
+tags: []
 doors:
 - buy
 buyerTypes:

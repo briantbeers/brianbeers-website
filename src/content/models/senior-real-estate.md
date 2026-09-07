@@ -6,16 +6,7 @@ category: real-estate-ops
 status: ready
 publish: true
 readMinutes: 12
-tags:
-- senior-real-estate
-- sres
-- agent-niche
-- brokerage-split
-- referral-stack
-- transitions
-- downsizing
-- listing
-- real-estate-ops
+tags: []
 doors:
 - buy
 buyerTypes:

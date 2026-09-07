@@ -7,20 +7,7 @@ status: ready
 publish: true
 readMinutes: 15
 tags:
-- catering
-- event-catering
-- corporate-catering
-- commissary
-- delivery-logistics
-- labor-peaks
-- food-cost
-- deposits
-- cancellations
-- kitchen-capex
-- seasonality
-- corporate-rfp
-- health-regs
-- food-hospitality
+- seasonal
 doors:
 - buy
 buyerTypes:

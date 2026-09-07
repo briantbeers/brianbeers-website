@@ -6,17 +6,7 @@ category: health-wellness
 status: ready
 publish: true
 readMinutes: 14
-tags:
-- lash-brow-studio
-- eyelash-extensions
-- brow-lamination
-- fill-cycle
-- technician-skill
-- rebook
-- no-shows
-- trend-risk
-- health-wellness
-- beauty
+tags: []
 doors:
 - buy
 buyerTypes:

@@ -7,14 +7,9 @@ status: ready
 publish: true
 readMinutes: 12
 tags:
-- pool-service
-- pool-cleaning
-- recurring-routes
-- home-services
-- chemicals
-- equipment-upsells
-- seasonality
-- commercial-pools
+- recurring-revenue
+- seasonal
+- route-based
 doors:
 - buy
 buyerTypes:

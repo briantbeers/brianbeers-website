@@ -6,11 +6,7 @@ category: retail-resale
 status: ready
 publish: true
 readMinutes: 10
-tags:
-- resale
-- thrift
-- retail
-- buy
+tags: []
 doors: [buy]
 buyerTypes: [operator-without-idea, deal-searcher]
 cta: soft-ownership-path

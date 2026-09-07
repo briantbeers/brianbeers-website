@@ -6,17 +6,7 @@ category: real-estate-ops
 status: ready
 publish: true
 readMinutes: 13
-tags:
-- short-term-rental
-- str-management
-- co-host
-- vacation-rental
-- channel-mix
-- cleaning-ops
-- platform-dependence
-- regulation-risk
-- real-estate-ops
-- guest-ops
+tags: []
 doors:
 - buy
 buyerTypes:

@@ -7,16 +7,7 @@ status: ready
 publish: true
 readMinutes: 14
 tags:
-- vending
-- healthy-vending
-- specialty-vending
-- account-density
-- restock-routes
-- machine-capex
-- route-business
-- unattended-retail
-- cashless
-- location-hunting
+- route-based
 doors:
 - buy
 buyerTypes:

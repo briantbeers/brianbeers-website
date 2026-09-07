@@ -7,16 +7,9 @@ status: ready
 publish: true
 readMinutes: 12
 tags:
-- pressure-washing
-- soft-wash
-- exterior-cleaning
-- home-services
-- equipment
-- truck
-- seasonality
-- marketing-heavy
 - easy-entry
-- commercial
+- seasonal
+- b2b
 doors:
 - buy
 buyerTypes:

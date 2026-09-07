@@ -6,19 +6,7 @@ category: education
 status: ready
 publish: true
 readMinutes: 14
-tags:
-- montessori
-- early-education
-- accreditation
-- materials-capex
-- trained-guides
-- tuition
-- long-sales-cycle
-- facility
-- ami
-- ams
-- education
-- child-services
+tags: []
 doors:
 - buy
 buyerTypes:

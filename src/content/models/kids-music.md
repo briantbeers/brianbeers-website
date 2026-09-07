@@ -7,18 +7,8 @@ status: ready
 publish: true
 readMinutes: 14
 tags:
-- kids-music
-- rock-school
-- music-lessons
-- recurring-tuition
-- teacher-roster
-- recital-marketing
-- enrichment
-- seasonality
-- facility-rent
-- tuition-churn
-- curriculum
-- education
+- recurring-revenue
+- seasonal
 doors:
 - buy
 buyerTypes:

@@ -7,20 +7,8 @@ status: ready
 publish: true
 readMinutes: 14
 tags:
-- dance-studio
-- kids-dance
-- competition-dance
-- ballroom
-- recurring-tuition
-- competition-fees
-- instructor-retention
-- recital
-- costume-season
-- facility-rent
-- retail
-- tuition-churn
-- enrichment
-- education
+- recurring-revenue
+- seasonal
 doors:
 - buy
 buyerTypes:

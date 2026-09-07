@@ -7,20 +7,7 @@ status: ready
 publish: true
 readMinutes: 12
 tags:
-- quick-lube
-- oil-change
-- drive-thru
-- pit-service
-- car-count
-- average-ticket
-- auto
-- real-estate
-- fleet
-- memberships
-- high-volume
-- commodity-pricing
-- environmental-compliance
-- ev-risk
+- membership
 doors:
 - buy
 buyerTypes:

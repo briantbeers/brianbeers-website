@@ -7,18 +7,7 @@ status: ready
 publish: true
 readMinutes: 12
 tags:
-- blinds
-- window-coverings
-- shutters
-- shades
-- motorization
-- measure-install
-- design-consult
-- showroom
-- mobile
 - high-ticket
-- home-services
-- lead-gen
 doors:
 - buy
 buyerTypes:

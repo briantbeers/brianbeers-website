@@ -7,19 +7,10 @@ status: ready
 publish: true
 readMinutes: 12
 tags:
-- concrete-coatings
-- garage-floors
-- epoxy
-- polyurea
-- polyaspartic
-- patio-coatings
-- home-services
-- high-ticket
-- project-sales
-- prep
-- warranty
-- seasonality
 - easy-entry
+- seasonal
+- high-ticket
+- project-based
 doors:
 - buy
 buyerTypes:

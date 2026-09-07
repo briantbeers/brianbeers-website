@@ -7,16 +7,7 @@ status: ready
 publish: true
 readMinutes: 14
 tags:
-- ice-cream
-- frozen-yogurt
-- froyo
-- soft-serve
-- treats
-- seasonality
-- nostalgia-marketing
-- waste
-- food-hospitality
-- scoop-shop
+- seasonal
 doors:
 - buy
 buyerTypes:

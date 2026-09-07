@@ -7,15 +7,7 @@ status: ready
 publish: true
 readMinutes: 12
 tags:
-- bio-cleanup
-- crime-scene-cleanup
-- trauma-cleaning
-- biohazard
-- specialty-restoration
-- insurance
-- home-services
-- on-call
-- referral
+- insurance-driven
 doors:
 - buy
 buyerTypes:

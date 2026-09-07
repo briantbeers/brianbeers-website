@@ -7,18 +7,8 @@ status: ready
 publish: true
 readMinutes: 14
 tags:
-- kids-art
-- art-classes
-- enrichment
-- school-partnerships
-- low-capex
-- mobile-enrichment
-- materials-cogs
-- instructor-roster
-- seasonality
-- birthday-parties
-- tuition-churn
-- education
+- easy-entry
+- seasonal
 doors:
 - buy
 buyerTypes:

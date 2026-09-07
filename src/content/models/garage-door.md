@@ -7,12 +7,7 @@ status: ready
 publish: true
 readMinutes: 11
 tags:
-- garage-door
-- home-services
-- service-dispatch
-- emergency-calls
-- parts-inventory
-- install-upsell
+- emergency
 doors:
 - buy
 buyerTypes:

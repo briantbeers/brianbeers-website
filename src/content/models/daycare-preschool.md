@@ -6,18 +6,7 @@ category: education
 status: ready
 publish: true
 readMinutes: 13
-tags:
-- daycare
-- preschool
-- early-childhood
-- childcare
-- licensing
-- ratios
-- occupancy
-- waitlist
-- facility
-- education
-- child-services
+tags: []
 doors:
 - buy
 buyerTypes:

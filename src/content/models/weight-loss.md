@@ -6,18 +6,7 @@ category: health-wellness
 status: ready
 publish: true
 readMinutes: 15
-tags:
-- weight-loss
-- coaching-centers
-- medical-weight-loss
-- program-packages
-- churn
-- GLP-1
-- medical-director
-- product-COGS
-- CAC
-- regulatory
-- health-wellness
+tags: []
 doors:
 - buy
 buyerTypes:

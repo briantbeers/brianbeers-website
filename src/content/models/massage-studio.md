@@ -7,15 +7,8 @@ status: ready
 publish: true
 readMinutes: 14
 tags:
-- massage-studio
-- massage-therapy
+- insurance-driven
 - membership
-- therapist-labor
-- utilization
-- no-shows
-- insurance
-- LMT
-- health-wellness
 doors:
 - buy
 buyerTypes:

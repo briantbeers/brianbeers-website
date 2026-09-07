@@ -7,18 +7,7 @@ status: ready
 publish: true
 readMinutes: 14
 tags:
-- custom-apparel
-- promo-printing
-- screen-printing
-- embroidery
-- dtg
-- b2b-accounts
-- event-merch
-- equipment-capex
-- blank-inventory
-- design-labor
-- online-competition
-- business-services
+- b2b
 doors:
 - buy
 buyerTypes:

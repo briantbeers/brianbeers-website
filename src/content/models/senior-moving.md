@@ -7,14 +7,7 @@ status: ready
 publish: true
 readMinutes: 12
 tags:
-- senior-moving
-- residential-moving
-- trucks
-- damage-claims
-- referrals
-- seasonality
-- senior-care
-- home-services
+- seasonal
 doors:
 - buy
 buyerTypes:

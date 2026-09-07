@@ -7,19 +7,8 @@ status: ready
 publish: true
 readMinutes: 14
 tags:
-- cleaning-for-turns
-- str-turnover-cleaning
-- airbnb-cleaning
-- vacation-rental-cleaning
-- route-density
-- quality-control
-- platform-dependence
-- same-day-spikes
-- labor-reliability
-- keys-lockboxes
-- seasonality
-- thin-pricing
-- real-estate-ops
+- seasonal
+- route-based
 doors:
 - buy
 buyerTypes:

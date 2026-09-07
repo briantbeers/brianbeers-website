@@ -7,14 +7,9 @@ status: ready
 publish: true
 readMinutes: 13
 tags:
-- mosquito-control
-- outdoor-misting
+- recurring-revenue
 - seasonal
-- home-services
-- recurring-routes
-- backpack-spray
-- cash-flow
-- tick-flea
+- route-based
 doors:
 - buy
 buyerTypes:

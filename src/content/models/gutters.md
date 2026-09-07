@@ -7,17 +7,9 @@ status: ready
 publish: true
 readMinutes: 12
 tags:
-- gutters
-- gutter-cleaning
-- gutter-guards
-- gutter-installation
-- home-services
-- heights-safety
-- seasonality
+- recurring-revenue
 - easy-entry
-- recurring
-- exterior
-- roofing-adjacent
+- seasonal
 doors:
 - buy
 buyerTypes:

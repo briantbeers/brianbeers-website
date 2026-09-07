@@ -7,22 +7,7 @@ status: ready
 publish: true
 readMinutes: 13
 tags:
-- towing
-- roadside
-- recovery
-- flatbed
-- wrecker
-- light-duty
-- heavy-duty
-- motor-club
-- police-rotation
-- cash-calls
-- impound
-- dispatch
-- 24-7
-- truck-capex
-- insurance
-- auto
+- insurance-driven
 doors:
 - buy
 buyerTypes:

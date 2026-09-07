@@ -7,16 +7,7 @@ status: ready
 publish: true
 readMinutes: 13
 tags:
-- tutoring
-- learning-center
-- supplemental-education
-- enrollment
-- teachers
-- seasonality
-- curriculum
-- strip-center
-- education
-- child-services
+- seasonal
 doors:
 - buy
 buyerTypes:

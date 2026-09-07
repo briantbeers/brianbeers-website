@@ -6,17 +6,7 @@ category: retail-resale
 status: ready
 publish: true
 readMinutes: 12
-tags:
-- consignment-furniture
-- home-goods
-- furniture-resale
-- consignment
-- retail
-- slow-turns
-- delivery
-- square-footage
-- marketplace-competition
-- damage
+tags: []
 doors:
 - buy
 buyerTypes:

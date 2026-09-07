@@ -7,16 +7,8 @@ status: ready
 publish: true
 readMinutes: 13
 tags:
-- commercial-janitorial
-- office-cleaning
-- night-crews
-- b2b-contracts
-- sticky-revenue
-- thin-margins
-- facility-services
-- labor-turnover
-- bid-pressure
-- master-franchise
+- recurring-revenue
+- b2b
 doors:
 - buy
 buyerTypes:

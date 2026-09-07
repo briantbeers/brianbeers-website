@@ -7,17 +7,7 @@ status: ready
 publish: true
 readMinutes: 13
 tags:
-- tree-care
-- arborist
-- pruning
-- tree-removal
-- stump-grinding
-- chipper
-- home-services
-- liability
-- municipal-permits
-- storm
-- climbers
+- seasonal
 doors:
 - buy
 buyerTypes:

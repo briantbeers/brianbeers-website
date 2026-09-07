@@ -6,13 +6,7 @@ category: home-services
 status: ready
 publish: true
 readMinutes: 11
-tags:
-- electrical
-- home-services
-- service-dispatch
-- permits-code
-- panel-upgrades
-- technician-scarcity
+tags: []
 doors:
 - buy
 buyerTypes:

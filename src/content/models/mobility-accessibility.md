@@ -6,16 +6,7 @@ category: senior-care
 status: ready
 publish: true
 readMinutes: 12
-tags:
-- mobility
-- accessibility
-- stairlifts
-- ramps
-- aging-in-place
-- bathroom-safety
-- VA-funding
-- senior-care
-- home-services
+tags: []
 doors:
 - buy
 buyerTypes:

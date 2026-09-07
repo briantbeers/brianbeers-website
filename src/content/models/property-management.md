@@ -7,15 +7,7 @@ status: ready
 publish: true
 readMinutes: 13
 tags:
-- property-management
-- doors-under-management
-- management-fee
-- tenant-ops
-- trust-accounting
-- leasing
-- real-estate-ops
-- recurring-fees
-- vendor-network
+- recurring-revenue
 doors:
 - buy
 buyerTypes:

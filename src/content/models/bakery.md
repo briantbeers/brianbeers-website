@@ -6,19 +6,7 @@ category: food-hospitality
 status: ready
 publish: true
 readMinutes: 14
-tags:
-- bakery
-- specialty-sweets
-- bundt-cakes
-- cookies
-- cinnamon-rolls
-- production-schedule
-- waste
-- wholesale
-- retail-mix
-- early-labor
-- oven-capex
-- food-hospitality
+tags: []
 doors:
 - buy
 buyerTypes:

@@ -7,15 +7,7 @@ status: ready
 publish: true
 readMinutes: 14
 tags:
-- hair-removal-wax
-- wax-studio
-- sugaring
 - membership
-- esthetician
-- burn-liability
-- laser-competition
-- health-wellness
-- beauty
 doors:
 - buy
 buyerTypes:

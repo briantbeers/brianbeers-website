@@ -7,17 +7,7 @@ status: ready
 publish: true
 readMinutes: 12
 tags:
-- closets
-- custom-storage
-- home-organization
-- garage-storage
-- design-consult
-- fabrication
-- install
-- showroom
-- mobile
 - high-ticket
-- home-services
 doors:
 - buy
 buyerTypes:

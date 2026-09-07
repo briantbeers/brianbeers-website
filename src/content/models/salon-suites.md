@@ -6,17 +6,7 @@ category: health-wellness
 status: ready
 publish: true
 readMinutes: 14
-tags:
-- salon-suites
-- beauty-suites
-- landlord-model
-- suite-occupancy
-- buildout-CapEx
-- amenities
-- stylist-recruiting
-- real-estate-ops
-- health-wellness
-- low-labor
+tags: []
 doors:
 - buy
 buyerTypes:

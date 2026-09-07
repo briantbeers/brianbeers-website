@@ -7,20 +7,8 @@ status: ready
 publish: true
 readMinutes: 14
 tags:
-- med-spa
-- aesthetics
-- injectables
-- botox
-- filler
-- laser
-- medical-director
-- CPOM
-- MSO
-- injector-recruiting
-- CAC
-- membership
-- health-wellness
 - high-ticket
+- membership
 doors:
 - buy
 buyerTypes:

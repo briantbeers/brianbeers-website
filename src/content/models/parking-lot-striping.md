@@ -7,18 +7,9 @@ status: ready
 publish: true
 readMinutes: 13
 tags:
-- parking-lot-striping
-- pavement-maintenance
-- sealcoating
-- line-striping
-- ada-compliance
-- b2b-contracts
-- seasonal-coatings
-- equipment-capex
-- municipal-bids
-- commercial-property
-- asphalt-maintenance
 - easy-entry
+- seasonal
+- b2b
 doors:
 - buy
 buyerTypes:

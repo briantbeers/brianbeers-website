@@ -7,16 +7,7 @@ status: ready
 publish: true
 readMinutes: 14
 tags:
-- fitness
-- gym
-- boutique-studio
 - membership
-- churn
-- trainers
-- CapEx
-- CAC
-- 24-hr
-- health-wellness
 doors:
 - buy
 buyerTypes:

@@ -7,19 +7,7 @@ status: ready
 publish: true
 readMinutes: 13
 tags:
-- auto-glass
-- windshield
-- tint
-- insurance-channel
-- mobile-tech
-- adas
-- recalibration
-- glass-inventory
-- claim-cycle
-- high-attach
-- safelite-adjacency
-- indie-glass
-- auto
+- insurance-driven
 doors:
 - buy
 buyerTypes:

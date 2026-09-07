@@ -7,19 +7,7 @@ status: ready
 publish: true
 readMinutes: 13
 tags:
-- locksmith
-- mobile-key
-- rekey
-- auto-key
-- key-programming
-- lockout
-- emergency-dispatch
-- 24-7
-- trust-fraud
-- google-ads
-- licensing
-- home-services
-- roadside
+- emergency
 doors:
 - buy
 buyerTypes:

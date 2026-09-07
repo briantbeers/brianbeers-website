@@ -7,19 +7,8 @@ status: ready
 publish: true
 readMinutes: 14
 tags:
-- residential-moving
-- moving-storage
-- trucks
-- seasonality
-- damage-claims
-- estimates
-- fuel
-- insurance
-- lead-gen
-- long-distance
-- local-moving
-- real-estate-ops
-- home-services
+- seasonal
+- insurance-driven
 doors:
 - buy
 buyerTypes:

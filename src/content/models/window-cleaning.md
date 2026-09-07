@@ -7,16 +7,10 @@ status: ready
 publish: true
 readMinutes: 12
 tags:
-- window-cleaning
-- home-services
-- route-density
-- recurring
-- commercial
-- residential
-- heights-safety
+- recurring-revenue
 - easy-entry
-- water-fed-pole
-- exterior-cleaning
+- route-based
+- b2b
 doors:
 - buy
 buyerTypes:

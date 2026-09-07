@@ -6,17 +6,7 @@ category: senior-care
 status: ready
 publish: true
 readMinutes: 12
-tags:
-- transition-downsizing
-- senior-move-manager
-- downsizing
-- estate-sales
-- senior-moving
-- placement
-- emotional-labor
-- referrals
-- sell-through
-- senior-care
+tags: []
 doors:
 - buy
 buyerTypes:

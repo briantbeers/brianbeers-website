@@ -7,19 +7,7 @@ status: ready
 publish: true
 readMinutes: 12
 tags:
-- auto-detailing
-- mobile-detailing
-- detail-shop
-- packages
-- ceramic-coating
-- paint-correction
-- dealer-detail
-- fleet
-- labor-quality
 - easy-entry
-- chemicals
-- bay-utilization
-- auto
 doors:
 - buy
 buyerTypes:

@@ -6,17 +6,7 @@ category: business-services
 status: ready
 publish: true
 readMinutes: 14
-tags:
-- staffing
-- recruiting
-- temporary-staffing
-- direct-hire
-- wage-markup
-- payroll-float
-- workers-comp
-- cyclical
-- light-industrial
-- business-services
+tags: []
 doors:
 - buy
 buyerTypes:

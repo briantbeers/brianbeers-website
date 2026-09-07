@@ -6,18 +6,7 @@ category: food-hospitality
 status: ready
 publish: true
 readMinutes: 14
-tags:
-- qsr
-- fast-casual
-- sandwich
-- food-cost
-- labor-cost
-- site-selection
-- manager-dependency
-- delivery-platforms
-- strip-center
-- food-hospitality
-- restaurant
+tags: []
 doors:
 - buy
 buyerTypes:

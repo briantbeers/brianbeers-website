@@ -7,20 +7,7 @@ status: ready
 publish: true
 readMinutes: 13
 tags:
-- tire
-- wheels
-- inventory-risk
-- seasonality
-- alignment
-- tpms
-- retail-service
-- price-wars
-- real-estate
-- discount-tire-adjacency
-- big-o
-- indie-tire
-- auto
-- attach
+- seasonal
 doors:
 - buy
 buyerTypes:

@@ -7,15 +7,9 @@ status: ready
 publish: true
 readMinutes: 13
 tags:
-- lawn-treatment
-- fertilizer
-- weed-control
-- chemical-routes
-- home-services
-- recurring-routes
-- seasonality
-- subscription-retention
-- plant-health
+- recurring-revenue
+- seasonal
+- route-based
 doors:
 - buy
 buyerTypes:

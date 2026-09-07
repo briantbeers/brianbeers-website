@@ -6,15 +6,7 @@ category: senior-care
 status: ready
 publish: true
 readMinutes: 12
-tags:
-- home-health
-- skilled-nursing
-- medicare
-- PDGM
-- senior-care
-- clinical
-- DON
-- OASIS
+tags: []
 doors:
 - buy
 buyerTypes:

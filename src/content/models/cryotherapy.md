@@ -7,17 +7,7 @@ status: ready
 publish: true
 readMinutes: 14
 tags:
-- cryotherapy
-- recovery-wellness
-- cold-plunge
-- red-light
-- infrared-sauna
 - membership
-- equipment-capex
-- trend-risk
-- liability
-- IV-adjacency
-- health-wellness
 doors:
 - buy
 buyerTypes:

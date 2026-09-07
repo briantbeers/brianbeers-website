@@ -6,19 +6,7 @@ category: other
 status: ready
 publish: true
 readMinutes: 14
-tags:
-- escape-rooms
-- experiential
-- capex-buildout
-- throughput
-- room-utilization
-- marketing-cac
-- game-masters
-- weekday-softness
-- room-refresh
-- liability
-- theme-ip
-- corporate-team-building
+tags: []
 doors:
 - buy
 buyerTypes:

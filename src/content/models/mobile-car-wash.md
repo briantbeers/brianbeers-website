@@ -7,17 +7,9 @@ status: ready
 publish: true
 readMinutes: 12
 tags:
-- mobile-car-wash
-- fleet-wash
-- routes
-- b2b-fleets
-- water-reclaim
-- stormwater
-- waterless
 - easy-entry
-- auto
-- office-park
-- dealer-lot
+- route-based
+- b2b
 doors:
 - buy
 buyerTypes:

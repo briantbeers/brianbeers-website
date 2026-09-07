@@ -7,14 +7,8 @@ status: ready
 publish: true
 readMinutes: 12
 tags:
-- residential-cleaning
-- maid-service
-- recurring-routes
-- home-services
-- labor-quality
-- attrition
-- low-differentiation
-- family-schedule
+- recurring-revenue
+- route-based
 doors:
 - buy
 buyerTypes:

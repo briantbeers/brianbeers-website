@@ -7,12 +7,7 @@ status: ready
 publish: true
 readMinutes: 11
 tags:
-- restoration
-- water-damage
-- fire-mold
-- insurance
-- home-services
-- 24-7
+- insurance-driven
 doors:
 - buy
 buyerTypes:

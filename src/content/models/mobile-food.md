@@ -6,20 +6,7 @@ category: food-hospitality
 status: ready
 publish: true
 readMinutes: 15
-tags:
-- mobile-food
-- food-truck
-- food-trailer
-- events
-- permits
-- commissary
-- generator
-- capex
-- labor-peaks
-- health-regs
-- street-vending
-- food-hospitality
-- hustle-calendar
+tags: []
 doors:
 - buy
 buyerTypes:

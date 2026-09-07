@@ -7,16 +7,8 @@ status: ready
 publish: true
 readMinutes: 12
 tags:
-- pet-waste-removal
-- dog-poop-scooping
-- recurring-routes
-- ultra-local
-- low-ticket
-- density
-- home-services
-- hoa
-- apartments
-- dirty-work
+- recurring-revenue
+- route-based
 doors:
 - buy
 buyerTypes:

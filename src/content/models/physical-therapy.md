@@ -7,17 +7,7 @@ status: ready
 publish: true
 readMinutes: 15
 tags:
-- physical-therapy
-- outpatient-clinic
-- insurance-billing
-- reimbursement
-- prior-authorization
-- PT-recruiting
-- PTA
-- CapEx
-- Medicare
-- commercial-payer
-- health-wellness
+- insurance-driven
 doors:
 - buy
 buyerTypes:
