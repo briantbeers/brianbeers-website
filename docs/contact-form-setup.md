@@ -15,7 +15,9 @@ Fields sent: `name`, `email`, `interest`, `interest_label`, `message`, optional 
 
 ### First-submission activation
 
-Formsubmit requires a one-time confirmation: the **first** real submission to a new recipient triggers an activation email to `support@beerspodcast.com`. Open that email and confirm the form before further messages are delivered. Until then, the AJAX call may still return success while mail is held.
+Formsubmit requires a one-time confirmation: the **first** real submission to a new recipient triggers an activation email to `support@beerspodcast.com`. Check that inbox (and spam) for the **Activate Form** link and click it before further messages are delivered.
+
+Until activation is confirmed, Formsubmit often returns HTTP 200 with `{ success: "false", message: "…needs Activation…" }`. The contact page surfaces that as a clear form error (not a success state) telling visitors the team must confirm once via email, then retry. After the Activate link is clicked, submissions deliver normally.
 
 Optional override: set `PUBLIC_CONTACT_ENDPOINT` (Astro / Vercel env) to any POST URL. When unset, the site defaults to the Formsubmit AJAX endpoint above. Use this later for the Apps Script `/exec` URL.
 

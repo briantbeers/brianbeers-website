@@ -174,9 +174,35 @@ const contactEndpoint =
       }
     }
 
-    function showError(visible) {
+    const GENERIC_ERROR =
+      'Something went wrong sending your message. Please try again in a moment, or email support@beerspodcast.com.';
+
+    const ACTIVATION_ERROR =
+      'Thanks for reaching out — your message was received, but our team still needs to confirm this contact form once. We\'ve been emailed at support@beerspodcast.com with an Activate Form link; after that click, please try again. This is on us, not you.';
+
+    function showError(message) {
       if (!errorEl) return;
-      errorEl.classList.toggle('hidden', !visible);
+      if (message) {
+        errorEl.textContent = message;
+        errorEl.classList.remove('hidden');
+      } else {
+        errorEl.textContent = GENERIC_ERROR;
+        errorEl.classList.add('hidden');
+      }
+    }
+
+    function messageLooksLikeActivation(msg) {
+      const lower = String(msg || '').toLowerCase();
+      return lower.includes('activation') || lower.includes('activate form');
+    }
+
+    function friendlyServerMessage(msg) {
+      const raw = String(msg || '').trim();
+      if (!raw) return GENERIC_ERROR;
+      if (messageLooksLikeActivation(raw)) return ACTIVATION_ERROR;
+      // Keep short, plain server text; otherwise fall back
+      if (raw.length <= 160 && !/[<>{}]/.test(raw)) return raw;
+      return GENERIC_ERROR;
     }
 
     form?.addEventListener('submit', async (event) => {
@@ -235,15 +261,21 @@ const contactEndpoint =
           data = null;
         }
 
+        const successFlag = data == null ? undefined : data.success;
+        const successIsFalse = successFlag === false || successFlag === 'false';
+        const serverMsg = data && (data.message || data.error);
         const ok =
           res.ok &&
+          !successIsFalse &&
           (data == null ||
-            data.success !== false &&
-              data.success !== 'false' &&
-              !String(data.message || '').toLowerCase().includes('error'));
+            (successFlag !== false &&
+              successFlag !== 'false' &&
+              !String(data.message || '').toLowerCase().includes('error')));
 
         if (!ok) {
-          throw new Error((data && (data.message || data.error)) || `HTTP ${res.status}`);
+          const detail = serverMsg || `HTTP ${res.status}`;
+          console.warn('[contact form] submission failed:', detail, data);
+          throw new Error(String(detail));
         }
 
         form.classList.add('hidden');
@@ -252,8 +284,10 @@ const contactEndpoint =
         if (isGuide && intentSlot) {
           intentSlot.innerHTML = '<input type="hidden" name="intent" value="guide" />';
         }
-      } catch {
-        showError(true);
+      } catch (err) {
+        const detail = err && err.message ? err.message : '';
+        console.warn('[contact form] error:', detail || err);
+        showError(friendlyServerMessage(detail));
       } finally {
         setLoading(false);
       }
