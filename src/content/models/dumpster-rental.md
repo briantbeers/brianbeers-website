@@ -1,5 +1,5 @@
 ---
-title: Dumpster / Container Rental (Roll-Off)
+title: Dumpster / Container Rental
 slug: dumpster-rental
 description: "How roll-off dumpster rental makes money — asset utilization, delivery logistics, construction + residential mix — education only, not earnings claims."
 category: home-services

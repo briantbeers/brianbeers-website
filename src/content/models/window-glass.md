@@ -1,5 +1,5 @@
 ---
-title: Window / Glass / Screens (Residential + Light Commercial Service/Install)
+title: Window / Glass / Screens
 slug: window-glass
 description: "How residential and light-commercial window, glass, and screen companies make money — route density, small crews, insurance claims, truck inventory, tech skill — education only, not earnings claims."
 category: home-services
@@ -29,7 +29,7 @@ buyerTypes:
 - family-flexibility-buyer
 relatedSlugs:
 - blinds-window-coverings
-- exterior-painting
+- residential-painting
 - handyman
 - residential-plumbing
 sources:

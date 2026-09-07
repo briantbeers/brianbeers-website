@@ -1,5 +1,5 @@
 ---
-title: Crime Scene / Biohazard Cleanup (Trauma Remediation)
+title: Crime Scene / Biohazard Cleanup
 slug: bio-cleanup
 description: "How crime-scene and biohazard cleanup works — training, regs, referral channels, on-call sparsity, emotional labor — education only."
 category: home-services

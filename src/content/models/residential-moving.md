@@ -1,5 +1,5 @@
 ---
-title: "Residential Moving & Storage (Trucks + Labor; Local + Long-Distance)"
+title: Residential Moving & Storage
 slug: residential-moving
 description: "How residential moving and storage companies make money — trucks, crews, seasonality, estimates vs actuals, damage claims, fuel, insurance, lead gen — education only, not earnings claims."
 category: real-estate-ops

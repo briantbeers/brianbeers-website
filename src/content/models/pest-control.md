@@ -1,5 +1,5 @@
 ---
-title: Pest Control (Recurring Routes)
+title: Pest Control
 slug: pest-control
 description: "How pest control companies make money — recurring routes, retention LTV, chemical/regulatory reality, and the seasonal trap — education only, not earnings claims."
 category: home-services

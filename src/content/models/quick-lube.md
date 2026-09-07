@@ -1,5 +1,5 @@
 ---
-title: Quick Lube / Oil Change (Drive-Thru / Pit)
+title: Quick Lube / Oil Change
 slug: quick-lube
 description: "How quick-lube and express oil-change shops make money — car count, ticket mix, lease/site math, labor+parts, fleet vs retail — education only, not earnings claims."
 category: auto

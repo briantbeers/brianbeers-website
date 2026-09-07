@@ -1,5 +1,5 @@
 ---
-title: Auto Detailing (Mobile or Shop)
+title: Auto Detailing
 slug: auto-detailing
 description: "How auto detailing makes money — mobile vs shop, packages, labor quality, B2C + dealer/fleet — education only, not earnings claims."
 category: auto

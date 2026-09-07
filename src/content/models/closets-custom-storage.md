@@ -1,5 +1,5 @@
 ---
-title: Closets / Custom Storage (Design → Fab → Install)
+title: Closets / Custom Storage
 slug: closets-custom-storage
 description: "How custom closet and home-storage companies make money — design consult, fabrication, install, showroom or mobile — education only, not earnings claims."
 category: home-services
@@ -27,7 +27,7 @@ buyerTypes:
 relatedSlugs:
 - cabinets-kitchen-refresh
 - handyman
-- interior-painting
+- residential-painting
 sources:
 - title: "I Bought 35 Businesses… Here's What I Would Never Touch"
   url: "https://www.youtube.com/watch?v=u6H2r8RYLhw"

@@ -1,5 +1,5 @@
 ---
-title: Auto Repair (General / Branded Shop)
+title: Auto Repair
 slug: auto-repair
 description: "How general auto repair shops actually make money — bay utilization, tech labor, parts margin, and car count — education only, not earnings claims."
 category: auto

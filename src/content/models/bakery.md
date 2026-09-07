@@ -1,5 +1,5 @@
 ---
-title: Bakery / Specialty Sweets (Production Schedule + Waste + Wholesale/Retail Mix)
+title: Bakery / Specialty Sweets
 slug: bakery
 description: "How bakeries and specialty sweets shops actually make money — production schedules, waste, wholesale + retail mix, early labor, oven CapEx — education only, not earnings claims."
 category: food-hospitality

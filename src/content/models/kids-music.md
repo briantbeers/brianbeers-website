@@ -1,5 +1,5 @@
 ---
-title: Kids Music Lessons / Rock School (Recurring Tuition + Teacher Roster)
+title: Kids Music Lessons / Rock School
 slug: kids-music
 description: "How kids music lessons and rock schools work — recurring tuition, teacher roster, recital marketing, facility rent, and churn — education only, not earnings claims."
 category: education

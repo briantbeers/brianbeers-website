@@ -1,5 +1,5 @@
 ---
-title: Spray Tan / Beauty Express (Membership + Throughput + Retail Hours)
+title: Spray Tan / Beauty Express
 slug: spray-tan
 description: "How spray-tan and beauty-express studios actually make money — low ticket × high volume, membership utilization, retail hours, tech training, seasonality, rent — education only, not earnings claims."
 category: health-wellness

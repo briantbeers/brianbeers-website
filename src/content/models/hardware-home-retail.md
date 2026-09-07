@@ -1,5 +1,5 @@
 ---
-title: Hardware / Home Retail (Neighborhood Inventory Turns)
+title: Hardware / Home Retail
 slug: hardware-home-retail
 description: "How neighborhood hardware and home retail stores make money — inventory turns, big-box competition, shrink, staffing, rent, member co-op variants — education only, not earnings claims."
 category: retail-resale

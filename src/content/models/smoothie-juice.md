@@ -1,5 +1,5 @@
 ---
-title: Smoothie / Juice Bar (Throughput + Produce Cost + Daypart)
+title: Smoothie / Juice Bar
 slug: smoothie-juice
 description: "How smoothie and juice bars actually make money — blender throughput, produce cost and waste, dayparts, labor, rent, delivery platforms, franchise fees — education only, not earnings claims."
 category: food-hospitality

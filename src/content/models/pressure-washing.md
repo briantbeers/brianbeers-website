@@ -1,5 +1,5 @@
 ---
-title: Pressure Washing / Soft Wash (Exterior Cleaning)
+title: Pressure Washing / Soft Wash
 slug: pressure-washing
 description: "How pressure washing and soft-wash companies make money — trucks, equipment, marketing CAC, seasonality, and the easy-entry trap — education only, not earnings claims."
 category: home-services
@@ -24,7 +24,7 @@ buyerTypes:
 - deal-searcher
 - corporate-escape-planner
 relatedSlugs:
-- exterior-painting
+- residential-painting
 - junk-removal
 - mosquito-control
 - roofing

@@ -1,5 +1,5 @@
 ---
-title: Concrete / Garage Floor Coatings (Epoxy / Polyurea)
+title: Concrete / Garage Floor Coatings
 slug: concrete-coatings
 description: "How concrete and garage floor coating companies make money — project tickets, prep quality, weather, and warranty claims — education only, not earnings claims."
 category: home-services
@@ -29,7 +29,7 @@ buyerTypes:
 relatedSlugs:
 - flooring-install
 - artificial-turf
-- exterior-painting
+- residential-painting
 - pressure-washing
 sources:
 - title: Notion concept notes — Epoxy / Polyaspartic Garage Floor Coating (ticket / one-day / materials / commercial adjacency teaching)
@@ -119,7 +119,7 @@ Typical loop:
 **Out of scope (different models):**  
 - Pure **flooring install** (carpet / LVP / hardwood replacement) ([flooring install](/models/flooring-install))  
 - Pure **artificial turf / outdoor surfaces** project books ([artificial turf](/models/artificial-turf))  
-- Pure **exterior painting** ([exterior painting](/models/exterior-painting))  
+- Pure **residential painting** ([residential painting](/models/residential-painting))  
 - Pure **pressure washing / soft wash** without coating fulfillment ([pressure washing](/models/pressure-washing))  
 - Pure **parking-lot striping / asphalt sealcoating** (Brian has covered EverLine-style parking maintenance separately — B2B lot contracts, different buyer and equipment)  
 - Solo “I bought a kit and a Facebook ad” as the whole *company* story  

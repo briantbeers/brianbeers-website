@@ -1,5 +1,5 @@
 ---
-title: Blinds / Window Coverings (Measure → Order → Install)
+title: Blinds / Window Coverings
 slug: blinds-window-coverings
 description: "How blinds and window-covering companies make money — design consult, measure-install, product mix, lead gen — education only, not earnings claims."
 category: home-services
@@ -28,7 +28,7 @@ buyerTypes:
 - corporate-escape-planner
 relatedSlugs:
 - closets-custom-storage
-- interior-painting
+- residential-painting
 - handyman
 - window-cleaning
 sources:

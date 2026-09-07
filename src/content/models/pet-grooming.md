@@ -1,5 +1,5 @@
 ---
-title: Pet Grooming / Daycare (Facility Salon + Light Mobile Note)
+title: Pet Grooming / Daycare
 slug: pet-grooming
 description: "How facility pet grooming and adjacent daycare/boarding work — groomer labor, water/plant CapEx, no-shows, bite liability, seasonality — education only, not earnings claims."
 category: health-wellness

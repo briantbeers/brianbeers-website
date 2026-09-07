@@ -1,5 +1,5 @@
 ---
-title: Drain Cleaning (Camera / Jetter Specialty)
+title: Drain Cleaning
 slug: drain-cleaning
 description: "How specialty drain cleaning works — camera, jetter, plumber referrals, and commercial maintenance — education only, not earnings claims."
 category: home-services

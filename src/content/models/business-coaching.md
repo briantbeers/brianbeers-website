@@ -1,5 +1,5 @@
 ---
-title: Business Coaching / Fractional Growth (Packages + Delivery Leverage + Reputation)
+title: Business Coaching / Fractional Growth
 slug: business-coaching
 description: "How business coaching and fractional growth practices make money — package sales, group delivery leverage, reputation risk, churn, pipeline, retainers vs cash — education only, not earnings claims."
 category: business-services

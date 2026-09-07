@@ -1,5 +1,5 @@
 ---
-title: Physical Therapy / Outpatient Clinics (Insurance Billing + Clinician Labor)
+title: Physical Therapy / Outpatient Clinics
 slug: physical-therapy
 description: "How outpatient physical therapy clinics actually make money — insurance reimbursement, prior auth, clinician recruiting, CapEx, compliance, referral mix — education only, not earnings claims."
 category: health-wellness

@@ -1,5 +1,5 @@
 ---
-title: Salon Suites (Landlord Model — Real Estate + Amenities)
+title: Salon Suites
 slug: salon-suites
 description: "How salon-suite landlords actually make money — suite occupancy, buildout CapEx, lease structure, amenities, stylist recruiting, low labor vs traditional salons — education only, not earnings claims."
 category: health-wellness

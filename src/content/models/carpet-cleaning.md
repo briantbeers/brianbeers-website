@@ -1,5 +1,5 @@
 ---
-title: Carpet Cleaning (Truck-Mount / Portable Floor Care)
+title: Carpet Cleaning
 slug: carpet-cleaning
 description: "How carpet cleaning companies make money — truck-mount vs portable, marketing CAC, one-time vs recurring myth, upholstery/tile add-ons — education only, not earnings claims."
 category: home-services

@@ -1,5 +1,5 @@
 ---
-title: Garage Door (Service + Install)
+title: Garage Door Service
 slug: garage-door
 description: "How garage door companies make money — emergency service, truck parts, install upsell, and commercial accounts — education only."
 category: home-services

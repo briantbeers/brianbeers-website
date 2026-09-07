@@ -1,5 +1,5 @@
 ---
-title: Senior Real Estate Specialty (Agent Niche + Transition Stack)
+title: Senior Real Estate Specialty
 slug: senior-real-estate
 description: "How a seniors real-estate specialty practice works — listings, brokerage splits, referral stack, ethics, and sparse deal flow — education only, not earnings claims."
 category: real-estate-ops

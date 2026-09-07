@@ -1,5 +1,5 @@
 ---
-title: Pet Supply Retail (Foot Traffic + Repeat Inventory)
+title: Pet Supply Retail
 slug: pet-supply-retail
 description: "How neighborhood pet supply retail works — food gravity, inventory turns, big-box/e-comm competition, shrink, labor, rent, grooming/vet attach — education only, not earnings claims."
 category: retail-resale

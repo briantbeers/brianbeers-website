@@ -1,5 +1,5 @@
 ---
-title: Transition / Downsizing Consulting (Soft Service into the Stack)
+title: Transition / Downsizing Consulting
 slug: transition-downsizing
 description: "How senior transition and downsizing consulting works — orchestration fees, sorting labor, sell-through risk, and the estate/move/placement stack — education only, not earnings claims."
 category: senior-care

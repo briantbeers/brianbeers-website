@@ -1,5 +1,5 @@
 ---
-title: Estate Sales (Household Liquidation + Transition)
+title: Estate Sales
 slug: estate-sales
 description: "How estate sales and household liquidation work — commission on sell-through, labor, staging, and trust — education only, not earnings claims."
 category: senior-care

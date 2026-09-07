@@ -1,5 +1,5 @@
 ---
-title: Custom Apparel / Promo Printing (B2B + Events)
+title: Custom Apparel / Promo Printing
 slug: custom-apparel
 description: "How custom apparel and promo printing shops make money — B2B accounts, event seasonality, equipment CapEx, blank inventory, design labor, and online merch competition — education only, not earnings claims."
 category: business-services

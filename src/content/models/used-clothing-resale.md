@@ -1,5 +1,5 @@
 ---
-title: "Used Clothing Resale (Modern Thrift)"
+title: Used Clothing Resale
 slug: "used-clothing-resale"
 description: "How curated used-clothing resale works — buy from the public, price for turns, sell — education only, not earnings claims."
 category: retail-resale

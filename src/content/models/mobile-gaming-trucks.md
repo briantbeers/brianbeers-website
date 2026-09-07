@@ -1,5 +1,5 @@
 ---
-title: Mobile Gaming Trucks (Events + Vehicle CapEx + Seasonal Calendar)
+title: Mobile Gaming Trucks
 slug: mobile-gaming-trucks
 description: "How mobile gaming trucks work — event bookings, vehicle CapEx, seasonal calendars, generators, tech refresh, and deposit discipline — education only, not earnings claims."
 category: other

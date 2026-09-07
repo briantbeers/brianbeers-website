@@ -1,5 +1,5 @@
 ---
-title: Pet Waste Removal (Ultra-Local Scooping Routes)
+title: Pet Waste Removal
 slug: pet-waste-removal
 description: "How pet waste removal companies make money — weekly scooping routes, density math, low tickets, HOA/apt contracts, and labor dignity — education only, not earnings claims."
 category: home-services

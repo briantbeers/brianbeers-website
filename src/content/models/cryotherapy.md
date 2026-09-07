@@ -1,5 +1,5 @@
 ---
-title: Cryotherapy / Recovery Wellness (Membership + Equipment CapEx)
+title: Cryotherapy / Recovery Wellness
 slug: cryotherapy
 description: "How cryotherapy and recovery wellness studios actually make money — memberships, add-ons, chamber CapEx, utilization, trend/novelty risk, liability, rent, staffing — education only, not earnings claims."
 category: health-wellness

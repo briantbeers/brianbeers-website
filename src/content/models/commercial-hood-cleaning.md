@@ -1,5 +1,5 @@
 ---
-title: Commercial Kitchen Hood Cleaning (Exhaust / Compliance Contracts)
+title: Commercial Kitchen Hood Cleaning
 slug: commercial-hood-cleaning
 description: "How commercial kitchen hood / exhaust cleaning companies make money — NFPA-driven recurring contracts, night crews, height/chemical work, and concentration risk — education only, not earnings claims."
 category: business-services

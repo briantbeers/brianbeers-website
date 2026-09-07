@@ -1,5 +1,5 @@
 ---
-title: Parking Lot Striping / Maintenance (B2B Pavement Routes)
+title: Parking Lot Striping / Maintenance
 slug: parking-lot-striping
 description: "How parking lot striping and pavement-maintenance companies make money — B2B routes, seasonal coatings, equipment CapEx, municipal bids, and ADA liability — education only, not earnings claims."
 category: business-services

@@ -1,5 +1,5 @@
 ---
-title: Mobile Pet Care (Routes + Trust + Weather — Grooming / Sitting / Walking Hybrids)
+title: Mobile Pet Care
 slug: mobile-pet-care
 description: "How mobile pet care works — routes and density, trust and key access, weather, van CapEx, booking churn, insurance, key-person risk — education only, not earnings claims."
 category: health-wellness

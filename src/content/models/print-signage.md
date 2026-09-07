@@ -1,5 +1,5 @@
 ---
-title: Print / Signage (B2B Visual Communications Shops)
+title: Print / Signage
 slug: print-signage
 description: "How local print and signage shops make money — B2B accounts, equipment CapEx, project mix, skilled operators, and online print competition — education only, not earnings claims."
 category: business-services

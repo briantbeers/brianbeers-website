@@ -1,5 +1,5 @@
 ---
-title: Mobility / Accessibility Installs (Aging-in-Place Projects)
+title: Mobility / Accessibility Installs
 slug: mobility-accessibility
 description: "How mobility and accessibility install companies make money — stairlifts, ramps, baths, referrals, funding, and liability — education only, not earnings claims."
 category: senior-care

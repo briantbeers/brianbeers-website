@@ -1,5 +1,5 @@
 ---
-title: Mosquito Control / Outdoor Misting (Seasonal Specialty)
+title: Mosquito Control / Outdoor Misting
 slug: mosquito-control
 description: "How mosquito control and outdoor misting companies make money — seasonal spray routes, misting installs, winter cash burn, and retention — education only, not earnings claims."
 category: home-services

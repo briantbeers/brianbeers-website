@@ -1,5 +1,5 @@
 ---
-title: Gutters (Cleaning / Guards / Installation)
+title: Gutters
 slug: gutters
 description: "How gutter cleaning, gutter guards, and gutter installation companies make money — seasonal cleanouts, height/safety, install vs clean economics, and the fake-recurring trap — education only, not earnings claims."
 category: home-services
@@ -26,7 +26,7 @@ buyerTypes:
 - corporate-escape-planner
 relatedSlugs:
 - roofing
-- exterior-painting
+- residential-painting
 - pressure-washing
 - window-cleaning
 sources:

@@ -1,5 +1,5 @@
 ---
-title: Hair Removal / Wax Studio (Membership + Labor + Retail)
+title: Hair Removal / Wax Studio
 slug: hair-removal-wax
 description: "How hair-removal and wax studios actually make money — membership packages, esthetician labor, retail attach, burn/skin liability, rent, laser/med-spa competition — education only, not earnings claims."
 category: health-wellness

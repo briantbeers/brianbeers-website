@@ -1,5 +1,5 @@
 ---
-title: Home Inspection (Agent Marketing → Solo → Multi-Inspector)
+title: Home Inspection
 slug: home-inspection
 description: "How home-inspection companies work — agent referrals, transaction-tied volume, E&O, specialty add-ons, solo to multi-inspector — education only, not earnings claims."
 category: real-estate-ops

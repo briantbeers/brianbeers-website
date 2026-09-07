@@ -1,5 +1,5 @@
 ---
-title: Residential Plumbing (Service Dispatch)
+title: Residential Plumbing
 slug: residential-plumbing
 description: "How residential plumbing service companies make money — dispatch, tech utilization, emergency vs planned work, truck stock — education only."
 category: home-services

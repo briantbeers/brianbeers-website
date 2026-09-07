@@ -1,5 +1,5 @@
 ---
-title: Escape Rooms (CapEx Buildout + Throughput + CAC)
+title: Escape Rooms
 slug: escape-rooms
 description: "How escape room venues work — CapEx buildout, throughput per room, room refresh cycles, weekday softness, and marketing CAC — education only, not earnings claims."
 category: other

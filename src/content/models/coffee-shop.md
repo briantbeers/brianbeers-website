@@ -1,5 +1,5 @@
 ---
-title: Coffee / Snack Shop (Daypart + Labor + Site Throughput)
+title: Coffee / Snack Shop
 slug: coffee-shop
 description: "How coffee and snack shops actually make money — morning dayparts, barista labor, site rent, drive-thru throughput, waste — education only, not earnings claims."
 category: food-hospitality

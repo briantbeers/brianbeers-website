@@ -1,5 +1,5 @@
 ---
-title: Acai / Bowl Concepts (Ingredient Cost + Speed + Trendy CAC)
+title: Acai / Bowl Concepts
 slug: acai-bowl
 description: "How acai and specialty bowl shops actually make money — ingredient cost, speed of service, trendy CAC, labor, rent, delivery, seasonality, copycats — education only, not earnings claims."
 category: food-hospitality

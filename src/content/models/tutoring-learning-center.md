@@ -1,5 +1,5 @@
 ---
-title: Tutoring / Learning Center (Enrollment + Teacher Labor)
+title: Tutoring / Learning Center
 slug: tutoring-learning-center
 description: "How tutoring and learning centers work — enrollment packs, teacher labor, seasonality, site CapEx, and curriculum fidelity — education only, not earnings claims."
 category: education

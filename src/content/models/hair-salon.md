@@ -1,5 +1,5 @@
 ---
-title: Hair Salon / Barbershop Chains (Chair Utilization + Retention + Retail)
+title: Hair Salon / Barbershop
 slug: hair-salon
 description: "How hair salons and barbershops actually make money — chair utilization, stylist retention, booth vs employee, rent, no-shows, retail attach — education only, not earnings claims."
 category: health-wellness

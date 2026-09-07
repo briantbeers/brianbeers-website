@@ -1,5 +1,5 @@
 ---
-title: Cybersecurity Consulting (Advisory / vCISO / Assessments / MSSP-ish)
+title: Cybersecurity Consulting
 slug: cybersecurity-consulting
 description: "How SMB cybersecurity consulting firms make money — vCISO retainers, productized audits, MSSP-ish monitoring, talent war, liability, sales cycle — education only, not earnings claims."
 category: business-services

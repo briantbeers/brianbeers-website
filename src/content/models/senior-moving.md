@@ -1,5 +1,5 @@
 ---
-title: Senior / Residential Moving (Labor + Trucks)
+title: Senior / Residential Moving
 slug: senior-moving
 description: "How senior and residential moving companies make money — crews, trucks, referrals, claims, and seasonality — education only, not earnings claims."
 category: senior-care

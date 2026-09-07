@@ -1,5 +1,5 @@
 ---
-title: Lash / Brow Studio (Fill Cadence + Tech Skill + Retail)
+title: Lash / Brow Studio
 slug: lash-brow-studio
 description: "How lash and brow studios actually make money — fill-cycle rebooks, technician skill, station utilization, retail attach, rent, no-shows, trend risk — education only, not earnings claims."
 category: health-wellness

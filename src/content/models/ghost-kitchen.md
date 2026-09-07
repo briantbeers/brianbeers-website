@@ -1,5 +1,5 @@
 ---
-title: Ghost Kitchen / Delivery-Only (Rent Arbitrage + Platform Fees + Brand Confusion)
+title: Ghost Kitchen / Delivery-Only
 slug: ghost-kitchen
 description: "How ghost kitchens and delivery-only virtual brands actually make money — rent arbitrage, platform fees, multi-brand ops, ratings, utilization, thin unit econ — education only, not earnings claims."
 category: food-hospitality

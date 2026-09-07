@@ -1,5 +1,5 @@
 ---
-title: Used Clothing Collection (Clothes Bin–style)
+title: Used Clothing Collection
 slug: used-clothing-clothes-bin
 description: "How clothing collection bin businesses work — routes, bins, wholesale by pound — logistics opposite of retail thrift — education only."
 category: retail-resale

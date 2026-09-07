@@ -1,5 +1,5 @@
 ---
-title: Public / Independent Claims Adjusting (Policyholder Advocacy)
+title: Public / Independent Claims Adjusting
 slug: public-claims-adjusting
 description: "How public / independent claims adjusting works — contingency fees, state licensing, storm cycles, carrier friction, working capital until settle — education only, not legal advice or earnings claims."
 category: business-services

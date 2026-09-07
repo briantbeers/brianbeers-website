@@ -1,5 +1,5 @@
 ---
-title: Flooring Install (Showroom or Mobile)
+title: Flooring Install
 slug: flooring-install
 description: "How flooring install companies make money — product + labor, mobile or showroom, manufacturer programs — education only, not earnings claims."
 category: home-services
@@ -25,7 +25,7 @@ buyerTypes:
 - corporate-escape-planner
 relatedSlugs:
 - cabinets-kitchen-refresh
-- exterior-painting
+- residential-painting
 - fence-install
 - roofing
 - handyman

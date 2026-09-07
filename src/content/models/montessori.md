@@ -1,5 +1,5 @@
 ---
-title: Montessori / Early Education Brand (Facility + Accreditation + Tuition)
+title: Montessori / Early Education
 slug: montessori
 description: "How Montessori early-education schools work — method fidelity, materials CapEx, trained guides, accreditation/affiliation, and long tuition sales cycles — education only, not earnings claims."
 category: education

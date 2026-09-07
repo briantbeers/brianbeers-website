@@ -1,5 +1,5 @@
 ---
-title: "Lawn Treatment / Fertilizer & Weed Control (Chemical Routes)"
+title: Lawn Treatment / Fertilizer & Weed Control
 slug: lawn-treatment
 description: "How lawn treatment companies make money — fertilizer and weed programs, weather windows, chemical compliance, and subscription retention — education only, not earnings claims."
 category: home-services

@@ -1,5 +1,5 @@
 ---
-title: Clothing Collection Bins (Wholesale by the Pound)
+title: Clothing Collection Bins
 slug: clothing-bins
 description: "How clothing collection bins make money — placements, truck routes, sensors, and wholesale textile pounds — logistics education, not thrift retail or earnings claims."
 category: business-services

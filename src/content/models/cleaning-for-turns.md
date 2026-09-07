@@ -1,5 +1,5 @@
 ---
-title: Cleaning for Turns / Airbnb (Route + Quality; Platform Dependence)
+title: Cleaning for Turns / Airbnb
 slug: cleaning-for-turns
 description: "How STR / Airbnb turnover cleaning ops work — same-day spikes, QC/reviews, platform dependence, labor, keys, seasonality, thin pricing — education only, not residential maid routes or earnings claims."
 category: real-estate-ops

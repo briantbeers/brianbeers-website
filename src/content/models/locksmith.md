@@ -1,5 +1,5 @@
 ---
-title: Locksmith / Mobile Key (Residential + Auto Dispatch)
+title: Locksmith / Mobile Key
 slug: locksmith
 description: "How locksmith and mobile-key companies make money — dispatch density, residential + auto mix, trust vs scam reputation, 24/7 and CapEx — education only, not earnings claims."
 category: home-services

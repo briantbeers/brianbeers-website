@@ -1,5 +1,5 @@
 ---
-title: Party / Bounce / Event Rentals (Delivery Fleet)
+title: Party / Bounce / Event Rentals
 slug: party-rentals
 description: "How party and bounce rentals actually make money — asset utilization, weekend concentration, delivery labor, weather and damage — education only, not earnings claims."
 category: other

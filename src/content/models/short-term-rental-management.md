@@ -1,5 +1,5 @@
 ---
-title: Short-Term Rental Co-Host / Management (Other People’s Listings)
+title: Short-Term Rental Co-Host / Management
 slug: short-term-rental-management
 description: "How STR co-host / vacation-rental management companies work — channel mix, cleaning ops, guest CX, regulation risk — education only, not landlord investing or earnings claims."
 category: real-estate-ops

@@ -1,5 +1,5 @@
 ---
-title: Children’s Fitness / Play Gym (Class Packs + Birthday Parties)
+title: Children's Fitness / Play Gym
 slug: kids-fitness
 description: "How kids fitness and play gyms work — class packs, birthday parties, instructor dependency, rent, and parent churn — education only, not earnings claims."
 category: education

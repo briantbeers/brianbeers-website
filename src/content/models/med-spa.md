@@ -1,5 +1,5 @@
 ---
-title: Med Spa / Aesthetics (Injectables + Energy Devices)
+title: Med Spa / Aesthetics
 slug: med-spa
 description: "How medical spas actually make money — injectables, lasers, medical-director regs, injector recruiting, CAC, CapEx, membership churn — education only, not earnings claims."
 category: health-wellness

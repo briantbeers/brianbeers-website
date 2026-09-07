@@ -1,5 +1,5 @@
 ---
-title: Window Cleaning (Residential / Commercial Routes)
+title: Window Cleaning
 slug: window-cleaning
 description: "How window cleaning companies make money — route density, heights/safety, recurring commercial + residential packages, and the easy-entry trap — education only, not earnings claims."
 category: home-services

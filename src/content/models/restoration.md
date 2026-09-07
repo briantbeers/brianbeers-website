@@ -1,5 +1,5 @@
 ---
-title: Restoration (Water / Fire / Mold)
+title: Water / Fire / Mold Restoration
 slug: restoration
 description: "How water, fire, and mold restoration works — insurance channel, 24/7 response, capital and carrier relationships — education only."
 category: home-services

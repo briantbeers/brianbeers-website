@@ -1,5 +1,5 @@
 ---
-title: Fast Casual / QSR / Sandwich Unit (Labor + Food + Site)
+title: Fast Casual / QSR
 slug: qsr-fast-casual
 description: "How fast-casual and QSR sandwich units actually make money — labor, food cost, site selection, manager dependency, royalties, delivery platforms — education only, not earnings claims."
 category: food-hospitality

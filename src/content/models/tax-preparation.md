@@ -1,5 +1,5 @@
 ---
-title: Tax Preparation (Seasonal Crush + Bookkeeping Attach)
+title: Tax Preparation
 slug: tax-preparation
 description: "How tax prep offices actually make money — seasonal filing crush, preparer labor, compliance, DIY competition, year-round bookkeeping attach — education only, not earnings claims."
 category: business-services

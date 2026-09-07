@@ -1,5 +1,5 @@
 ---
-title: Vending (Healthy / Specialty Routes)
+title: Healthy / Specialty Vending
 slug: vending
 description: "How healthy and specialty vending actually makes money — account density, restock routes, machine CapEx vs cashflow — education only, not earnings claims."
 category: business-services

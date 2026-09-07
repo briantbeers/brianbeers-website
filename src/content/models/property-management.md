@@ -1,5 +1,5 @@
 ---
-title: Property Management (Doors Under Management)
+title: Property Management
 slug: property-management
 description: "How residential property-management companies work — doors under management, sticky fees, tenant ops, trust accounting — education only, not landlord investing or earnings claims."
 category: real-estate-ops

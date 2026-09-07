@@ -1,5 +1,5 @@
 ---
-title: Junk Removal (Full-Service Haul-Away)
+title: Junk Removal
 slug: junk-removal
 description: "How junk removal companies make money — truck density, labor, landfill tip fees, and the easy-entry trap — education only, not earnings claims."
 category: home-services

@@ -1,5 +1,5 @@
 ---
-title: Ice Cream / Frozen Yogurt / Treats (Seasonality + Nostalgia + Labor)
+title: Ice Cream / Frozen Yogurt / Treats
 slug: ice-cream
 description: "How ice cream, froyo, and treat shops actually make money — seasonality, nostalgia marketing, scoop/soft-serve labor, rent, waste — education only, not earnings claims."
 category: food-hospitality

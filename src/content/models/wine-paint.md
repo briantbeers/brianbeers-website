@@ -1,5 +1,5 @@
 ---
-title: "Wine & Paint / Experience Studio (Events + Parties + Instructor + Retail Wine)"
+title: Wine & Paint / Experience Studio
 slug: wine-paint
 description: "How wine-and-paint experience studios work — public events, private parties, instructor quality, retail wine, weekday softness, and materials COGS — education only, not earnings claims."
 category: other

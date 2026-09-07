@@ -1,5 +1,5 @@
 ---
-title: Kids Art Classes (Low CapEx / School-Partner + Studio Variants)
+title: Kids Art Classes
 slug: kids-art
 description: "How kids art classes work — low CapEx mobile/school-partner variants, studio builds, materials COGS, instructor roster, and seasonality — education only, not earnings claims."
 category: education

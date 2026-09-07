@@ -1,5 +1,5 @@
 ---
-title: Transmission Specialty (Rebuild / Reman Shop)
+title: Transmission Specialty
 slug: transmission-specialty
 description: "How transmission specialty shops make money — high-ticket sparse jobs, master-tech scarcity, bay-day risk, reman vs rebuild, warranty comebacks — education only, not earnings claims."
 category: auto

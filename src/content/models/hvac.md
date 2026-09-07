@@ -1,5 +1,5 @@
 ---
-title: HVAC (Residential Service + Replace)
+title: HVAC
 slug: hvac
 description: "How residential HVAC companies make money — dispatch, seasonality, tech scarcity, and equipment financing — education only, not earnings claims."
 category: home-services

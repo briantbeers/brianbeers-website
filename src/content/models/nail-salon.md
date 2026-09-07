@@ -1,5 +1,5 @@
 ---
-title: Nail Salon (Stations + Tech Labor + Hygiene + Retail)
+title: Nail Salon
 slug: nail-salon
 description: "How nail salons actually make money — technician labor, station utilization, hygiene/ventilation regs, retail attach, rent, no-shows, price competition — education only, not earnings claims."
 category: health-wellness

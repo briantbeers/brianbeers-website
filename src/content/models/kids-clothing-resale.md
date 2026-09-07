@@ -1,5 +1,5 @@
 ---
-title: Kids Clothing Resale (Children’s Apparel + Gear)
+title: Kids Clothing Resale
 slug: kids-clothing-resale
 description: "How kids’ clothing and gear resale works — buy from parents, turn by size and season, sell — education only, not earnings claims."
 category: retail-resale

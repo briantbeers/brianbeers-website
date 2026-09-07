@@ -1,5 +1,5 @@
 ---
-title: Staffing / Recruiting (Temp Markup + Direct Hire)
+title: Staffing / Recruiting
 slug: staffing-recruiting
 description: "How staffing agencies actually make money — wage markup, sales culture, payroll float, WC insurance, cyclical demand, collections — education only, not earnings claims."
 category: business-services

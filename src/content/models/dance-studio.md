@@ -1,5 +1,5 @@
 ---
-title: Dance Studio (Tuition + Competition Fees + Instructor Retention + Retail)
+title: Dance Studio
 slug: dance-studio
 description: "How dance studios work — recurring tuition, competition fees, instructor retention, recital/costume season, facility rent, and retail — education only, not earnings claims."
 category: education

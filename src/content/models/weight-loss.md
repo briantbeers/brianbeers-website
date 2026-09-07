@@ -1,5 +1,5 @@
 ---
-title: Weight-Loss / Coaching Centers (Program Packages + Medical Oversight)
+title: Weight-Loss / Coaching Centers
 slug: weight-loss
 description: "How weight-loss and coaching centers actually make money — program packages, churn, medical oversight, product COGS, CAC, GLP-1-era disruption, regs — education only, not earnings claims."
 category: health-wellness

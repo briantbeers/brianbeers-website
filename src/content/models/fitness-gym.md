@@ -1,5 +1,5 @@
 ---
-title: Fitness Gym / Boutique Studio (Membership + Facility)
+title: Fitness Gym / Boutique Studio
 slug: fitness-gym
 description: "How boutique studios and 24-hr gyms actually make money — membership churn, rent, trainers/managers, CAC, CapEx — education only, not earnings claims."
 category: health-wellness

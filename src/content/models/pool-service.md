@@ -1,5 +1,5 @@
 ---
-title: "Pool Service (Cleaning & Maintenance Routes)"
+title: Pool Service
 slug: pool-service
 description: "How pool service companies make money — route density, chemicals, equipment upsells, and seasonality — education only, not earnings claims."
 category: home-services

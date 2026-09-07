@@ -1,5 +1,5 @@
 ---
-title: Used Sporting Goods (Buy-Sell-Trade)
+title: Used Sporting Goods
 slug: used-sporting-goods
 description: "How used sporting goods buy-sell-trade works — seasonal SKUs, ticket-size mix, buy desk judgment — education only, not earnings claims."
 category: retail-resale

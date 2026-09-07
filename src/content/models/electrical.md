@@ -1,5 +1,5 @@
 ---
-title: Electrical (Residential Service)
+title: Residential Electrical
 slug: electrical
 description: "How residential electrical service companies make money — dispatch, permits/code, utilization, and panel upgrades vs service calls — education only."
 category: home-services

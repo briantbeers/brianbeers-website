@@ -1,5 +1,5 @@
 ---
-title: Drug Testing / Screening Labs (B2B Employer + Clinic Channel)
+title: Drug Testing / Screening Labs
 slug: drug-testing-labs
 description: "How local drug-testing / screening labs actually make money — employer accounts, DOT/compliance, collections, multi-service attach, national-lab competition — education only, not earnings claims."
 category: business-services

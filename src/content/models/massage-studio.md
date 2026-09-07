@@ -1,5 +1,5 @@
 ---
-title: Massage Studio (Memberships + Therapist Labor + Retail)
+title: Massage Studio
 slug: massage-studio
 description: "How massage studios actually make money — membership utilization, therapist recruiting, room hours, retail attach, rent, insurance, no-shows — education only, not earnings claims."
 category: health-wellness

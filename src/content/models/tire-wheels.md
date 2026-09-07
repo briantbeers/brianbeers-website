@@ -1,5 +1,5 @@
 ---
-title: Tire / Wheels (Retail + Service)
+title: Tire / Wheels
 slug: tire-wheels
 description: "How tire and wheel shops make money — inventory risk, seasonality, alignment/TPMS attach, retail+service mix, real estate — education only, not earnings claims."
 category: auto

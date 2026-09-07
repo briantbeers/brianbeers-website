@@ -1,5 +1,5 @@
 ---
-title: Commercial Janitorial (Office / Facility Contracts)
+title: Commercial Janitorial
 slug: commercial-janitorial
 description: "How commercial janitorial / office cleaning companies make money — night crews, sticky B2B contracts, thin margins, and labor war — education only, not earnings claims."
 category: business-services

@@ -1,5 +1,5 @@
 ---
-title: Mobile Food (Trailer / Truck) — Events + Permits + Weather + Equipment
+title: Mobile Food / Food Truck
 slug: mobile-food
 description: "How mobile food trucks and trailers actually make money — events calendar, permits, weather, CapEx, generators, commissary, labor peaks, health regs — education only, not earnings claims."
 category: food-hospitality

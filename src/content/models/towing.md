@@ -1,5 +1,5 @@
 ---
-title: Towing / Roadside / Recovery (Light + Heavy)
+title: Towing / Roadside / Recovery
 slug: towing
 description: "How towing and roadside recovery make money — trucks as CapEx, cash vs motor-club vs police rotation, 24/7 dispatch density — education only, not earnings claims."
 category: auto

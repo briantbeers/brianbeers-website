@@ -1,5 +1,5 @@
 ---
-title: Fence Install (Residential / Light Commercial)
+title: Fence Install
 slug: fence-install
 description: "How fence installation companies make money — project bids, materials, crew days, and HOA/permit friction — education only, not earnings claims."
 category: home-services
@@ -22,7 +22,7 @@ buyerTypes:
 - deal-searcher
 - corporate-escape-planner
 relatedSlugs:
-- exterior-painting
+- residential-painting
 - artificial-turf
 - roofing
 - handyman

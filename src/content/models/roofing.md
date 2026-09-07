@@ -1,5 +1,5 @@
 ---
-title: Roofing (Residential / Storm + Retail)
+title: Residential Roofing
 slug: roofing
 description: "How residential roofing companies actually make money — sales, storm, insurance, and production — without earnings promises."
 category: home-services

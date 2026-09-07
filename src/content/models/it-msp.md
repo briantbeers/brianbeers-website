@@ -1,5 +1,5 @@
 ---
-title: IT / MSP (Managed Services + Recurring MRR)
+title: IT / MSP
 slug: it-msp
 description: "How local managed IT / MSP shops make money — recurring MRR, tech labor scarcity, ticket load, vendor stack, churn, cyber liability — education only, not earnings claims."
 category: business-services

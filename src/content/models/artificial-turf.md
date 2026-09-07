@@ -1,5 +1,5 @@
 ---
-title: Artificial Turf / Outdoor Surfaces (Project Sales)
+title: Artificial Turf / Outdoor Surfaces
 slug: artificial-turf
 description: "How artificial turf and outdoor surface companies make money — project sales, install crews, seasonality, and materials logistics — education only."
 category: home-services

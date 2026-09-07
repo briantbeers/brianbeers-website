@@ -1,5 +1,5 @@
 ---
-title: Smart Home / Security Install (Lead Gen + Install + Monitoring)
+title: Smart Home / Security
 slug: smart-home-security
 description: "How smart-home and security install companies make money — lead gen, install labor, monitoring residuals vs one-time — education only."
 category: home-services

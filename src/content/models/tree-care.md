@@ -1,5 +1,5 @@
 ---
-title: Tree Care / Arborist Services (Crew + Chipper)
+title: Tree Care / Arborist Services
 slug: tree-care
 description: "How tree care and arborist companies make money — pruning, removal, stump grinding, chipper CAPEX, liability, and municipal friction — education only, not earnings claims."
 category: home-services

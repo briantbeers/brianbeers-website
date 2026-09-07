@@ -1,5 +1,5 @@
 ---
-title: Packaging / Shipping Retail (Foot Traffic + Carrier Contracts)
+title: Packaging / Shipping Retail
 slug: packaging-shipping
 description: "How packaging and shipping retail centers make money — foot traffic, UPS/FedEx contracts, retail hours, mailbox/print attach, Amazon prepaid-label pressure — education only, not earnings claims."
 category: business-services

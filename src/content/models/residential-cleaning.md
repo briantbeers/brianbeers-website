@@ -1,5 +1,5 @@
 ---
-title: Residential Cleaning (Recurring Maid Routes)
+title: Residential Cleaning
 slug: residential-cleaning
 description: "How residential cleaning / maid companies make money — recurring routes, cleaner attrition, labor quality, and low differentiation — education only, not earnings claims."
 category: home-services

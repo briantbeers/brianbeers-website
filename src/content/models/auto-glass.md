@@ -1,5 +1,5 @@
 ---
-title: Auto Glass / Tint (Insurance + Mobile + Attach)
+title: Auto Glass / Tint
 slug: auto-glass
 description: "How auto glass and tint make money — insurance networks, mobile techs, ADAS recalibration, inventory, claim cycles — education only, not earnings claims."
 category: auto

@@ -1,5 +1,5 @@
 ---
-title: Real Estate Investment / Buy-Hold Ops (Acquisition + Reno + Exit)
+title: Real Estate Investment / Buy-Hold
 slug: real-estate-investment-buy-hold
 description: "How buy-hold / acquisition–reno–exit real-estate ops actually work — capital, cycles, contractors, carrying costs, liquidity — education only, not investing or earnings advice."
 category: real-estate-ops

@@ -1,5 +1,5 @@
 ---
-title: Cabinets / Kitchen Refresh (Design → Millwork → Install)
+title: Cabinets / Kitchen Refresh
 slug: cabinets-kitchen-refresh
 description: "How cabinet and kitchen refresh businesses work — design-to-install pipeline, sales cycle, and millwork partners — education only, not earnings claims."
 category: home-services

@@ -1,5 +1,5 @@
 ---
-title: Daycare / Preschool (Licensed Early Childhood Centers)
+title: Daycare / Preschool
 slug: daycare-preschool
 description: "How licensed daycare and preschool centers work — licensing, staff ratios, occupancy + waitlist math, CapEx, and liability — education only, not earnings claims."
 category: education

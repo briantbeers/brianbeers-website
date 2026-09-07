@@ -39,6 +39,7 @@ const homeServicesPriority = [
   'junk-removal',
   'residential-cleaning',
   'handyman',
+  'residential-painting',
   'pest-control',
   'auto-repair',
 ];
@@ -213,7 +214,6 @@ function formatTag(tag: string) {
               {model.data.title}
             </h2>
             <p class="mt-1 line-clamp-1 text-xs leading-relaxed text-navy/55">{shortDesc}</p>
-            <p class="mt-2 text-[11px] text-navy/45">{model.data.readMinutes} min</p>
           </a>
         );
       })}

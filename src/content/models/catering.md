@@ -1,5 +1,5 @@
 ---
-title: Catering (Event / Corporate; Commissary + Delivery)
+title: Catering
 slug: catering
 description: "How event and corporate catering companies actually make money — sales pipeline, labor peaks, deposits, kitchen CapEx, seasonality, RFPs, delivery logistics — education only, not earnings claims."
 category: food-hospitality

@@ -1,5 +1,5 @@
 ---
-title: Lawn / Landscaping (Routes + Projects)
+title: Lawn / Landscaping
 slug: lawn-landscaping
 description: "How lawn and landscaping companies make money — recurring maintenance routes vs project installs, crew math, and seasonality — education only, not earnings claims."
 category: home-services
