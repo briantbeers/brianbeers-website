@@ -83,7 +83,7 @@ Use the same **tags** vocabulary on models and articles so content can be filter
 - `/buy` — Buy journey + featured models/articles (doors: buy)
 - `/grow` — Owner vs operator + freedom design + featured (doors: grow)
 - /about — Hi Brian story + photo
-- /contact — Form UI; supports ?intent=guide&email= prefill
+- /contact — Live Formsubmit email; supports ?intent=guide&email= prefill (see docs/contact-form-setup.md)
 - /franchises — SEO hub nested under Buy
 - /models — Index of existing sample models only
 - `/models/[slug]` — Model detail from content collection

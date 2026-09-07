@@ -1,5 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+const contactEndpoint =
+  import.meta.env.PUBLIC_CONTACT_ENDPOINT ||
+  'https://formsubmit.co/ajax/support@beerspodcast.com';
 ---
 <BaseLayout
   title="Contact — Brian Beers"
@@ -14,12 +18,41 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       Share where you are and what you’re figuring out. Soft CTA only — no pitch dump, no earnings promises.
     </p>
 
+    <div
+      id="contact-success"
+      class="card mt-10 hidden border-accent/40 bg-cream-soft"
+      role="status"
+      aria-live="polite"
+    >
+      <p class="text-lg font-semibold text-navy">Thanks — message sent.</p>
+      <p id="contact-success-detail" class="mt-2 text-navy/75">
+        We’ll get back to you soon. Educational conversation only — not financial advice.
+      </p>
+    </div>
+
     <form
       class="card mt-10 space-y-5"
-      method="get"
-      action="/contact"
+      method="post"
+      action={contactEndpoint}
       id="contact-form"
+      novalidate
     >
+      <div
+        id="contact-error"
+        class="hidden rounded-lg border border-red-300 bg-red-50 px-3 py-2.5 text-sm text-red-800"
+        role="alert"
+        aria-live="assertive"
+      >
+        Something went wrong sending your message. Please try again in a moment, or email
+        support@beerspodcast.com.
+      </div>
+
+      {/* Honeypot — leave empty; bots that fill it are ignored by Formsubmit / Apps Script */}
+      <div class="absolute -left-[9999px] h-0 w-0 overflow-hidden opacity-0" aria-hidden="true">
+        <label for="_honey">Website</label>
+        <input id="_honey" type="text" name="_honey" tabindex="-1" autocomplete="off" />
+      </div>
+
       <div>
         <label for="name" class="block text-sm font-medium text-navy">Name</label>
         <input
@@ -27,6 +60,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           name="name"
           type="text"
           autocomplete="name"
+          required
           class="mt-1.5 w-full rounded-lg border border-border bg-cream px-3 py-2.5 text-navy placeholder:text-navy/35 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30"
           placeholder="Your name"
         />
@@ -62,6 +96,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           id="message"
           name="message"
           rows="5"
+          required
           class="mt-1.5 w-full rounded-lg border border-border bg-cream px-3 py-2.5 text-navy placeholder:text-navy/35 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30"
           placeholder="A bit about where you are and what you’re figuring out…"
         ></textarea>
@@ -71,13 +106,20 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         Send message
       </button>
       <p class="text-xs leading-relaxed text-navy/50">
-        No spam. Educational conversation only — not financial advice or earnings claims. Form UI is live;
-        backend wiring comes later.
+        No spam. Messages go to the team at Beers Podcast — educational conversation only, not
+        financial advice or earnings claims.
       </p>
     </form>
   </section>
 
-  <script>
+  <script define:vars={{ contactEndpoint }}>
+    const INTEREST_LABELS = {
+      guide: 'The Copy-Paste Millionaire free guide',
+      buy: 'Buying a business',
+      grow: 'Growing my business',
+      unsure: 'Not sure yet',
+    };
+
     const params = new URLSearchParams(window.location.search);
     const email = params.get('email') || '';
     const isGuide = params.get('intent') === 'guide';
@@ -90,6 +132,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     const submit = document.getElementById('contact-submit');
     const intentSlot = document.getElementById('intent-slot');
     const form = document.getElementById('contact-form');
+    const successEl = document.getElementById('contact-success');
+    const successDetail = document.getElementById('contact-success-detail');
+    const errorEl = document.getElementById('contact-error');
+
+    const defaultSubmitLabel = submit?.textContent || 'Send message';
 
     if (email && emailInput instanceof HTMLInputElement) {
       emailInput.value = email;
@@ -99,7 +146,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       if (heading) heading.textContent = 'Get the free guide';
       if (lead) {
         lead.textContent =
-          'Leave your details for The Copy-Paste Millionaire free guide. Delivery is not wired yet — this is the production shell form.';
+          'Leave your details for The Copy-Paste Millionaire free guide. We’ll follow up with delivery details.';
       }
       if (interest instanceof HTMLSelectElement) interest.value = 'guide';
       if (message instanceof HTMLTextAreaElement && !message.value) {
@@ -109,11 +156,107 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       if (intentSlot) {
         intentSlot.innerHTML = '<input type="hidden" name="intent" value="guide" />';
       }
+      if (successDetail) {
+        successDetail.textContent =
+          'Thanks for requesting the free guide. We’ll follow up with delivery details soon.';
+      }
     }
 
-    form?.addEventListener('submit', (event) => {
+    function setLoading(loading) {
+      if (!(submit instanceof HTMLButtonElement)) return;
+      submit.disabled = loading;
+      submit.classList.toggle('opacity-70', loading);
+      submit.classList.toggle('cursor-wait', loading);
+      if (loading) {
+        submit.textContent = 'Sending…';
+      } else {
+        submit.textContent = isGuide ? 'Request the guide' : defaultSubmitLabel;
+      }
+    }
+
+    function showError(visible) {
+      if (!errorEl) return;
+      errorEl.classList.toggle('hidden', !visible);
+    }
+
+    form?.addEventListener('submit', async (event) => {
       event.preventDefault();
-      alert('Preview only — form is not connected yet. Thanks for checking the shell.');
+      showError(false);
+
+      if (!(form instanceof HTMLFormElement)) return;
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      const fd = new FormData(form);
+      const interestValue = String(fd.get('interest') || 'unsure');
+      const intentValue = String(fd.get('intent') || (isGuide ? 'guide' : ''));
+      const interestLabel = INTEREST_LABELS[interestValue] || interestValue;
+
+      let subject = `[brianbeers.com] Contact — ${interestLabel}`;
+      if (intentValue === 'guide' || interestValue === 'guide') {
+        subject = `[brianbeers.com] Free guide request — ${interestLabel}`;
+      }
+
+      const payload = {
+        name: String(fd.get('name') || '').trim(),
+        email: String(fd.get('email') || '').trim(),
+        interest: interestValue,
+        interest_label: interestLabel,
+        message: String(fd.get('message') || '').trim(),
+        page: window.location.href,
+        _cc: 'brian@beerspodcast.com',
+        _subject: subject,
+        _template: 'table',
+        _captcha: 'false',
+        _honey: String(fd.get('_honey') || ''),
+      };
+
+      if (intentValue) {
+        payload.intent = intentValue;
+      }
+
+      setLoading(true);
+      try {
+        const res = await fetch(contactEndpoint, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+          },
+          body: JSON.stringify(payload),
+        });
+
+        let data = null;
+        try {
+          data = await res.json();
+        } catch {
+          data = null;
+        }
+
+        const ok =
+          res.ok &&
+          (data == null ||
+            data.success !== false &&
+              data.success !== 'false' &&
+              !String(data.message || '').toLowerCase().includes('error'));
+
+        if (!ok) {
+          throw new Error((data && (data.message || data.error)) || `HTTP ${res.status}`);
+        }
+
+        form.classList.add('hidden');
+        successEl?.classList.remove('hidden');
+        form.reset();
+        if (isGuide && intentSlot) {
+          intentSlot.innerHTML = '<input type="hidden" name="intent" value="guide" />';
+        }
+      } catch {
+        showError(true);
+      } finally {
+        setLoading(false);
+      }
     });
   </script>
 </BaseLayout>
