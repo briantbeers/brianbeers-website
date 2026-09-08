@@ -22,7 +22,6 @@ type FeatureCard = {
   eyebrow: string;
   title: string;
   description: string;
-  readMinutes: number;
   cta: string;
 };
 
@@ -52,7 +51,6 @@ const featuredModels = models
       eyebrow: categoryLabel[m.data.category] ?? m.data.category,
       title: m.data.title,
       description: m.data.description,
-      readMinutes: m.data.readMinutes,
       cta: 'Read guide →',
     })
   );
@@ -65,7 +63,6 @@ const featuredArticles = articles
       eyebrow: kindLabel[a.data.kind] ?? a.data.kind,
       title: a.data.title,
       description: a.data.description,
-      readMinutes: a.data.readMinutes,
       cta: 'Read →',
     })
   );
@@ -133,7 +130,6 @@ const featured = [...featuredArticles, ...featuredModels]
             <p class="text-xs font-semibold uppercase tracking-wider text-navy/50">{card.eyebrow}</p>
             <h3 class="mt-2 text-xl font-bold text-navy group-hover:text-navy-soft">{card.title}</h3>
             <p class="mt-2 text-sm leading-relaxed text-navy/70">{card.description}</p>
-            <p class="mt-4 text-xs text-navy/55">{card.readMinutes} min read</p>
             <span class="mt-4 inline-block text-sm font-semibold text-accent">{card.cta}</span>
           </a>
         ))}
