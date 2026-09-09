@@ -1,9 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
+const DEFAULT_CONTACT_ENDPOINT =
+  'https://script.google.com/macros/s/AKfycbYF4Cf_SVqf2PsD7EtsjuccxpfV_dtoaMX2Pq1V0vozXZS6wNF0g8FSxsnbjQGHpsga/exec';
+
 const envEndpoint = import.meta.env.PUBLIC_CONTACT_ENDPOINT;
-const contactEndpoint =
-  envEndpoint || 'https://formsubmit.co/support@beerspodcast.com';
+const contactEndpoint = envEndpoint || DEFAULT_CONTACT_ENDPOINT;
 ---
 <BaseLayout
   title="Contact — Brian Beers"
@@ -23,6 +25,13 @@ const contactEndpoint =
       <p id="contact-success-title" class="text-lg font-semibold text-navy">Message received.</p>
     </div>
 
+    <p
+      id="contact-error"
+      class="mt-6 hidden rounded-lg border border-red-300 bg-red-50 px-4 py-3 text-sm text-red-800"
+      role="alert"
+      aria-live="assertive"
+    ></p>
+
     <form
       class="card mt-10 space-y-5"
       method="post"
@@ -30,13 +39,7 @@ const contactEndpoint =
       id="contact-form"
       novalidate
     >
-      {/* Formsubmit controls — values set in JS before native submit */}
-      <input type="hidden" name="_next" id="_next" value="" />
-      <input type="hidden" name="_cc" id="_cc" value="brian@beerspodcast.com" />
-      <input type="hidden" name="_subject" id="_subject" value="" />
-      <input type="hidden" name="_template" value="table" />
-
-      {/* Honeypot — leave empty; bots that fill it are ignored by Formsubmit / Apps Script */}
+      {/* Honeypot — leave empty; bots that fill it are ignored by Apps Script */}
       <div class="absolute -left-[9999px] h-0 w-0 overflow-hidden opacity-0" aria-hidden="true">
         <label for="_honey">Website</label>
         <input id="_honey" type="text" name="_honey" tabindex="-1" autocomplete="off" />
@@ -98,7 +101,7 @@ const contactEndpoint =
     </form>
   </section>
 
-  <script>
+  <script define:vars={{ contactEndpoint }}>
     const INTEREST_LABELS = {
       guide: 'The Copy-Paste Millionaire free guide',
       buy: 'Buying a business',
@@ -120,10 +123,33 @@ const contactEndpoint =
     const form = document.getElementById('contact-form');
     const successEl = document.getElementById('contact-success');
     const successTitle = document.getElementById('contact-success-title');
-    const nextInput = document.getElementById('_next');
-    const subjectInput = document.getElementById('_subject');
+    const errorEl = document.getElementById('contact-error');
 
     const defaultSubmitLabel = submit?.textContent || 'Send message';
+
+    function setLoading(loading) {
+      if (!(submit instanceof HTMLButtonElement)) return;
+      submit.disabled = loading;
+      submit.classList.toggle('opacity-70', loading);
+      submit.classList.toggle('cursor-wait', loading);
+      submit.textContent = loading
+        ? 'Sending…'
+        : isGuide
+          ? 'Request the guide'
+          : defaultSubmitLabel;
+    }
+
+    function showSuccess() {
+      form?.classList.add('hidden');
+      errorEl?.classList.add('hidden');
+      successEl?.classList.remove('hidden');
+    }
+
+    function showError(msg) {
+      if (!(errorEl instanceof HTMLElement)) return;
+      errorEl.textContent = msg || 'Something went wrong. Please try again.';
+      errorEl.classList.remove('hidden');
+    }
 
     if (email && emailInput instanceof HTMLInputElement) {
       emailInput.value = email;
@@ -144,44 +170,90 @@ const contactEndpoint =
       }
     }
 
-    // After Formsubmit captcha + redirect back via _next
+    // Deep link / bookmark support for ?sent=1
     if (sent) {
-      form?.classList.add('hidden');
-      successEl?.classList.remove('hidden');
+      showSuccess();
     }
 
-    form?.addEventListener('submit', (event) => {
+    form?.addEventListener('submit', async (event) => {
+      event.preventDefault();
       if (!(form instanceof HTMLFormElement)) return;
 
       if (!form.checkValidity()) {
-        event.preventDefault();
         form.reportValidity();
         return;
       }
+
+      errorEl?.classList.add('hidden');
 
       const fd = new FormData(form);
       const interestValue = String(fd.get('interest') || 'unsure');
       const intentValue = String(fd.get('intent') || (isGuide ? 'guide' : ''));
       const interestLabel = INTEREST_LABELS[interestValue] || interestValue;
+      const honey = String(fd.get('_honey') || '');
 
       let subject = `[brianbeers.com] Contact — ${interestLabel}`;
       if (intentValue === 'guide' || interestValue === 'guide') {
         subject = `[brianbeers.com] Free guide request — ${interestLabel}`;
       }
 
-      let next = `${window.location.origin}/contact?sent=1`;
-      if (intentValue === 'guide' || isGuide) {
-        next += '&intent=guide';
-      }
+      const payload = {
+        name: String(fd.get('name') || '').trim(),
+        email: String(fd.get('email') || '').trim(),
+        interest: interestValue,
+        interest_label: interestLabel,
+        message: String(fd.get('message') || '').trim(),
+        intent: intentValue,
+        page: window.location.href,
+        user_agent: navigator.userAgent || '',
+        _honey: honey,
+        _subject: subject,
+      };
 
-      if (nextInput instanceof HTMLInputElement) nextInput.value = next;
-      if (subjectInput instanceof HTMLInputElement) subjectInput.value = subject;
+      setLoading(true);
 
-      // Native POST to Formsubmit (captcha page, then redirect to _next)
-      if (submit instanceof HTMLButtonElement) {
-        submit.disabled = true;
-        submit.classList.add('opacity-70', 'cursor-wait');
-        submit.textContent = 'Sending…';
+      try {
+        // text/plain avoids CORS preflight; Apps Script still reads e.postData.contents
+        const response = await fetch(contactEndpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: JSON.stringify(payload),
+        });
+
+        let ok = response.ok;
+        try {
+          const data = await response.json();
+          if (data && (data.success === true || data.ok === true)) {
+            ok = true;
+          } else if (data && (data.success === false || data.ok === false)) {
+            ok = false;
+            showError(data.message || 'Something went wrong. Please try again.');
+            setLoading(false);
+            return;
+          }
+        } catch {
+          // Opaque / redirect / non-JSON — treat HTTP success as success
+        }
+
+        if (ok) {
+          showSuccess();
+          try {
+            const next = new URL(window.location.href);
+            next.searchParams.set('sent', '1');
+            if (intentValue === 'guide' || isGuide) {
+              next.searchParams.set('intent', 'guide');
+            }
+            window.history.replaceState({}, '', next.toString());
+          } catch {
+            // ignore history failures
+          }
+        } else {
+          showError('Something went wrong. Please try again.');
+          setLoading(false);
+        }
+      } catch {
+        showError('Something went wrong. Please try again.');
+        setLoading(false);
       }
     });
   </script>

@@ -1,16 +1,22 @@
 /**
  * Google Apps Script — Contact form webhook (Sheet + email)
  *
- * Bound to sheet:
+ * LIVE — bound to sheet:
  * https://docs.google.com/spreadsheets/d/10KdSwXTahYxNlomDD-f_0lHCaapRMucNiioFCD8dXqg/edit
  *
- * Deploy later as Web App:
- *   Execute as: Me
- *   Who has access: Anyone
- * Then set PUBLIC_CONTACT_ENDPOINT to the /exec URL (or paste into Vercel env).
+ * Web app /exec (Anyone / Execute as Me):
+ * https://script.google.com/macros/s/AKfycbYF4Cf_SVqf2PsD7EtsjuccxpfV_dtoaMX2Pq1V0vozXZS6wNF0g8FSxsnbjQGHpsga/exec
  *
- * Accepts JSON or form-urlencoded POST. Honeypot field: _honey (or website).
+ * This file documents what’s deployed. Do not invent a new deployment from here
+ * unless intentionally updating the live script in the Apps Script editor.
+ *
+ * Accepts JSON (text/plain or application/json) or form-urlencoded POST.
+ * Site posts text/plain JSON to skip CORS preflight; parse e.postData.contents.
+ * Honeypot field: _honey (or website).
  * Appends a row and emails support@beerspodcast.com (cc brian@beerspodcast.com).
+ *
+ * Sheet columns:
+ * Timestamp | Name | Email | Interest | Message | Intent | Page URL | User Agent
  */
 
 var TO_EMAIL = 'support@beerspodcast.com';
@@ -28,10 +34,11 @@ function doPost(e) {
 
     var name = String(data.name || '').trim();
     var email = String(data.email || '').trim();
-    var interest = String(data.interest || data.interest_label || '').trim();
+    var interest = String(data.interest_label || data.interest || '').trim();
     var message = String(data.message || '').trim();
     var intent = String(data.intent || '').trim();
     var page = String(data.page || data._url || '').trim();
+    var userAgent = String(data.user_agent || data.userAgent || '').trim();
     var subject =
       String(data._subject || '').trim() ||
       ('[brianbeers.com] Contact — ' + (interest || 'general'));
@@ -41,7 +48,8 @@ function doPost(e) {
     }
 
     var when = new Date();
-    appendLeadRow_([when, name, email, interest, intent, message, page]);
+    // Timestamp, Name, Email, Interest, Message, Intent, Page URL, User Agent
+    appendLeadRow_([when, name, email, interest, message, intent, page, userAgent]);
 
     var body =
       'New contact from brianbeers.com\n\n' +
@@ -91,11 +99,20 @@ function parseBody_(e) {
   var out = {};
   if (!e) return out;
 
-  if (e.postData && e.postData.type && String(e.postData.type).indexOf('application/json') !== -1) {
-    try {
-      out = JSON.parse(e.postData.contents || '{}') || {};
-    } catch (ignore) {
-      out = {};
+  // Prefer JSON from postData (application/json or text/plain CORS trick)
+  if (e.postData && e.postData.contents) {
+    var type = String(e.postData.type || '');
+    var raw = e.postData.contents;
+    if (
+      type.indexOf('application/json') !== -1 ||
+      type.indexOf('text/plain') !== -1 ||
+      (raw && raw.charAt(0) === '{')
+    ) {
+      try {
+        out = JSON.parse(raw || '{}') || {};
+      } catch (ignore) {
+        out = {};
+      }
     }
   }
 

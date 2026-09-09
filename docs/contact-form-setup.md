@@ -1,56 +1,53 @@
 # Contact form setup
 
-## Current: email via Formsubmit (live)
+## Current: Google Apps Script (live)
 
-`/contact` uses a **normal form POST** (not AJAX) to:
+`/contact` submits via **client-side `fetch`** (stay on page for **Message received.** UX) to the deployed Apps Script web app:
 
-`https://formsubmit.co/support@beerspodcast.com`
+`https://script.google.com/macros/s/AKfycbYF4Cf_SVqf2PsD7EtsjuccxpfV_dtoaMX2Pq1V0vozXZS6wNF0g8FSxsnbjQGHpsga/exec`
 
-Formsubmit’s built-in captcha is enabled (we do **not** send `_captcha: false`). After the visitor completes the captcha on Formsubmit’s intermediate page, Formsubmit redirects back to `_next` (`/contact?sent=1`, and `&intent=guide` when applicable). The contact page then hides the form and shows **Message received.** (or the guide thanks variant).
+CORS-friendly POST: `Content-Type: text/plain;charset=utf-8` with `JSON.stringify(payload)` so the browser skips preflight. The script reads `e.postData.contents`.
 
-Fields posted: `name`, `email`, `interest`, `message`, optional `intent`, plus Formsubmit controls `_next`, `_cc`, `_subject`, `_template`, `_honey`.
+Payload fields: `name`, `email`, `interest`, optional `interest_label`, `message`, `intent`, `page` (current URL), `_honey` (honeypot), optional `_subject`.
 
+- **Sheet:** https://docs.google.com/spreadsheets/d/10KdSwXTahYxNlomDD-f_0lHCaapRMucNiioFCD8dXqg/edit
 - **TO:** `support@beerspodcast.com`
-- **CC:** `brian@beerspodcast.com` (`_cc`)
-- Honeypot: empty `_honey` field (spam submissions are ignored)
-- Success UI: driven by `?sent=1` after Formsubmit redirect (no on-page AJAX)
-- Activation / captcha / delivery errors surface on Formsubmit’s own pages
+- **CC:** `brian@beerspodcast.com` (handled by the script)
+- Honeypot: empty `_honey` field (spam submissions are ignored with a quiet success)
+- Success UI: on-page after AJAX success (also supports `?sent=1` deep links / guide `?intent=guide`)
+- Default endpoint is hardcoded in `src/pages/contact.astro`; override with `PUBLIC_CONTACT_ENDPOINT` (Astro / Vercel env) if needed
 
-### First-submission activation
+### Formsubmit (retired)
 
-Formsubmit requires a one-time confirmation: the **first** real submission to a new recipient triggers an activation email to `support@beerspodcast.com`. Check that inbox (and spam) for the **Activate Form** link and click it before further messages are delivered. Until then, Formsubmit shows its activation messaging on its own pages.
+Formsubmit.co is no longer used (no leave-site captcha, no `formsubmit.co` URL, no `_next` / `_cc` / `_template` / `_captcha` fields).
 
-Optional override: set `PUBLIC_CONTACT_ENDPOINT` (Astro / Vercel env) to any POST URL. When unset, the site defaults to the Formsubmit URL above (non-AJAX, without `/ajax/`). Use this later for the Apps Script `/exec` URL — captcha rules differ for that backend.
+### Turnstile (TODO)
 
-## Sheet (already exists)
+Cloudflare Turnstile (in-form captcha) is **not** wired yet — no keys. Add next when keys are available.
 
-Leads spreadsheet:
+## Sheet columns
 
-https://docs.google.com/spreadsheets/d/10KdSwXTahYxNlomDD-f_0lHCaapRMucNiioFCD8dXqg/edit
+Expected header order:
 
-Sheet logging is **not** wired from the live form yet. Email-only is intentional for now.
+`Timestamp`, `Name`, `Email`, `Interest`, `Message`, `Intent`, `Page URL`, `User Agent`
 
-## Later: Apps Script (Sheet + email in one place)
+## Apps Script source
 
-Full script body: [`scripts/contact-form-apps-script.js`](../scripts/contact-form-apps-script.js)
+Reference copy of what’s deployed: [`scripts/contact-form-apps-script.js`](../scripts/contact-form-apps-script.js)
 
-Planned behavior:
+Behavior:
 
-1. Accept JSON or form-urlencoded `doPost`
+1. Accept JSON (`text/plain` or `application/json`) or form-urlencoded `doPost`
 2. Ignore honeypot (`_honey` / `website`) with a quiet success
-3. `appendRow` on the bound sheet (timestamp, name, email, interest, intent, message, page)
+3. `appendRow` on the bound sheet (column order above)
 4. `MailApp.sendEmail` to `support@beerspodcast.com`, CC `brian@beerspodcast.com`, `replyTo` = submitter
 
-### Deploy steps (manual — do not invent credentials)
+### Redeploy steps (manual — only if changing the script)
 
 1. Open the sheet → **Extensions → Apps Script**
 2. Paste the contents of `scripts/contact-form-apps-script.js`
 3. Adjust `SHEET_NAME` if the tab is not `Leads`
-4. **Deploy → New deployment → Web app**
+4. **Deploy → Manage deployments → Edit → New version** (or New deployment → Web app)
    - Execute as: **Me**
    - Who has access: **Anyone**
-5. Copy the `/exec` URL
-6. Set Vercel env `PUBLIC_CONTACT_ENDPOINT` to that URL (and redeploy), **or** hardcode via the same env locally
-7. Optionally keep Formsubmit as fallback by leaving the env unset
-
-After that switch, one endpoint handles Sheet logging and email together; Formsubmit can be retired.
+5. Confirm `/exec` URL matches the site default / `PUBLIC_CONTACT_ENDPOINT`
