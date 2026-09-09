@@ -1,11 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const DEFAULT_CONTACT_ENDPOINT =
-  'https://script.google.com/macros/s/AKfycbYF4Cf_SVqf2PsD7EtsjuccxpfV_dtoaMX2Pq1V0vozXZS6wNF0g8FSxsnbjQGHpsga/exec';
-
-const envEndpoint = import.meta.env.PUBLIC_CONTACT_ENDPOINT;
-const contactEndpoint = envEndpoint || DEFAULT_CONTACT_ENDPOINT;
+const contactEndpoint = '/api/contact';
+const TURNSTILE_SITE_KEY = '0x4AAAAAAEt2HmKQ3KeAiFMb';
 ---
 <BaseLayout
   title="Contact — Brian Beers"
@@ -39,7 +36,7 @@ const contactEndpoint = envEndpoint || DEFAULT_CONTACT_ENDPOINT;
       id="contact-form"
       novalidate
     >
-      {/* Honeypot — leave empty; bots that fill it are ignored by Apps Script */}
+      {/* Honeypot — leave empty; bots that fill it are ignored */}
       <div class="absolute -left-[9999px] h-0 w-0 overflow-hidden opacity-0" aria-hidden="true">
         <label for="_honey">Website</label>
         <input id="_honey" type="text" name="_honey" tabindex="-1" autocomplete="off" />
@@ -93,6 +90,9 @@ const contactEndpoint = envEndpoint || DEFAULT_CONTACT_ENDPOINT;
           placeholder="A bit about where you are and what you’re figuring out…"
         ></textarea>
       </div>
+
+      <div class="cf-turnstile" data-sitekey={TURNSTILE_SITE_KEY}></div>
+
       <div id="intent-slot"></div>
       <button id="contact-submit" type="submit" class="btn-primary w-full sm:w-auto">
         Send message
@@ -100,6 +100,8 @@ const contactEndpoint = envEndpoint || DEFAULT_CONTACT_ENDPOINT;
       <p class="text-xs leading-relaxed text-navy/50">No spam.</p>
     </form>
   </section>
+
+  <script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
   <script define:vars={{ contactEndpoint }}>
     const INTEREST_LABELS = {
@@ -126,6 +128,12 @@ const contactEndpoint = envEndpoint || DEFAULT_CONTACT_ENDPOINT;
     const errorEl = document.getElementById('contact-error');
 
     const defaultSubmitLabel = submit?.textContent || 'Send message';
+
+    function getTurnstileToken() {
+      const input = form?.querySelector('input[name="cf-turnstile-response"]');
+      if (input instanceof HTMLInputElement && input.value) return input.value;
+      return '';
+    }
 
     function setLoading(loading) {
       if (!(submit instanceof HTMLButtonElement)) return;
@@ -184,6 +192,12 @@ const contactEndpoint = envEndpoint || DEFAULT_CONTACT_ENDPOINT;
         return;
       }
 
+      const turnstileToken = getTurnstileToken();
+      if (!turnstileToken) {
+        showError('Please complete the verification challenge.');
+        return;
+      }
+
       errorEl?.classList.add('hidden');
 
       const fd = new FormData(form);
@@ -208,15 +222,16 @@ const contactEndpoint = envEndpoint || DEFAULT_CONTACT_ENDPOINT;
         user_agent: navigator.userAgent || '',
         _honey: honey,
         _subject: subject,
+        turnstileToken,
+        'cf-turnstile-response': turnstileToken,
       };
 
       setLoading(true);
 
       try {
-        // text/plain avoids CORS preflight; Apps Script still reads e.postData.contents
         const response = await fetch(contactEndpoint, {
           method: 'POST',
-          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload),
         });
 
@@ -229,10 +244,13 @@ const contactEndpoint = envEndpoint || DEFAULT_CONTACT_ENDPOINT;
             ok = false;
             showError(data.message || 'Something went wrong. Please try again.');
             setLoading(false);
+            if (window.turnstile && typeof window.turnstile.reset === 'function') {
+              window.turnstile.reset();
+            }
             return;
           }
         } catch {
-          // Opaque / redirect / non-JSON — treat HTTP success as success
+          // Non-JSON — treat HTTP success as success
         }
 
         if (ok) {
@@ -250,10 +268,16 @@ const contactEndpoint = envEndpoint || DEFAULT_CONTACT_ENDPOINT;
         } else {
           showError('Something went wrong. Please try again.');
           setLoading(false);
+          if (window.turnstile && typeof window.turnstile.reset === 'function') {
+            window.turnstile.reset();
+          }
         }
       } catch {
         showError('Something went wrong. Please try again.');
         setLoading(false);
+        if (window.turnstile && typeof window.turnstile.reset === 'function') {
+          window.turnstile.reset();
+        }
       }
     });
   </script>
