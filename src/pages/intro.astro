@@ -1,0 +1,294 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const contactEndpoint = '/api/contact';
+const TURNSTILE_SITE_KEY = '0x4AAAAAAEt2HmKQ3KeAiFMb';
+---
+<BaseLayout
+  title="Franchisor Introduction — Brian Beers"
+  description="Interested in a specific franchise? Get free help with research, due diligence, territory checks, and an introduction to the franchisor."
+>
+  <section class="section !pb-8">
+    <div class="grid gap-10 lg:grid-cols-2 lg:gap-12 lg:items-start">
+      <div>
+        <h1 class="text-4xl font-bold tracking-tight text-navy sm:text-5xl">
+          Franchisor Introduction
+        </h1>
+        <div class="mt-6 space-y-4 text-lg leading-relaxed text-navy/75">
+          <p>Interested in learning about a specific franchise?</p>
+          <p>Don’t go through the process alone!</p>
+          <p>
+            Instead, go with my team. We arm you with tools to help with research, due diligence, and more.
+          </p>
+          <p class="font-medium text-navy">
+            The best part is this service is 100% FREE. It costs you absolutely nothing.
+          </p>
+        </div>
+
+        <div class="mt-10">
+          <h2 class="text-xl font-bold text-navy">What we do</h2>
+          <ul class="mt-4 list-disc space-y-2.5 pl-5 text-navy/75">
+            <li>Check territory availability</li>
+            <li>Introduce you to the franchisor</li>
+            <li>Provide you due diligence checklists &amp; resources</li>
+            <li>Connect you with experienced franchise lenders &amp; attorneys</li>
+            <li>Also help explore other franchises that match goals, skills, budget &amp; location</li>
+          </ul>
+        </div>
+
+        <p class="mt-8 text-sm leading-relaxed text-navy/55">
+          Educational help only — not financial, legal, or tax advice, and not a promise of franchise earnings or approval.
+          See the
+          <a href="/disclaimer" class="font-semibold text-accent hover:text-accent-hover">Disclaimer</a>.
+        </p>
+      </div>
+
+      <div>
+        <div
+          id="intro-success"
+          class="card hidden border-accent/40 bg-cream-soft"
+          role="status"
+          aria-live="polite"
+        >
+          <p id="intro-success-title" class="text-lg font-semibold text-navy">Message received.</p>
+        </div>
+
+        <p
+          id="intro-error"
+          class="mb-4 hidden rounded-lg border border-red-300 bg-red-50 px-4 py-3 text-sm text-red-800"
+          role="alert"
+          aria-live="assertive"
+        ></p>
+
+        <form
+          class="card space-y-5"
+          method="post"
+          action={contactEndpoint}
+          id="intro-form"
+          novalidate
+        >
+          {/* Honeypot — leave empty; bots that fill it are ignored */}
+          <div class="absolute -left-[9999px] h-0 w-0 overflow-hidden opacity-0" aria-hidden="true">
+            <label for="_honey">Website</label>
+            <input id="_honey" type="text" name="_honey" tabindex="-1" autocomplete="off" />
+          </div>
+
+          <input type="hidden" name="form" value="intro" />
+          <input type="hidden" name="intent" value="intro" />
+
+          <div>
+            <label for="name" class="block text-sm font-medium text-navy">Full Name</label>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              autocomplete="name"
+              required
+              class="mt-1.5 w-full rounded-lg border border-border bg-cream px-3 py-2.5 text-navy placeholder:text-navy/35 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30"
+              placeholder="First & Last"
+            />
+          </div>
+          <div>
+            <label for="email" class="block text-sm font-medium text-navy">Email</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              autocomplete="email"
+              required
+              class="mt-1.5 w-full rounded-lg border border-border bg-cream px-3 py-2.5 text-navy placeholder:text-navy/35 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30"
+              placeholder="Your Email Address"
+            />
+          </div>
+          <div>
+            <label for="phone" class="block text-sm font-medium text-navy">Phone</label>
+            <input
+              id="phone"
+              name="phone"
+              type="tel"
+              autocomplete="tel"
+              required
+              class="mt-1.5 w-full rounded-lg border border-border bg-cream px-3 py-2.5 text-navy placeholder:text-navy/35 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30"
+              placeholder="Your phone number"
+            />
+          </div>
+          <div>
+            <label for="zip" class="block text-sm font-medium text-navy">Zip Code</label>
+            <input
+              id="zip"
+              name="zip"
+              type="text"
+              inputmode="numeric"
+              autocomplete="postal-code"
+              required
+              class="mt-1.5 w-full rounded-lg border border-border bg-cream px-3 py-2.5 text-navy placeholder:text-navy/35 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30"
+              placeholder="90210"
+            />
+          </div>
+          <div>
+            <label for="franchisor" class="block text-sm font-medium text-navy">Franchisor</label>
+            <input
+              id="franchisor"
+              name="franchisor"
+              type="text"
+              required
+              class="mt-1.5 w-full rounded-lg border border-border bg-cream px-3 py-2.5 text-navy placeholder:text-navy/35 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30"
+              placeholder="Brand Name"
+            />
+          </div>
+          <div>
+            <label for="message" class="block text-sm font-medium text-navy">What do you like about this brand?</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="4"
+              class="mt-1.5 w-full rounded-lg border border-border bg-cream px-3 py-2.5 text-navy placeholder:text-navy/35 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30"
+              placeholder="A few notes on why this brand interests you…"
+            ></textarea>
+          </div>
+
+          <div class="cf-turnstile" data-sitekey={TURNSTILE_SITE_KEY}></div>
+
+          <button id="intro-submit" type="submit" class="btn-primary w-full sm:w-auto">
+            Submit
+          </button>
+          <p class="text-xs leading-relaxed text-navy/50">No spam. 100% free intro help.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
+  <script define:vars={{ contactEndpoint }}>
+    const params = new URLSearchParams(window.location.search);
+    const sent = params.get('sent') === '1';
+
+    const form = document.getElementById('intro-form');
+    const submit = document.getElementById('intro-submit');
+    const successEl = document.getElementById('intro-success');
+    const errorEl = document.getElementById('intro-error');
+    const defaultSubmitLabel = submit?.textContent || 'Submit';
+
+    function getTurnstileToken() {
+      const input = form?.querySelector('input[name="cf-turnstile-response"]');
+      if (input instanceof HTMLInputElement && input.value) return input.value;
+      return '';
+    }
+
+    function setLoading(loading) {
+      if (!(submit instanceof HTMLButtonElement)) return;
+      submit.disabled = loading;
+      submit.classList.toggle('opacity-70', loading);
+      submit.classList.toggle('cursor-wait', loading);
+      submit.textContent = loading ? 'Sending…' : defaultSubmitLabel;
+    }
+
+    function showSuccess() {
+      form?.classList.add('hidden');
+      errorEl?.classList.add('hidden');
+      successEl?.classList.remove('hidden');
+    }
+
+    function showError(msg) {
+      if (!(errorEl instanceof HTMLElement)) return;
+      errorEl.textContent = msg || 'Something went wrong. Please try again.';
+      errorEl.classList.remove('hidden');
+    }
+
+    function resetTurnstile() {
+      if (window.turnstile && typeof window.turnstile.reset === 'function') {
+        window.turnstile.reset();
+      }
+    }
+
+    if (sent) {
+      showSuccess();
+    }
+
+    form?.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      if (!(form instanceof HTMLFormElement)) return;
+
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      const turnstileToken = getTurnstileToken();
+      if (!turnstileToken) {
+        showError('Please complete the verification challenge.');
+        return;
+      }
+
+      errorEl?.classList.add('hidden');
+
+      const fd = new FormData(form);
+      const franchisor = String(fd.get('franchisor') || '').trim();
+      const honey = String(fd.get('_honey') || '');
+      const subject = `[brianbeers.com] Intro — ${franchisor || 'franchise'}`;
+
+      const payload = {
+        form: 'intro',
+        intent: 'intro',
+        name: String(fd.get('name') || '').trim(),
+        email: String(fd.get('email') || '').trim(),
+        phone: String(fd.get('phone') || '').trim(),
+        zip: String(fd.get('zip') || '').trim(),
+        franchisor,
+        message: String(fd.get('message') || '').trim(),
+        page: window.location.href,
+        user_agent: navigator.userAgent || '',
+        _honey: honey,
+        _subject: subject,
+        turnstileToken,
+        'cf-turnstile-response': turnstileToken,
+      };
+
+      setLoading(true);
+
+      try {
+        const response = await fetch(contactEndpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+
+        let ok = response.ok;
+        try {
+          const data = await response.json();
+          if (data && (data.success === true || data.ok === true)) {
+            ok = true;
+          } else if (data && (data.success === false || data.ok === false)) {
+            ok = false;
+            showError(data.message || 'Something went wrong. Please try again.');
+            setLoading(false);
+            resetTurnstile();
+            return;
+          }
+        } catch {
+          // Non-JSON — treat HTTP success as success
+        }
+
+        if (ok) {
+          showSuccess();
+          try {
+            const next = new URL(window.location.href);
+            next.searchParams.set('sent', '1');
+            window.history.replaceState({}, '', next.toString());
+          } catch {
+            // ignore history failures
+          }
+        } else {
+          showError('Something went wrong. Please try again.');
+          setLoading(false);
+          resetTurnstile();
+        }
+      } catch {
+        showError('Something went wrong. Please try again.');
+        setLoading(false);
+        resetTurnstile();
+      }
+    });
+  </script>
+</BaseLayout>

@@ -1,8 +1,8 @@
-# Contact form setup
+# Contact + Intro form setup
 
 ## Current: Vercel API + Turnstile + Google Apps Script
 
-`/contact` posts JSON via **client-side `fetch`** to the same-origin Vercel serverless route **`/api/contact`** (`api/contact.js`). That route:
+`/contact` and `/intro` post JSON via **client-side `fetch`** to the same-origin Vercel serverless route **`/api/contact`** (`api/contact.js`). That route:
 
 1. Requires `TURNSTILE_SECRET_KEY` (see below)
 2. Verifies the Cloudflare Turnstile token
@@ -25,7 +25,9 @@ Local / docs stub: see `.env.example` (`TURNSTILE_SECRET_KEY=`). Code reads `pro
 
 `https://script.google.com/macros/s/AKfycbYF4Cf_SVqf2PsD7EtsjuccxpfV_dtoaMX2Pq1V0vozXZS6wNF0g8FSxsnbjQGHpsga/exec`
 
-Payload fields forwarded: `name`, `email`, `interest`, `interest_label`, `message`, `intent`, `page`, `user_agent`, `_subject`, `_honey`.
+**Contact payload fields:** `name`, `email`, `interest`, `interest_label`, `message`, `intent`, `page`, `user_agent`, `_subject`, `_honey`.
+
+**Intro payload fields:** `form: "intro"` (or `intent: "intro"`), `name`, `email`, `phone`, `zip`, `franchisor`, `message`, `page`, `user_agent`, `_subject`, `_honey`.
 
 - **Sheet:** https://docs.google.com/spreadsheets/d/10KdSwXTahYxNlomDD-f_0lHCaapRMucNiioFCD8dXqg/edit
 - **TO:** `support@beerspodcast.com`
@@ -39,13 +41,25 @@ Formsubmit.co is no longer used (no leave-site captcha, no `formsubmit.co` URL, 
 
 ### Direct Apps Script from the browser (retired as default)
 
-The contact page no longer uses the Apps Script `/exec` URL as the client default. Verification and forwarding go through `/api/contact`.
+The contact and intro pages no longer use the Apps Script `/exec` URL as the client default. Verification and forwarding go through `/api/contact`.
 
-## Sheet columns
+## Sheet tabs
+
+### Leads (contact — unchanged)
 
 Expected header order:
 
 `Timestamp`, `Name`, `Email`, `Interest`, `Message`, `Intent`, `Page URL`, `User Agent`
+
+### Intro (franchisor intro — **Brian must create this tab**)
+
+1. Open the sheet above
+2. Add a new tab named exactly **`Intro`**
+3. Put these headers in row 1 (same order):
+
+`Timestamp`, `Name`, `Email`, `Phone`, `Zip`, `Franchisor`, `Message`, `Page URL`, `User Agent`
+
+Intro email subject: `[brianbeers.com] Intro — {franchisor}`. Contact / Leads behavior is unchanged when `form` / `intent` is not `intro`.
 
 ## Apps Script source
 
@@ -55,15 +69,18 @@ Behavior:
 
 1. Accept JSON (`text/plain` or `application/json`) or form-urlencoded `doPost`
 2. Ignore honeypot (`_honey` / `website`) with a quiet success
-3. `appendRow` on the bound sheet (column order above)
+3. If `form === "intro"` or `intent === "intro"` → append on **Intro** tab + intro email; otherwise append on **Leads** (contact)
 4. `MailApp.sendEmail` to `support@beerspodcast.com`, CC `brian@beerspodcast.com`, `replyTo` = submitter
 
-### Redeploy steps (manual — only if changing the script)
+### Redeploy steps (manual — required after Intro support lands)
 
-1. Open the sheet → **Extensions → Apps Script**
-2. Paste the contents of `scripts/contact-form-apps-script.js`
-3. Adjust `SHEET_NAME` if the tab is not `Leads`
-4. **Deploy → Manage deployments → Edit → New version** (or New deployment → Web app)
+1. Create the **Intro** tab with the headers above (same spreadsheet)
+2. Open the sheet → **Extensions → Apps Script**
+3. Paste the contents of `scripts/contact-form-apps-script.js`
+4. Adjust `SHEET_NAME` / `INTRO_SHEET_NAME` only if your tab names differ
+5. **Deploy → Manage deployments → Edit → New version** (or New deployment → Web app)
    - Execute as: **Me**
    - Who has access: **Anyone**
-5. Confirm `/exec` URL matches the forward URL in `api/contact.js`
+6. Confirm `/exec` URL matches the forward URL in `api/contact.js` (if the URL changes, update `api/contact.js` and redeploy the site)
+
+Until the Intro tab exists and the script is redeployed, intro submissions may fail at Apps Script even if Turnstile + `/api/contact` succeed.

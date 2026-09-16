@@ -94,13 +94,21 @@ export default async function handler(req, res) {
     });
   }
 
+  const form = String(body.form || '').trim();
+  const intent = String(body.intent || '').trim();
+  const isIntro = form === 'intro' || intent === 'intro';
+
   const payload = {
+    form: isIntro ? 'intro' : form,
     name: String(body.name || '').trim(),
     email: String(body.email || '').trim(),
     interest: String(body.interest || '').trim(),
     interest_label: String(body.interest_label || '').trim(),
     message: String(body.message || '').trim(),
-    intent: String(body.intent || '').trim(),
+    intent: isIntro ? 'intro' : intent,
+    phone: String(body.phone || '').trim(),
+    zip: String(body.zip || '').trim(),
+    franchisor: String(body.franchisor || '').trim(),
     page: String(body.page || '').trim(),
     user_agent: String(body.user_agent || '').trim(),
     _subject: String(body._subject || '').trim(),

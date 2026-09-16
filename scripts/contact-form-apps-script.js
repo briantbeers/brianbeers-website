@@ -1,5 +1,5 @@
 /**
- * Google Apps Script — Contact form webhook (Sheet + email)
+ * Google Apps Script — Contact + Intro form webhook (Sheet + email)
  *
  * LIVE — bound to sheet:
  * https://docs.google.com/spreadsheets/d/10KdSwXTahYxNlomDD-f_0lHCaapRMucNiioFCD8dXqg/edit
@@ -15,13 +15,17 @@
  * Honeypot field: _honey (or website).
  * Appends a row and emails support@beerspodcast.com (cc brian@beerspodcast.com).
  *
- * Sheet columns:
+ * Contact / Leads columns:
  * Timestamp | Name | Email | Interest | Message | Intent | Page URL | User Agent
+ *
+ * Intro tab columns (create this tab once with headers):
+ * Timestamp | Name | Email | Phone | Zip | Franchisor | Message | Page URL | User Agent
  */
 
 var TO_EMAIL = 'support@beerspodcast.com';
 var CC_EMAIL = 'brian@beerspodcast.com';
 var SHEET_NAME = 'Leads'; // rename if your tab differs; falls back to first sheet
+var INTRO_SHEET_NAME = 'Intro';
 
 function doPost(e) {
   try {
@@ -32,66 +36,147 @@ function doPost(e) {
       return json_({ success: true, ignored: true });
     }
 
-    var name = String(data.name || '').trim();
-    var email = String(data.email || '').trim();
-    var interest = String(data.interest_label || data.interest || '').trim();
-    var message = String(data.message || '').trim();
+    var form = String(data.form || '').trim();
     var intent = String(data.intent || '').trim();
-    var page = String(data.page || data._url || '').trim();
-    var userAgent = String(data.user_agent || data.userAgent || '').trim();
-    var subject =
-      String(data._subject || '').trim() ||
-      ('[brianbeers.com] Contact — ' + (interest || 'general'));
+    var isIntro = form === 'intro' || intent === 'intro';
 
-    if (!email) {
-      return json_({ success: false, message: 'Email is required' }, 400);
+    if (isIntro) {
+      return handleIntro_(data);
     }
 
-    var when = new Date();
-    // Timestamp, Name, Email, Interest, Message, Intent, Page URL, User Agent
-    appendLeadRow_([when, name, email, interest, message, intent, page, userAgent]);
-
-    var body =
-      'New contact from brianbeers.com\n\n' +
-      'When: ' +
-      when.toISOString() +
-      '\n' +
-      'Name: ' +
-      name +
-      '\n' +
-      'Email: ' +
-      email +
-      '\n' +
-      'Interest: ' +
-      interest +
-      '\n' +
-      'Intent: ' +
-      intent +
-      '\n' +
-      'Page: ' +
-      page +
-      '\n\n' +
-      'Message:\n' +
-      message +
-      '\n';
-
-    MailApp.sendEmail({
-      to: TO_EMAIL,
-      cc: CC_EMAIL,
-      subject: subject,
-      body: body,
-      replyTo: email,
-    });
-
-    return json_({ success: true });
+    return handleContact_(data);
   } catch (err) {
     return json_({ success: false, message: String(err) }, 500);
   }
 }
 
+function handleContact_(data) {
+  var name = String(data.name || '').trim();
+  var email = String(data.email || '').trim();
+  var interest = String(data.interest_label || data.interest || '').trim();
+  var message = String(data.message || '').trim();
+  var intent = String(data.intent || '').trim();
+  var page = String(data.page || data._url || '').trim();
+  var userAgent = String(data.user_agent || data.userAgent || '').trim();
+  var subject =
+    String(data._subject || '').trim() ||
+    ('[brianbeers.com] Contact — ' + (interest || 'general'));
+
+  if (!email) {
+    return json_({ success: false, message: 'Email is required' }, 400);
+  }
+
+  var when = new Date();
+  // Timestamp, Name, Email, Interest, Message, Intent, Page URL, User Agent
+  appendRow_(SHEET_NAME, [when, name, email, interest, message, intent, page, userAgent]);
+
+  var body =
+    'New contact from brianbeers.com\n\n' +
+    'When: ' +
+    when.toISOString() +
+    '\n' +
+    'Name: ' +
+    name +
+    '\n' +
+    'Email: ' +
+    email +
+    '\n' +
+    'Interest: ' +
+    interest +
+    '\n' +
+    'Intent: ' +
+    intent +
+    '\n' +
+    'Page: ' +
+    page +
+    '\n\n' +
+    'Message:\n' +
+    message +
+    '\n';
+
+  MailApp.sendEmail({
+    to: TO_EMAIL,
+    cc: CC_EMAIL,
+    subject: subject,
+    body: body,
+    replyTo: email,
+  });
+
+  return json_({ success: true });
+}
+
+function handleIntro_(data) {
+  var name = String(data.name || '').trim();
+  var email = String(data.email || '').trim();
+  var phone = String(data.phone || '').trim();
+  var zip = String(data.zip || '').trim();
+  var franchisor = String(data.franchisor || '').trim();
+  var message = String(data.message || '').trim();
+  var page = String(data.page || data._url || '').trim();
+  var userAgent = String(data.user_agent || data.userAgent || '').trim();
+  var subject =
+    String(data._subject || '').trim() ||
+    ('[brianbeers.com] Intro — ' + (franchisor || 'franchise'));
+
+  if (!email) {
+    return json_({ success: false, message: 'Email is required' }, 400);
+  }
+
+  var when = new Date();
+  // Timestamp | Name | Email | Phone | Zip | Franchisor | Message | Page URL | User Agent
+  appendRow_(INTRO_SHEET_NAME, [
+    when,
+    name,
+    email,
+    phone,
+    zip,
+    franchisor,
+    message,
+    page,
+    userAgent,
+  ]);
+
+  var body =
+    'New franchisor intro request from brianbeers.com\n\n' +
+    'When: ' +
+    when.toISOString() +
+    '\n' +
+    'Name: ' +
+    name +
+    '\n' +
+    'Email: ' +
+    email +
+    '\n' +
+    'Phone: ' +
+    phone +
+    '\n' +
+    'Zip: ' +
+    zip +
+    '\n' +
+    'Franchisor: ' +
+    franchisor +
+    '\n' +
+    'Page: ' +
+    page +
+    '\n\n' +
+    'What they like about the brand:\n' +
+    message +
+    '\n';
+
+  MailApp.sendEmail({
+    to: TO_EMAIL,
+    cc: CC_EMAIL,
+    subject: subject,
+    body: body,
+    replyTo: email,
+  });
+
+  return json_({ success: true });
+}
+
 function doGet() {
   return ContentService.createTextOutput(
-    'brianbeers.com contact webhook — POST JSON or form fields'
+    'brianbeers.com contact/intro webhook — POST JSON or form fields'
   ).setMimeType(ContentService.MimeType.TEXT);
 }
 
@@ -125,9 +210,15 @@ function parseBody_(e) {
   return out;
 }
 
-function appendLeadRow_(row) {
+function appendRow_(sheetName, row) {
   var ss = SpreadsheetApp.getActiveSpreadsheet();
-  var sheet = ss.getSheetByName(SHEET_NAME) || ss.getSheets()[0];
+  var sheet = ss.getSheetByName(sheetName);
+  if (!sheet && sheetName === SHEET_NAME) {
+    sheet = ss.getSheets()[0];
+  }
+  if (!sheet) {
+    throw new Error('Missing sheet tab: ' + sheetName);
+  }
   sheet.appendRow(row);
 }
 
